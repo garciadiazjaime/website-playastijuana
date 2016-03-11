@@ -1,0 +1,112 @@
+@import '../../../../constants';
+
+#footer {
+  background-color: $blue;
+  padding-top: 80px;
+
+  ul {
+    padding: 0;
+    padding-top: 10px;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    font-size: 10px;
+  }
+}
+
+.footerWrapper {
+  position: relative;
+  padding-left: 52px;
+
+  @media #{$isPhone} {
+    padding-left: 15px;
+  }
+}
+
+.footerMenu {
+  margin-top: 30px;
+}
+
+.menuParent {
+  float: left;
+  padding-right: 30px;
+
+  @media #{$isPhone} {
+    padding-bottom: 20px;
+  }
+
+  a {
+    font-family: $fontALigth;
+    color: $gray;
+    text-transform: uppercase;
+  }
+}
+
+.menuChild {
+
+  a {
+    font-family: $fontABold;
+    color: $white;
+    text-transform: none;
+  }
+}
+
+#addresses {
+  width: 450px;
+  position: absolute;
+  right: 5px;
+
+  @media screen and (max-width: 1201px) {
+    right: -50px;
+  }
+
+  h2 {
+    font-family: $fontABold;
+    color: $white;
+    text-transform: none;
+    font-size: 10px;
+  }
+
+  p, a {
+    font-family: $fontALigth;
+    color: $white;
+    text-transform: none;
+    font-size: 10px;
+  }
+}
+
+.followUs {
+  padding-left: 30px;
+  margin-top: 10px;
+
+  p {
+    font-family: $fontALigth;
+    font-size: 10px;
+    color: $white;
+    float: left;
+    padding-right: 20px;
+    padding-top: 5px;
+  }
+}
+
+.powered {
+  margin-top: 80px;
+  background-color: $blue;
+  color: $blue;
+  padding: 15px 0;
+  font-family: $fontA;
+  font-size: 10px;
+  padding-left: 52px;
+
+  @media #{$isPhone} {
+    padding-left: 15px;
+  }
+
+  p {
+    margin: 0;
+  }
+}

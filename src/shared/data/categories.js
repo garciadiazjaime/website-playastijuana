@@ -1,0 +1,47 @@
+/*eslint-disable */
+export default [{
+  "id": 1,
+  "name": "Autos",
+  "slug": "autos",
+}, {
+  "id": 2,
+  "name": "Bar",
+  "slug": "bar",
+}, {
+  "id": 3,
+  "name": "Comida",
+  "slug": "comida",
+}, {
+  "id": 4,
+  "name": "Tienda",
+  "slug": "tienda",
+}, {
+  "id": 5,
+  "name": "Belleza",
+  "slug": "belleza",
+}, {
+  "id": 6,
+  "name": "Salud",
+  "slug": "salud",
+}, {
+  "id": 7,
+  "name": "Educación",
+  "slug": "educacion",
+}, {
+  "id": 8,
+  "name": "Ejercicio",
+  "slug": "ejercicio",
+}, {
+  "id": 9,
+  "name": "Ropa",
+  "slug": "ropa",
+}, {
+  "id": 10,
+  "name": "Servicios",
+  "slug": "servicios",
+}, {
+  "id": 11,
+  "name": "Entretenimiento",
+  "slug": "entretenimiento",
+}];
+/*eslint-enable */

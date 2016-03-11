@@ -1,0 +1,18 @@
+html
+  head
+    title='Mintsite Child'
+
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    link(href='/images/favicon.ico' rel='shortcut icon' type='image/png')
+    link(href='/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css')
+    link(href='/css/screen.css' rel='stylesheet' type='text/css')
+  body
+    #app!= content
+
+    script(src='/jquery/dist/jquery.min.js', defer)
+    script(src='/bootstrap/dist/js/bootstrap.min.js', defer)
+    script(src='http://localhost:8080/js/app.js', defer)

@@ -1,0 +1,119 @@
+@import '../../../../theme/constants';
+@import '../../../../theme/wrappers/wrappers';
+.footerWrapper {
+  background-color: $darkBlue;
+  padding-top: 50px;
+  margin-top: 50px;
+  a{
+    font-size: 10px;
+    &:hover{
+      color: $blue;
+    }
+  }
+}
+.brand{
+  margin-bottom: 50px;
+}
+.logo {
+  @extend .icon-sprites;
+  // @include sprite($sprites-brand-footer);
+}
+.sitemap{
+  a{
+    color: $white!important;
+    text-transform: uppercase;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 10px;
+    font-family: $fontBBold;
+  }
+  ul{
+    padding-left: 0;
+  }
+}
+.pad30{
+  padding-left: 30px;
+}
+.facebook {
+  display: block;
+  float: right;
+  padding-right: 35px;
+  margin-right: 65px;
+  color: $blue!important;
+  position: relative;
+  &:after {
+    content: '';
+    @extend .icon-sprites;
+    @extend .vCenter;
+    right: 0;
+    // @include sprite($sprites-imagen-facebook);
+  }
+}
+.serviceTitle{
+  color: $white!important;
+  font-family: $fontBBold;
+  display: block;
+  border-bottom: 1px solid $gray;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.serviceElement{
+  a{
+    color: $blue!important;
+    font-family: $fontB;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+.leftBorder{
+  border-left: 1px solid $gray;
+  padding-left: 30px;
+  margin-bottom: 40px;
+}
+.contactBlock{
+  color: $white!important;
+  font-family: $fontBBold;
+  display: block;
+  border-bottom: 1px solid $gray;
+  border-top: 1px solid $gray;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin: 20px 0;
+}
+
+.addresses {
+  font-family: $fontB;
+  h4{
+    color: $blue!important;
+    margin-bottom: 20px;
+    font-size: 10px;
+  }
+  p{
+    color: $white!important;
+    font-size: 12px;
+  }
+}
+
+
+.powered {
+  background-color: $mediumGray;
+  color: $white;
+  padding: 10px 0;
+  font-family: $fontB;
+  font-size: 10px;
+  a{
+    color: $white;
+    &:hover{
+      color: $blue;
+    }
+  }
+}
+
+@media #{$isPhone}{
+  .serviceTitle{
+    margin-top: 30px;
+  }
+  .facebook{
+    margin-top: 30px;
+  }
+}

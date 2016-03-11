@@ -1,0 +1,88 @@
+@import '../../../../theme/constants';
+$height: 110px;
+
+.navbarDefault {
+  height: $height;
+  background-color: $white!important;
+  border: none!important;
+  margin-bottom: 0;
+}
+.navbarHeader {
+  height: $height;
+  position: relative;
+}
+.navbarNav {
+  float: right!important;
+  margin-right: 80px!important;
+  >li{
+    height: $height;
+  }
+}
+.navbarBrand {
+  @extend .vCenter;
+  padding-top: 0!important;
+  @extend .icon-sprites;
+  // @include sprite($sprites-brand);
+  left: 45px;
+}
+
+.navbarCollapse{
+  border: none;
+}
+.navbarNavAnchor {
+  @extend .vCenter;
+  font-family: $fontB;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  font-size: 14px;
+  color: $darkBlue!important;
+  text-transform: uppercase;
+  &:hover {
+    color: $blueGray!important;
+    background-color: initial;
+  }
+}
+.socialNetwork {
+  margin: 0 -15px;
+  position: relative;
+  float: right;
+  padding: 0;
+  li{
+    height: $height;
+    position: relative;
+    width: 50px;
+    display: inline-block;
+    list-style: none;
+  }
+}
+.sm_icon {
+  @extend .fCenter;
+}
+.facebook {
+  @extend .icon-sprites;
+  // @include sprite($sprites-imagen-facebook);
+  @extend .sm_icon;
+}
+@media#{$isTablet}{
+  .navbarNav {
+    margin-right: 10px!important;
+  }
+  .navbarNavAnchor {
+    padding: 10px 10px!important;
+  }
+}
+@media#{$isPhone}{
+  .navbarCollapse{
+    background: $white;
+    position: relative;
+    z-index: 1000;
+  }
+  .navbarNav, .socialNetwork {
+    float: none!important;
+    margin-left: 35px!important;
+    margin-right: 0!important;
+  }
+  .navbarBrand{
+    left: 10px;
+  }
+}
