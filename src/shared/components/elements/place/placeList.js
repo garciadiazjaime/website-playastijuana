@@ -43,7 +43,7 @@ export default class PlaceList extends React.Component {
   renderItems(places, categories) {
     if (_.isArray(places) && places.length) {
       const catetoryMap = this.getCategoryMap(categories);
-      return places.map((item, index) => {
+      return places.slice(0, 5).map((item, index) => {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
         return (<div className="col-sm-4 col-xs-12" key={index}>
           <div className="row">
