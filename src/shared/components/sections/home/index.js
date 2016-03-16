@@ -1,4 +1,5 @@
 import React from 'react';
+
 import _ from 'lodash';
 
 import CategoriesData from '../../../data/categories';
@@ -6,6 +7,8 @@ import PlacesData from '../../../data/places';
 import { CategoryList } from '../../elements/category';
 import { PlaceList } from '../../elements/place';
 import slugUtil from '../../../utils/slug';
+
+import Block1 from './block1';
 
 
 export default class HomeSection extends React.Component {
@@ -35,17 +38,18 @@ export default class HomeSection extends React.Component {
     const { category, place } = this.props.params;
     const categoryId = this.getCategoryId(CategoriesData, category);
     const places = this.filterPlaces(PlacesData, categoryId);
+
     return (<div className="container-fluid">
-      [ banner ] <br />
+      <Block1 />
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-sm-2 col-xs-12">
           <CategoryList data={CategoriesData} category={category} />
+          <div>
+            [ map ]
+          </div>
         </div>
-        <div className="col-md-6">
-          <PlaceList data={places} place={place} />
-        </div>
-        <div className="col-md-3">
-          [ map ]
+        <div className="col-sm-10 col-xs-12">
+          <PlaceList data={places} categories={CategoriesData} place={place} />
         </div>
       </div>
     </div>);

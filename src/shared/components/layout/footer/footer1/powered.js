@@ -20,14 +20,14 @@ export default class Powered extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-xs-12 col-sm-6">
-              Todos los derechos reservados &copy; Lasermedica
+              Todos los derechos reservados &copy; Directorio Playas de Tijuana
             </div>
             <div className="col-xs-12 col-sm-6">
               Un proyecto de:&nbsp;
-              <a href={data[0].url} title={data[0].title} target="_blank">{data[0].name}</a>
-              &nbsp;&nbsp;
-              Código por:&nbsp;
               <a href={data[1].url} title={data[1].title} target="_blank">{data[1].name}</a>
+              &nbsp;&nbsp;
+              Diseño por:&nbsp;
+              <a href={data[0].url} title={data[0].title} target="_blank">{data[0].name}</a>
             </div>
           </div>
         </div>

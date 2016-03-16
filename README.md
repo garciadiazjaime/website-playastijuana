@@ -1,7 +1,7 @@
 PlayasTijuana Website
 ----
 
-[![Build Status](https://travis-ci.org/garciadiazjaime/website-boilerplate.svg)](https://travis-ci.org/garciadiazjaime/website-boilerplate)
+[![Build Status](https://travis-ci.org/garciadiazjaime/website-playastijuana.svg)](https://travis-ci.org/garciadiazjaime/website-playastijuana)
 
 Run project:
 ----
