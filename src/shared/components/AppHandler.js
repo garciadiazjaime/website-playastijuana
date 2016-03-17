@@ -1,3 +1,4 @@
+/* eslint max-len: [2, 500, 4] */
 import React from 'react';
 
 import sitemap from '../config/sitemap';

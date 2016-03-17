@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import _ from 'lodash';
 // import dbServices from '../../../sections/services/db';
 
-const style = process.env.TIER === 'FE' ? require('./style.scss') : {};
+const style = require('./style.scss');
 
 
 export default class Services extends React.Component {

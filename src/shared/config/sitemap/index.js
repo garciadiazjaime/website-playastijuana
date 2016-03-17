@@ -7,7 +7,7 @@ export default {
     component: AppHandler,
     default: HomeSection,
     children: [{
-      title: 'Inicio1',
+      title: 'Inicio',
       url: '/inicio',
       component: HomeSection,
     }],

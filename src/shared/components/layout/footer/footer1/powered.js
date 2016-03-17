@@ -1,6 +1,6 @@
 import React from 'react';
 
-const style = process.env.TIER === 'FE' ? require('./style.scss') : {};
+const style = require('./style.scss');
 
 
 export default class Powered extends React.Component {
@@ -17,7 +17,7 @@ export default class Powered extends React.Component {
     }];
 
     return (<div className={style.powered}>
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-6">
               Todos los derechos reservados &copy; Directorio Playas de Tijuana

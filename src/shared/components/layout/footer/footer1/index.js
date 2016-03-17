@@ -1,6 +1,6 @@
 import React from 'react';
 
-const style = process.env.TIER === 'FE' ? require('./style.scss') : {};
+const style = require('./style.scss');
 import Brand from './brand';
 import Powered from './powered';
 import Addresses from './addresses';
@@ -13,7 +13,7 @@ export default class FooterAAA extends React.Component {
     const { addresses } = this.props;
 
     return (<div className={style.footerWrapper}>
-      <div className="container-fluid">
+      <div className="container">
         <Brand />
         <div className="row">
           <div className="col-xs-12 col-sm-2">

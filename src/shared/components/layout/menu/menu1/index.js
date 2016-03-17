@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const style = process.env.TIER === 'FE' ? require('./style.scss') : {};
+const style = require('./style.scss');
 
 
 export default class MainMenu extends React.Component {
@@ -32,7 +32,7 @@ export default class MainMenu extends React.Component {
   render() {
     /*eslint-disable */
     return (<nav className={style.navbarDefault + ' navbar navbar-default'} id="menu_wrapper">
-            <div className="container-fluid">
+            <div className="container">
               <div className={style.navbarHeader + ' navbar-header'}>
                 <button type="button" className="navbar-toggle collapsed menu_trigger" data-toggle="collapse" data-target="#mainmenu" aria-expanded="false">
                   <span className="sr-only">Toggle navigation</span>

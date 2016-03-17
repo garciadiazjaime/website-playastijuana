@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-const style = process.env.TIER === 'FE' ? require('./style.scss') : {};
+const style = require('./style.scss');
 
 
 export default class Addresses extends React.Component {

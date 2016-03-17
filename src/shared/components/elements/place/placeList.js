@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import _ from 'lodash';
 import GridTile from 'material-ui/lib/grid-list/grid-tile';
 
-const style = process.env.TIER === 'FE' ? require('./style.scss') : {};
+const style = require('./style.scss');
 import slugUtil from '../../../utils/slug';
 
 
@@ -43,12 +43,12 @@ export default class PlaceList extends React.Component {
   renderItems(places, categories) {
     if (_.isArray(places) && places.length) {
       const catetoryMap = this.getCategoryMap(categories);
-      return places.slice(0, 5).map((item, index) => {
+      return places.slice(0, 21).map((item, index) => {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
         return (<div className="col-sm-4 col-xs-12" key={index}>
           <div className="row">
             <GridTile key={index} title={this.getTitle(item, categoriesNames)} subtitle={<span>{categoriesNames}</span>} className={style.placeCard}>
-              <img src="http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png" />
+              <img src="/images/placeholder.png" />
             </GridTile>
           </div>
         </div>);
