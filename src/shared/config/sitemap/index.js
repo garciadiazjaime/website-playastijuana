@@ -1,7 +1,5 @@
 import AppHandler from '../../components/AppHandler';
 import HomeSection from '../../components/sections/home';
-import AboutSection from '../../components/sections/about';
-import ContactSection from '../../components/sections/contact';
 
 
 export default {
@@ -9,17 +7,9 @@ export default {
     component: AppHandler,
     default: HomeSection,
     children: [{
-      title: 'Inicio',
+      title: 'Inicio1',
       url: '/inicio',
       component: HomeSection,
-    }, {
-      title: 'Nosotros',
-      url: '/nosotros',
-      component: AboutSection,
-    }, {
-      title: 'Contacto',
-      url: '/contacto',
-      component: ContactSection,
     }],
   },
   icons: [{
