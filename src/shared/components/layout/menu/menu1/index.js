@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const style = require('./style.scss');
+// const style = require("!style!css!sass!./style.scss");
 
 
 export default class MainMenu extends React.Component {

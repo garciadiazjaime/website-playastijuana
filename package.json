@@ -6,6 +6,11 @@
   "scripts": {
     "test": "npm run lint",
     "dev": "./node_modules/.bin/webpack-dev-server",
+    "dev3": "npm run babel",
+    "dev4": "node lib/server/server",
+    "dev5": "node build/server",
+    "dev6": "./node_modules/.bin/webpack",
+    "build": "./node_modules/.bin/webpack",
     "build2": "./node_modules/.bin/webpack",
     "clean": "rm -rf lib",
     "babel": "./node_modules/.bin/babel src --out-dir lib -D",
@@ -50,7 +55,8 @@
     "sprity-sass": "^1.0.4",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-server": "^1.14.0",
+    "webpack-node-externals": "^1.0.0"
   },
   "dependencies": {
     "body-parser": "^1.14.2",

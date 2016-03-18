@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const _ = require('lodash');
 // const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const nodeExternals = require('webpack-node-externals');
 
 const TARGET = process.env.npm_lifecycle_event;
 
@@ -94,5 +95,93 @@ if(TARGET === 'dev' || !TARGET) {
    },
 
    devtool: 'source-map',
+  });
+}
+
+if(TARGET === 'build') {
+  module.exports = _.extend({}, common, {
+    entry: {
+      app: path.join(PATHS.app, 'server/server')
+    },
+
+    externals: [nodeExternals()],
+
+    output: {
+      path: PATHS.dist,
+      filename: 'server.js',
+    },
+
+    plugins: [
+      new ExtractTextPlugin("screen.css", {
+           allChunks: true
+       }),
+    ],
+
+    module: {
+      preLoaders: [
+        {
+          test: /\.jsx$|\.js$/,
+          loader: 'eslint-loader',
+          include: __dirname + '/src/',
+          exclude: /app\.js$/
+        }
+      ],
+     loaders: [
+        {
+          test: /\.jsx$|\.js$/,
+          loaders: ['react-hot', 'babel'],
+          include: PATHS.app
+        },
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'),
+          include: PATHS.app
+        }
+     ]
+   },
+
+   devtool: 'source-map',
+  });
+}
+
+if(TARGET === 'dev6') {
+  module.exports = _.extend({}, common, {
+    entry: {
+      app: path.join(PATHS.app, 'client/entry')
+    },
+
+    output: {
+      path: PATHS.dist,
+      filename: 'app.js',
+    },
+
+    plugins: [
+      new ExtractTextPlugin("screen.css", {
+           allChunks: true
+       }),
+    ],
+
+    module: {
+      preLoaders: [
+        {
+          test: /\.jsx$|\.js$/,
+          loader: 'eslint-loader',
+          include: __dirname + '/src/',
+          exclude: /app\.js$/
+        }
+      ],
+     loaders: [
+        {
+          test: /\.jsx$|\.js$/,
+          loaders: ['react-hot', 'babel'],
+          include: PATHS.app
+        },
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'),
+          include: PATHS.app
+        }
+     ]
+   },
   });
 }
