@@ -1,39 +1,35 @@
 @import './helpers';
 @import './mixins';
 @import './sprite';
-
-$blue: #04B9C9;
-$hoverBlue: #0BCED3;
+// --- Legacy colors
 $darkBlue: #1D3A4C;
 $blueGray: #839DAA;
-$lightBlue: #E6FFFE;
-$red: #EC645D;
-$hoverRed: #EA5653;
-$orange: #F8B413;
-$hoverOrange: #F9C050;
-$green: #CADD17;
-$hoverGreen: #E1EA2D;
-$lightGray: #C0C2C4;
-$gray: #58595B;
+
 $mediumGray: #999B9D;
+
+
+// --- New colors
+$blue: #0e888e;
+$blueHover: #18a0a0;
+$green: #66d3b4;
+$lightGreen: #8cf2d3;
+$gray: #e0dccd;
+$darkGray: #999182;
+$yellow: #ffc200;
+$orange: #f28c30;
 $black: #000;
 $white: #fff;
 
-$fontA: 'novecentowide_medium';
-$fontABold: 'novecentowide_bold';
-$fontADemibold: 'novecentowide_demibold';
-$fontALight: 'novecentowide_light';
-$fontABook: 'novecentowide_book';
-
+$fontA: 'Open Sans';
+$fontABold: 'opensans_bold';
 $fontB: 'opensans_regular';
 $fontBBold: 'opensans_bold';
-$fontBItalic: 'opensans_italic';
 
-$fontCItalic: 'droidserif_italic';
 
 
 $isTablet: "only screen and (max-width: 1023px)";
 $isPhone: "only screen and (max-width: 767px)";
 
-$headerAdjuster: "only screen and (max-width: 969px) and (min-width: 767px)";
-$layout-phone_icon: -30px -35px 25px 16px;
+body{
+  font-family: $fontA;
+}

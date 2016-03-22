@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'opensans_regular'; /* replace with: font-family-name */
+  src: url('../fonts/font-a/regular.ttf');
+}
+@font-face {
+  font-family: 'opensans_bold';
+  src: url('../fonts/font-a/bold.ttf');
+}
+body{
+  font-family: 'opensans_regular', sans-serif;
+}
+a:hover {
+  text-decoration: none;
+}
+
+*:focus {outline:0px none transparent;}
+
+.container-fluid{
+	max-width: 1024px;
+}
+
+
+#app{
+	overflow: hidden;
+}
