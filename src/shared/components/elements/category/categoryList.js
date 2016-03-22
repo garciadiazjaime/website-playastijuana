@@ -6,14 +6,11 @@ import List from 'material-ui/lib/lists/list';
 import ListItem from 'material-ui/lib/lists/list-item';
 import _ from 'lodash';
 
-const style = process.env.TIER === 'FE' ? require('./style.scss') : {};
+const style = require('./style.scss');
 import slugUtil from '../../../utils/slug';
 
 export default class CategoryList extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
 
   renderItems(data, category) {
     if (_.isArray(data)) {

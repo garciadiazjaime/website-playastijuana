@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 import config from '../../config';
 import apiRoutes from './helpers/api';
 import routes from '../shared/config/routes';
+// import routes from '../../build/routes';
 
 const app = express();
 
@@ -18,8 +19,7 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }));
 
-app.use(express.static('bower_components'));
-app.use(express.static('public'));
+app.use(express.static('static'));
 
 app.use('/api/', apiRoutes);
 
@@ -31,7 +31,7 @@ app.get('/*', function (req, res) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (renderProps) {
       const content = renderToString(<RoutingContext {...renderProps} />);
-      res.render('index', { content });
+      res.render('main', { content });
       // res.status(200).send(renderToString(<RoutingContext {...renderProps} />))
     } else {
       res.status(404).send('Not found');

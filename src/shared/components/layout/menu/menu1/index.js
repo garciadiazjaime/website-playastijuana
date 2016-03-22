@@ -1,6 +1,6 @@
 import React from 'react';
 
-const style = process.env.TIER === 'FE' ? require('./style.scss') : {};
+const style = require('./style.scss');
 
 
 export default class MainMenu extends React.Component {

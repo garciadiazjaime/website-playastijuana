@@ -1,57 +1,45 @@
+/* eslint max-len: [2, 500, 4] */
 import React from 'react';
-
 import _ from 'lodash';
 
+import slugUtil from '../../../utils/slug';
+import Block1 from './block1';
+import Block2 from './block2';
 import CategoriesData from '../../../data/categories';
 import PlacesData from '../../../data/places';
-import { CategoryList } from '../../elements/category';
-import { PlaceList } from '../../elements/place';
-import slugUtil from '../../../utils/slug';
-
-import Block1 from './block1';
 
 
 export default class HomeSection extends React.Component {
 
-  getCategoryId(data, category) {
-    if (category && _.isArray(data) && data.length) {
-      for (let i = 0, len = data.length; i < len; i++) {
-        const slug = slugUtil(data[i].name);
+  getCategoryId(categories, category) {
+    if (_.isArray(categories) && categories.length && category) {
+      for (let i = 0, len = categories.length; i < len; i++) {
+        const slug = slugUtil(categories[i].name);
         if (slug === category) {
-          return data[i].id;
+          return categories[i].id;
         }
       }
     }
     return null;
   }
 
-  filterPlaces(data, categoryId) {
+  filterPlacesByCategoryId(places, categoryId) {
     if (categoryId) {
-      return data.filter((item) => {
+      return places.filter((item) => {
         return item.categories.indexOf(categoryId) !== -1;
       });
     }
-    return data;
+    return places;
   }
 
   render() {
     const { category, place } = this.props.params;
     const categoryId = this.getCategoryId(CategoriesData, category);
-    const places = this.filterPlaces(PlacesData, categoryId);
+    const places = this.filterPlacesByCategoryId(PlacesData, categoryId);
 
-    return (<div className="container-fluid">
+    return (<div className="container">
       <Block1 />
-      <div className="row">
-        <div className="col-sm-2 col-xs-12">
-          <CategoryList data={CategoriesData} category={category} />
-          <div>
-            [ map ]
-          </div>
-        </div>
-        <div className="col-sm-10 col-xs-12">
-          <PlaceList data={places} categories={CategoriesData} place={place} />
-        </div>
-      </div>
+      <Block2 categories={CategoriesData} places={places} category={category} place={place} />
     </div>);
   }
 }

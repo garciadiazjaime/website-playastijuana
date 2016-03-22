@@ -3,13 +3,15 @@ const webpack = require('webpack');
 const _ = require('lodash');
 // const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const nodeExternals = require('webpack-node-externals');
 
 const TARGET = process.env.npm_lifecycle_event;
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'build'),
-  dist: path.join(__dirname, 'public'),
+  dist: path.join(__dirname, 'dist'),
+  static: path.join(__dirname, 'static'),
 };
 
 const common = {
@@ -18,15 +20,15 @@ const common = {
   },
 }
 
-
 if(TARGET === 'dev' || !TARGET) {
+  // JS bundle
   module.exports = _.extend({}, common, {
     entry: {
       app: path.join(PATHS.app, 'client/entry')
     },
 
     output: {
-      path: PATHS.build,
+      path: path.join(PATHS.build, 'js'),
       filename: 'bundle.js',
     },
 
@@ -60,9 +62,6 @@ if(TARGET === 'dev' || !TARGET) {
       // new NpmInstallPlugin({
       //   save: true // --save
       // }),
-      new webpack.DefinePlugin({
-        'process.env.TIER': JSON.stringify('FE')
-      }),
     ],
 
     module: {
@@ -94,5 +93,91 @@ if(TARGET === 'dev' || !TARGET) {
    },
 
    devtool: 'source-map',
+  });
+}
+
+if(TARGET === 'build-fe') {
+  module.exports = _.extend({}, common, {
+    entry: {
+      app: path.join(PATHS.app, 'client/entry')
+    },
+
+    output: {
+      path: path.join(PATHS.static, 'js'),
+      filename: 'app.js',
+    },
+
+    plugins: [
+      new ExtractTextPlugin("../css/screen.css", {
+           allChunks: true
+       }),
+    ],
+
+    module: {
+      preLoaders: [
+        {
+          test: /\.jsx$|\.js$/,
+          loader: 'eslint-loader',
+          include: __dirname + '/src/',
+          exclude: /app\.js$/
+        }
+      ],
+     loaders: [
+        {
+          test: /\.jsx$|\.js$/,
+          loaders: ['react-hot', 'babel'],
+          include: PATHS.app
+        },
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'),
+          include: PATHS.app
+        }
+     ]
+   },
+  });
+}
+
+if(TARGET === 'build-be') {
+  module.exports = _.extend({}, common, {
+    entry: {
+      app: path.join(PATHS.app, 'server/server')
+    },
+
+    externals: [nodeExternals()],
+
+    output: {
+      path: PATHS.dist,
+      filename: 'server.js',
+    },
+
+    plugins: [
+      new ExtractTextPlugin("../static/css/screen.css", {
+           allChunks: true
+       }),
+    ],
+
+    module: {
+      preLoaders: [
+        {
+          test: /\.jsx$|\.js$/,
+          loader: 'eslint-loader',
+          include: __dirname + '/src/',
+          exclude: /app\.js$/
+        }
+      ],
+     loaders: [
+        {
+          test: /\.jsx$|\.js$/,
+          loaders: ['babel'],
+          include: PATHS.app
+        },
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'),
+          include: PATHS.app
+        }
+     ]
+   },
   });
 }

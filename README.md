@@ -18,3 +18,7 @@ By default server will run on http://127.0.0.1:3030/
 
 Note: `npm run sprites` requires 'sass'
 http://sass-lang.com/install
+
+
+Code to increase jslint max line length limit
+/* eslint max-len: [2, 500, 4] */
