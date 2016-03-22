@@ -23,6 +23,22 @@ export default class HomeSection extends React.Component {
     return null;
   }
 
+  getCarouselData() {
+    return [{
+      image: '/images/demo.jpg',
+      title: '1O verlay title',
+      description: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    }, {
+      image: '/images/demo.jpg',
+      title: '2O verlay title',
+      description: '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    }, {
+      image: '/images/demo.jpg',
+      title: '3O verlay title',
+      description: '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    }];
+  }
+
   filterPlacesByCategoryId(places, categoryId) {
     if (categoryId) {
       return places.filter((item) => {
@@ -38,7 +54,7 @@ export default class HomeSection extends React.Component {
     const places = this.filterPlacesByCategoryId(PlacesData, categoryId);
 
     return (<div className="container">
-      <Block1 />
+        <Block1 data={this.getCarouselData()}/>
       <Block2 categories={CategoriesData} places={places} category={category} place={place} />
     </div>);
   }
