@@ -2,7 +2,7 @@
   "name": "website-playastijuana",
   "version": "1.0.0",
   "description": "Mint basic website blueprint",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "test": "npm run lint",
     "dev": "./node_modules/.bin/webpack-dev-server",
@@ -81,5 +81,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/garciadiazjaime/website-boilerplate"
-  }
+  },
+  "private": true
 }
