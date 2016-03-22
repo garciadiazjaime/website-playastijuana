@@ -8,7 +8,6 @@
 }
 body{
   font-family: 'opensans_regular', sans-serif;
-  background-color: black;
 }
 a:hover {
   text-decoration: none;
@@ -16,18 +15,10 @@ a:hover {
 
 *:focus {outline:0px none transparent;}
 
-li {
-  list-style-type: none;
-}
-
 .container-fluid{
 	max-width: 1024px;
 }
 
-.navbar-default .navbar-nav>.active>a{
-  background-color: transparent!important;
-  color: #04B9C9!important;
-}
 
 #app{
 	overflow: hidden;
