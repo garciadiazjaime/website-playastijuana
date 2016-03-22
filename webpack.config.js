@@ -10,7 +10,8 @@ const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   app: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'build'),
-  dist: path.join(__dirname, 'public'),
+  dist: path.join(__dirname, 'dist'),
+  static: path.join(__dirname, 'static'),
 };
 
 const common = {
@@ -19,15 +20,15 @@ const common = {
   },
 }
 
-
 if(TARGET === 'dev' || !TARGET) {
+  // JS bundle
   module.exports = _.extend({}, common, {
     entry: {
       app: path.join(PATHS.app, 'client/entry')
     },
 
     output: {
-      path: PATHS.build,
+      path: path.join(PATHS.build, 'js'),
       filename: 'bundle.js',
     },
 
@@ -61,9 +62,6 @@ if(TARGET === 'dev' || !TARGET) {
       // new NpmInstallPlugin({
       //   save: true // --save
       // }),
-      new webpack.DefinePlugin({
-        'process.env.TIER': JSON.stringify('FE')
-      }),
     ],
 
     module: {
@@ -98,21 +96,19 @@ if(TARGET === 'dev' || !TARGET) {
   });
 }
 
-if(TARGET === 'build') {
+if(TARGET === 'build-fe') {
   module.exports = _.extend({}, common, {
     entry: {
-      app: path.join(PATHS.app, 'server/server')
+      app: path.join(PATHS.app, 'client/entry')
     },
 
-    externals: [nodeExternals()],
-
     output: {
-      path: PATHS.dist,
-      filename: 'server.js',
+      path: path.join(PATHS.static, 'js'),
+      filename: 'app.js',
     },
 
     plugins: [
-      new ExtractTextPlugin("screen.css", {
+      new ExtractTextPlugin("../css/screen.css", {
            allChunks: true
        }),
     ],
@@ -139,24 +135,24 @@ if(TARGET === 'build') {
         }
      ]
    },
-
-   devtool: 'source-map',
   });
 }
 
-if(TARGET === 'dev6') {
+if(TARGET === 'build-be') {
   module.exports = _.extend({}, common, {
     entry: {
-      app: path.join(PATHS.app, 'client/entry')
+      app: path.join(PATHS.app, 'server/server')
     },
+
+    externals: [nodeExternals()],
 
     output: {
       path: PATHS.dist,
-      filename: 'app.js',
+      filename: 'server.js',
     },
 
     plugins: [
-      new ExtractTextPlugin("screen.css", {
+      new ExtractTextPlugin("../static/css/screen.css", {
            allChunks: true
        }),
     ],
@@ -173,7 +169,7 @@ if(TARGET === 'dev6') {
      loaders: [
         {
           test: /\.jsx$|\.js$/,
-          loaders: ['react-hot', 'babel'],
+          loaders: ['babel'],
           include: PATHS.app
         },
         {

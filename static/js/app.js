@@ -19672,7 +19672,7 @@
 /* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
 	'use strict';
 
@@ -19701,7 +19701,7 @@
 	var routes = items.children.map(function (item, index) {
 	  return _react2.default.createElement(_reactRouter.Route, { path: item.url, component: item.component, key: index });
 	});
-	var history = process.env.TIER === 'FE' ? (0, _createBrowserHistory2.default)() : null;
+	var history = (0, _createBrowserHistory2.default)();
 
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Router,
@@ -19717,7 +19717,6 @@
 	);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
 /* 160 */
