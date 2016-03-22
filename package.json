@@ -13,7 +13,8 @@
     "clean": "rm ./static/css/screen.css && rm ./static/js/app.js && rm ./dist/server.js",
     "sprites": "./node_modules/.bin/gulp build:sprites",
     "lint": "./node_modules/.bin/eslint --ignore-pattern **/app-*.js, **/**/sprite.js --ext .js,.jsx src",
-    "deploy": "git push openshift HEAD:master"
+    "deploy": "git push openshift HEAD:master",
+    "assets": "cp -rf ./build/** && rm ./build/index.html"
   },
   "author": "Mint IT Media",
   "license": "ISC",

@@ -111,6 +111,9 @@ if(TARGET === 'build-fe') {
       new ExtractTextPlugin("../css/screen.css", {
            allChunks: true
        }),
+       new webpack.DefinePlugin({
+        'process.env.TIER': JSON.stringify('FE')
+      })
     ],
 
     module: {
@@ -154,7 +157,7 @@ if(TARGET === 'build-be') {
     plugins: [
       new ExtractTextPlugin("../static/css/screen.css", {
            allChunks: true
-       }),
+       })
     ],
 
     module: {
