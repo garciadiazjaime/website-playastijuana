@@ -1,4 +1,104 @@
+@import '../../../theme/constants';
 .placeCard {
   height: 260px !important;
-  margin: 0 5px 10px;
+  width: 260px;
+  position: relative;
+  border-radius: 130px;
+  display: inline-block;
+  margin: 0 5px 20px;
+  background-image: url('/images/placeholder.png');
+  background-size: cover;
+  h1{
+    font-size: 16px;
+    text-align: center;
+    padding: 15px;
+    width: 80%;
+    font-weight: bold;
+    @extend .fCenter;
+    a {
+      color: $white;
+      opacity: .8;
+      &:hover{
+        opacity: 1;
+      }
+    }
+    .subtitle{
+      display: block;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+  .Autos{
+    background-color: $yellow;
+    .subtitle{
+      color: darken($yellow, 25%);
+    }
+  }
+  .Bar{
+    background-color: $orange;
+    .subtitle{
+      color: darken($orange, 25%);
+    }
+  }
+  .Comida{
+    background-color: $blue;
+    .subtitle{
+      color: darken($blue, 25%);
+    }
+  }
+  .Tienda{
+    background-color: $green;
+    .subtitle{
+      color: darken($green, 25%);
+    }
+  }
+  .Belleza{
+    background-color: $yellow;
+    .subtitle{
+      color: darken($yellow, 25%);
+    }
+  }
+  .Salud{
+    background-color: $yellow;
+    .subtitle{
+      color: darken($yellow, 25%);
+    }
+  }
+  .Educación{
+    background-color: $green;
+    .subtitle{
+      color: darken($green, 25%);
+    }
+  }
+  .Ejercicio{
+    background-color: $orange;
+    .subtitle{
+      color: darken($orange, 25%);
+    }
+  }
+  .Ropa{
+    background-color: $blue;
+    .subtitle{
+      color: darken($blue, 25%);
+    }
+  }
+  .Servicios{
+    background-color: $green;
+    .subtitle{
+      color: darken($green, 25%);
+    }
+  }
+  .Entretenimiento{
+    background-color: $yellow;
+    .subtitle{
+      color: darken($yellow, 25%);
+    }
+  }
+  .Entretenimiento{
+    background-color: $yellow;
+    .subtitle{
+      color: darken($yellow, 25%);
+    }
+  }
+
 }
