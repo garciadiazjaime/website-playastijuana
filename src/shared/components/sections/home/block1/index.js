@@ -35,7 +35,7 @@ export default class Block1 extends React.Component {
         next: style.next,
       },
     };
-    return (<div className={style.mainBanner2}>
+    return (<div className={style.feature}>
       <Carousel id="main-carousel" interval={8000} indicators={false} classes={carouselClasses}>
         {this.renderItems(data)}
       </Carousel>
