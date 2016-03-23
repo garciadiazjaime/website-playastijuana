@@ -1093,15 +1093,15 @@
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(33);
+	var _block3 = __webpack_require__(29);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _categories = __webpack_require__(43);
+	var _categories = __webpack_require__(37);
 
 	var _categories2 = _interopRequireDefault(_categories);
 
-	var _places = __webpack_require__(44);
+	var _places = __webpack_require__(38);
 
 	var _places2 = _interopRequireDefault(_places);
 
@@ -1158,7 +1158,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container' },
+	        null,
 	        _react2.default.createElement(_block2.default, null),
 	        _react2.default.createElement(_block4.default, { categories: _categories2.default, places: places, category: category, place: place })
 	      );
@@ -1225,22 +1225,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _card = __webpack_require__(28);
-
-	var _card2 = _interopRequireDefault(_card);
-
-	var _cardMedia = __webpack_require__(29);
-
-	var _cardMedia2 = _interopRequireDefault(_cardMedia);
-
-	var _cardTitle = __webpack_require__(30);
-
-	var _cardTitle2 = _interopRequireDefault(_cardTitle);
-
-	var _cardText = __webpack_require__(31);
-
-	var _cardText2 = _interopRequireDefault(_cardText);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1249,7 +1233,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(32);
+	var style = __webpack_require__(28);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -1265,72 +1249,44 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: style.mainBanner2 },
+	        { className: style.feature },
 	        _react2.default.createElement(
 	          'div',
-	          { id: 'carousel-main', className: 'carousel slide', 'data-ride': 'carousel', 'data-interval': 8000 },
+	          { id: 'carousel-main', className: 'carousel slide container-fluid', 'data-ride': 'carousel', 'data-interval': 8000 },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'carousel-inner', role: 'listbox' },
+	            { className: 'carousel-inner ' + style.inner, role: 'listbox' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'item active' },
+	              { className: 'item active ' + style.item },
 	              _react2.default.createElement(
-	                _card2.default,
-	                null,
-	                _react2.default.createElement(
-	                  _cardMedia2.default,
-	                  { overlay: _react2.default.createElement(_cardTitle2.default, { title: '1Overlay title' }) },
-	                  _react2.default.createElement('img', { src: '/images/demo.jpg' })
-	                ),
-	                _react2.default.createElement(
-	                  _cardText2.default,
-	                  null,
-	                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.'
-	                )
+	                'div',
+	                { className: style.imgContainer },
+	                _react2.default.createElement('img', { src: '/images/demo.jpg' })
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'item' },
+	              { className: 'item ' + style.item },
 	              _react2.default.createElement(
-	                _card2.default,
-	                null,
-	                _react2.default.createElement(
-	                  _cardMedia2.default,
-	                  { overlay: _react2.default.createElement(_cardTitle2.default, { title: '2Overlay title' }) },
-	                  _react2.default.createElement('img', { src: '/images/demo.jpg' })
-	                ),
-	                _react2.default.createElement(
-	                  _cardText2.default,
-	                  null,
-	                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.'
-	                )
+	                'div',
+	                { className: style.imgContainer },
+	                _react2.default.createElement('img', { src: '/images/demo.jpg' })
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'item' },
+	              { className: 'item ' + style.item },
 	              _react2.default.createElement(
-	                _card2.default,
-	                { className: 'item' },
-	                _react2.default.createElement(
-	                  _cardMedia2.default,
-	                  { overlay: _react2.default.createElement(_cardTitle2.default, { title: '3Overlay title' }) },
-	                  _react2.default.createElement('img', { src: '/images/demo.jpg' })
-	                ),
-	                _react2.default.createElement(
-	                  _cardText2.default,
-	                  null,
-	                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.'
-	                )
+	                'div',
+	                { className: style.imgContainer },
+	                _react2.default.createElement('img', { src: '/images/demo.jpg' })
 	              )
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'a',
-	            { className: 'left carousel-control ' + style.controls, href: '#carousel-main', role: 'button', 'data-slide': 'prev' },
-	            _react2.default.createElement('span', { className: 'glyphicon glyphicon-chevron-left', 'aria-hidden': 'true' }),
+	            { className: 'left carousel-control ' + style.controls + ' ' + style.prev, href: '#carousel-main', role: 'button', 'data-slide': 'prev' },
 	            _react2.default.createElement(
 	              'span',
 	              { className: 'sr-only' },
@@ -1339,8 +1295,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'a',
-	            { className: 'right carousel-control ' + style.controls, href: '#carousel-main', role: 'button', 'data-slide': 'next' },
-	            _react2.default.createElement('span', { className: 'glyphicon glyphicon-chevron-right', 'aria-hidden': 'true' }),
+	            { className: 'right carousel-control ' + style.controls + ' ' + style.next, href: '#carousel-main', role: 'button', 'data-slide': 'next' },
 	            _react2.default.createElement(
 	              'span',
 	              { className: 'sr-only' },
@@ -1361,35 +1316,11 @@
 /* 28 */
 /***/ function(module, exports) {
 
-	module.exports = require("material-ui/lib/card/card");
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","feature":"style__feature___3zFaz","inner":"style__inner___m2WR-","item":"style__item___1hdp3","imgContainer":"style__imgContainer___1f347","controls":"style__controls___15CM-","prev":"style__prev___KokMH","next":"style__next___2VHzS"};
 
 /***/ },
 /* 29 */
-/***/ function(module, exports) {
-
-	module.exports = require("material-ui/lib/card/card-media");
-
-/***/ },
-/* 30 */
-/***/ function(module, exports) {
-
-	module.exports = require("material-ui/lib/card/card-title");
-
-/***/ },
-/* 31 */
-/***/ function(module, exports) {
-
-	module.exports = require("material-ui/lib/card/card-text");
-
-/***/ },
-/* 32 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"controls":"style__controls___15CM-"};
-
-/***/ },
-/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1404,9 +1335,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _category = __webpack_require__(34);
+	var _category = __webpack_require__(30);
 
-	var _place = __webpack_require__(39);
+	var _place = __webpack_require__(33);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1417,7 +1348,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	// const style = require('./style.scss');
+	var style = __webpack_require__(36);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -1439,16 +1370,20 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { className: 'container-fluid' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-sm-2 col-xs-12' },
-	          _react2.default.createElement(_category.CategoryList, { data: categories, category: category })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-sm-10 col-xs-12' },
-	          _react2.default.createElement(_place.PlaceList, { data: places, categories: categories })
+	          { className: 'row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-sm-2 col-xs-12 ' + style.categories },
+	            _react2.default.createElement(_category.CategoryList, { data: categories, category: category })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-sm-10 col-xs-12 ' + style.results },
+	            _react2.default.createElement(_place.PlaceList, { data: places, categories: categories })
+	          )
 	        )
 	      );
 	    }
@@ -1468,12 +1403,12 @@
 	};
 
 /***/ },
-/* 34 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _categoryList = __webpack_require__(35);
+	var _categoryList = __webpack_require__(31);
 
 	var _categoryList2 = _interopRequireDefault(_categoryList);
 
@@ -1482,7 +1417,7 @@
 	module.exports.CategoryList = _categoryList2.default;
 
 /***/ },
-/* 35 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1498,14 +1433,6 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRouter = __webpack_require__(4);
-
-	var _list = __webpack_require__(36);
-
-	var _list2 = _interopRequireDefault(_list);
-
-	var _listItem = __webpack_require__(37);
-
-	var _listItem2 = _interopRequireDefault(_listItem);
 
 	var _lodash = __webpack_require__(25);
 
@@ -1523,7 +1450,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(38);
+	var style = __webpack_require__(32);
 
 	var CategoryList = function (_React$Component) {
 	  _inherits(CategoryList, _React$Component);
@@ -1542,11 +1469,11 @@
 	          var slug = (0, _slug2.default)(item.name);
 	          var activeClassName = slug === category ? 'active' : '';
 	          return _react2.default.createElement(
-	            _listItem2.default,
+	            'li',
 	            { key: index },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/directorio/' + slug, title: item.name, className: style.item + ' ' + activeClassName },
+	              { to: '/directorio/' + slug, title: item.name, className: style[activeClassName] },
 	              item.name
 	            )
 	          );
@@ -1564,16 +1491,16 @@
 	      var activeClassName = category ? '' : 'active';
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'row' },
 	        _react2.default.createElement(
-	          _list2.default,
+	          'ul',
 	          null,
 	          _react2.default.createElement(
-	            _listItem2.default,
+	            'li',
 	            null,
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/', title: 'ver todos', className: style.item + ' ' + activeClassName },
+	              { to: '/', title: 'ver todos', className: style[activeClassName] },
 	              'Ver todos'
 	            )
 	          ),
@@ -1595,31 +1522,19 @@
 	};
 
 /***/ },
-/* 36 */
-/***/ function(module, exports) {
-
-	module.exports = require("material-ui/lib/lists/list");
-
-/***/ },
-/* 37 */
-/***/ function(module, exports) {
-
-	module.exports = require("material-ui/lib/lists/list-item");
-
-/***/ },
-/* 38 */
+/* 32 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"itemWrapper":"style__itemWrapper___J-zp-","item":"style__item___3QLmn"};
+	module.exports = {"fCenter":"style__fCenter___Awltf","vCenter":"style__vCenter___2LWX6","vCenterRel":"style__vCenterRel___29EI3","hCenter":"style__hCenter___2QtNO","inheritHeight":"style__inheritHeight___c3WLk","hideOverflow":"style__hideOverflow___3AF4T","active":"style__active___2j7T0"};
 
 /***/ },
-/* 39 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _placeList = __webpack_require__(40);
+	var _placeList = __webpack_require__(34);
 
 	var _placeList2 = _interopRequireDefault(_placeList);
 
@@ -1628,7 +1543,7 @@
 	module.exports.PlaceList = _placeList2.default;
 
 /***/ },
-/* 40 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1651,10 +1566,6 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _gridTile = __webpack_require__(41);
-
-	var _gridTile2 = _interopRequireDefault(_gridTile);
-
 	var _slug = __webpack_require__(26);
 
 	var _slug2 = _interopRequireDefault(_slug);
@@ -1667,7 +1578,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(42);
+	var style = __webpack_require__(35);
 
 	var PlaceList = function (_React$Component) {
 	  _inherits(PlaceList, _React$Component);
@@ -1726,18 +1637,15 @@
 	              var categoriesNames = _this2.getCategoryNames(catetoryMap, item.categories);
 	              return _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-4 col-xs-12', key: index },
+	                { className: style.placeCard },
 	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'row' },
+	                  'h1',
+	                  { key: index, className: style[categoriesNames] },
+	                  _this2.getTitle(item, categoriesNames),
 	                  _react2.default.createElement(
-	                    _gridTile2.default,
-	                    { key: index, title: _this2.getTitle(item, categoriesNames), subtitle: _react2.default.createElement(
-	                        'span',
-	                        null,
-	                        categoriesNames
-	                      ), className: style.placeCard },
-	                    _react2.default.createElement('img', { src: '/images/placeholder.png' })
+	                    'span',
+	                    { className: style.subtitle },
+	                    categoriesNames
 	                  )
 	                )
 	              );
@@ -1758,7 +1666,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'row' },
 	        this.renderItems(data, categories)
 	      );
 	    }
@@ -1777,20 +1685,21 @@
 	};
 
 /***/ },
-/* 41 */
-/***/ function(module, exports) {
-
-	module.exports = require("material-ui/lib/grid-list/grid-tile");
-
-/***/ },
-/* 42 */
+/* 35 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"placeCard":"style__placeCard___kUEUP"};
+	module.exports = {"fCenter":"style__fCenter___1UVGi","placeCard":"style__placeCard___kUEUP","vCenter":"style__vCenter___1mU6D","vCenterRel":"style__vCenterRel___u9e_E","hCenter":"style__hCenter___1JvrY","inheritHeight":"style__inheritHeight___1GtAP","hideOverflow":"style__hideOverflow___z7o_0","subtitle":"style__subtitle___1CS09","Autos":"style__Autos___2oWc5","Bar":"style__Bar___38S_t","Comida":"style__Comida___1sGs9","Tienda":"style__Tienda___7z_Yd","Belleza":"style__Belleza___Z_E2U","Salud":"style__Salud___3NTCm","Educacion":"style__Educacion___37EUL","Ejercicio":"style__Ejercicio___3UF1I","Ropa":"style__Ropa___1VvqX","Servicios":"style__Servicios___2MYSk","Entretenimiento":"style__Entretenimiento___2T1yU"};
 
 /***/ },
-/* 43 */
+/* 36 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","categories":"style__categories___1b9mU"};
+
+/***/ },
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1847,7 +1756,7 @@
 	/*eslint-enable */
 
 /***/ },
-/* 44 */
+/* 38 */
 /***/ function(module, exports) {
 
 	"use strict";
