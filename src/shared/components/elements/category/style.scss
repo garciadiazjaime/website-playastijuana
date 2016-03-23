@@ -1,9 +1,15 @@
-.itemWrapper {
-  padding: 0px;
-}
-
-.item {
-  display: block;
-  padding: 16px;
-  margin: -16px;
+@import '../../../theme/constants';
+.active{
+  color: $orange!important;
+  &::after{
+    content: "";
+    width: 0;
+    height: 0;
+    right: 0;
+    position: absolute;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid $orange;
+    top: -5px;
+  }
 }

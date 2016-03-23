@@ -2,8 +2,6 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-import List from 'material-ui/lib/lists/list';
-import ListItem from 'material-ui/lib/lists/list-item';
 import _ from 'lodash';
 
 const style = require('./style.scss');
@@ -17,11 +15,11 @@ export default class CategoryList extends React.Component {
       return data.map((item, index) => {
         const slug = slugUtil(item.name);
         const activeClassName = slug === category ? 'active' : '';
-        return (<ListItem key={index}>
-          <Link to={'/directorio/' + slug} title={item.name} className={style.item + ' ' + activeClassName}>
+        return (<li key={index}>
+          <Link to={'/directorio/' + slug} title={item.name} className={style[activeClassName]}>
             {item.name}
           </Link>
-        </ListItem>);
+        </li>);
       });
     }
     return null;
@@ -30,15 +28,15 @@ export default class CategoryList extends React.Component {
   render() {
     const { data, category } = this.props;
     const activeClassName = category ? '' : 'active';
-    return (<div>
-      <List>
-        <ListItem>
-          <Link to={'/'} title="ver todos" className={style.item + ' ' + activeClassName}>
+    return (<div className="row">
+      <ul>
+        <li>
+          <Link to={'/'} title="ver todos" className={style[activeClassName]}>
             Ver todos
           </Link>
-        </ListItem>
+        </li>
         {this.renderItems(data, category)}
-      </List>
+      </ul>
     </div>);
   }
 }
