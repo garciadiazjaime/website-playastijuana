@@ -112,7 +112,6 @@ if(TARGET === 'build-fe') {
     },
 
     plugins: [
-      new webpack.NoErrorsPlugin(),
       new ExtractTextPlugin("../css/screen.css", {
            allChunks: true
        }),

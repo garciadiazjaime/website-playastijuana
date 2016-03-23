@@ -35,9 +35,9 @@ export default class PlaceList extends React.Component {
   getTitle(data, categoryName) {
     const categorySlug = slugUtil(categoryName);
     const placeSlug = slugUtil(data.name);
-    return (<Link to={'/directorio/' + categorySlug + '/' + placeSlug} title={data.name}>
+    return (<h3><Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categoryName}>
         {data.name}
-      </Link>);
+      </Link></h3>);
   }
 
   renderItems(places, categories) {
@@ -47,8 +47,8 @@ export default class PlaceList extends React.Component {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
         return (<div className="col-sm-4 col-xs-12" key={index}>
           <div className="row">
-            <GridTile key={index} title={this.getTitle(item, categoriesNames)} subtitle={<span>{categoriesNames}</span>} className={style.placeCard}>
-              <img src="/images/placeholder.png" />
+            <GridTile key={index} title={this.getTitle(item, categoriesNames)} subtitle={<h2>{categoriesNames}</h2>} className={style.placeCard}>
+              <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} />
             </GridTile>
           </div>
         </div>);

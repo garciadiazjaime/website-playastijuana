@@ -23,7 +23,7 @@ export default class Block1 extends React.Component {
               <img src={item.image} alt={item.title} />
             </CardMedia>
             <CardText>
-              {item.description}
+              <h4>{item.description}</h4>
             </CardText>
           </Card>
         </div>);
