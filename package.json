@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint",
     "dev": "./node_modules/.bin/webpack-dev-server",
-    "build": "npm run build-be && npm run build-fe",
+    "build": "npm run build-be && npm run build-fe && npm run assets",
     "build-fe": "./node_modules/.bin/webpack",
     "build-be": "./node_modules/.bin/webpack",
     "start": "node dist/server.js",
@@ -14,7 +14,7 @@
     "sprites": "./node_modules/.bin/gulp build:sprites",
     "lint": "./node_modules/.bin/eslint --ignore-pattern **/app-*.js, **/**/sprite.js --ext .js,.jsx src",
     "deploy": "git push openshift HEAD:master",
-    "assets": "cp -rf ./build/** && rm ./build/index.html"
+    "assets": "cp -rf ./build/. ./static/ && rm ./static/index.html"
   },
   "author": "Mint IT Media",
   "license": "ISC",
