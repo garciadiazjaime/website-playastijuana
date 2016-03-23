@@ -34,7 +34,7 @@ export default class PlaceList extends React.Component {
   getTitle(data, categoryName) {
     const categorySlug = slugUtil(categoryName);
     const placeSlug = slugUtil(data.name);
-    return (<Link to={'/directorio/' + categorySlug + '/' + placeSlug} title={data.name}>
+    return (<Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categoryName}>
         {data.name}
       </Link>);
   }
@@ -44,11 +44,16 @@ export default class PlaceList extends React.Component {
       const catetoryMap = this.getCategoryMap(categories);
       return places.slice(0, 21).map((item, index) => {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
-        return (<div className={style.placeCard}>
-            <h1 key={index} className={style[categoriesNames]}>
+        return (<div className={style.placeCard} key={index}>
+            <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} />
+            <h3 key={index} className={style[categoriesNames]}>
               {this.getTitle(item, categoriesNames)}
-              <span className={style.subtitle}>{categoriesNames}</span>
-            </h1>
+            </h3>
+            <h2>
+              <Link to={'/directorio/playas-tijuana/' + categories} title={'Directorio Playas de Tijuana ' + categories}>
+                <span className={style.subtitle}>{categoriesNames}</span>
+              </Link>
+            </h2>
           </div>);
       });
     }

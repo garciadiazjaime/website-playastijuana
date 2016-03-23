@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router';
 const style = require('./style.scss');
 
 
@@ -10,7 +10,7 @@ export default class MainMenu extends React.Component {
     return (<div className="container-fluid">
       <div className={'row ' + style.header}>
         <div className="col-xs-12">
-          <h1>Directorio<span className={style.playami}>Playami</span></h1>
+          <h1><Link to="/" title="Directorio Playas de Tijuana">Directorio<span className={style.playami}>Playami</span></Link></h1>
         </div>
       </div>
     </div>);

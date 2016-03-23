@@ -16,9 +16,11 @@ export default class CategoryList extends React.Component {
         const slug = slugUtil(item.name);
         const activeClassName = slug === category ? 'active' : '';
         return (<li key={index}>
-          <Link to={'/directorio/' + slug} title={item.name} className={style[activeClassName]}>
-            {item.name}
-          </Link>
+          <h2>
+            <Link to={'/directorio/playas-tijuana/' + slug} title={item.name} className={style[activeClassName]}>
+              {item.name}
+            </Link>
+          </h2>
         </li>);
       });
     }
@@ -27,7 +29,7 @@ export default class CategoryList extends React.Component {
 
   render() {
     const { data, category } = this.props;
-    const activeClassName = category ? '' : 'active';
+    const activeClassName = !category ? 'active' : '';
     return (<div className="row">
       <ul>
         <li>

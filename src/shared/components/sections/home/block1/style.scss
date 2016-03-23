@@ -14,72 +14,71 @@
     z-index: -1;
     @include transform(skew(0deg, -5deg));
   }
-  .inner {
-    overflow: visible;
-  }
-  .item {
-    &::before {
-      content: "";
-      position: absolute;
-      width: 400px;
-      height: 85px;
-      left: -25px;
-      top: -25px;
-      background-color: $blue;
-      display: block;
-      z-index: -1;
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      width: 400px;
-      height: 85px;
-      right: -25px;
-      bottom: -25px;
-      background-color: $yellow;
-      display: block;
-      z-index: -1;
-    }
-    .imgContainer {
-      width: 100%;
-      overflow: hidden;
-      img {
-        min-width: 0;
-        max-width: 100000px;
-        min-height: 300px;
-        display: block;
-      }
-    }
-
-  }
-  .controls {
-    background: none!important;
-    opacity: 1;
-  }
-  .prev {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 15px solid $brown;
+}
+.inner {
+  overflow: visible;
+}
+.item {
+  &::before {
+    content: "";
     position: absolute;
+    width: 400px;
+    height: 85px;
     left: -25px;
-    top: 55%;
-    &:hover {
-      border-right-color: $orange;
+    top: -25px;
+    background-color: $blue;
+    display: block;
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 85px;
+    right: -25px;
+    bottom: -25px;
+    background-color: $yellow;
+    display: block;
+    z-index: -1;
+  }
+  .imgContainer {
+    width: 100%;
+    overflow: hidden;
+    img {
+      min-width: 0;
+      max-width: 100000px;
+      min-height: 300px;
+      display: block;
     }
   }
-  .next {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 15px solid $brown;
-    position: absolute;
-    right: -25px;
-    top: 36%;
-    &:hover {
-      border-left-color: $orange;
-    }
+}
+.controls {
+  background: none!important;
+  opacity: 1;
+}
+.prev {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid $brown;
+  position: absolute;
+  left: -25px;
+  top: 55%;
+  &:hover {
+    border-right-color: $orange;
+  }
+}
+.next {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid $brown;
+  position: absolute;
+  right: -25px;
+  top: 36%;
+  &:hover {
+    border-left-color: $orange;
   }
 }
