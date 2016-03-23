@@ -3,7 +3,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import _ from 'lodash';
-import GridTile from 'material-ui/lib/grid-list/grid-tile';
 
 const style = require('./style.scss');
 import slugUtil from '../../../utils/slug';
@@ -35,9 +34,9 @@ export default class PlaceList extends React.Component {
   getTitle(data, categoryName) {
     const categorySlug = slugUtil(categoryName);
     const placeSlug = slugUtil(data.name);
-    return (<h3><Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categoryName}>
+    return (<Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categoryName}>
         {data.name}
-      </Link></h3>);
+      </Link>);
   }
 
   renderItems(places, categories) {
@@ -45,13 +44,17 @@ export default class PlaceList extends React.Component {
       const catetoryMap = this.getCategoryMap(categories);
       return places.slice(0, 21).map((item, index) => {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
-        return (<div className="col-sm-4 col-xs-12" key={index}>
-          <div className="row">
-            <GridTile key={index} title={this.getTitle(item, categoriesNames)} subtitle={<h2>{categoriesNames}</h2>} className={style.placeCard}>
-              <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} />
-            </GridTile>
-          </div>
-        </div>);
+        return (<div className={style.placeCard} key={index}>
+            <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} />
+            <h3 key={index} className={style[categoriesNames]}>
+              {this.getTitle(item, categoriesNames)}
+            </h3>
+            <h2>
+              <Link to={'/directorio/playas-tijuana/' + categories} title={'Directorio Playas de Tijuana ' + categories}>
+                <span className={style.subtitle}>{categoriesNames}</span>
+              </Link>
+            </h2>
+          </div>);
       });
     }
     return null;
@@ -59,7 +62,7 @@ export default class PlaceList extends React.Component {
 
   render() {
     const { data, categories } = this.props;
-    return (<div >
+    return (<div className="row">
       {this.renderItems(data, categories)}
     </div>);
   }

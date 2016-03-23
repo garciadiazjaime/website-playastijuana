@@ -16,14 +16,15 @@ export default class Carousel extends React.Component {
     return null;
   }
 
-  getControls(flag, id) {
+  getControls(flag, id, classes) {
+    const { base, prev, next } = classes;
     if (flag !== false) {
       return (<div>
-          <a className="left carousel-control" href={'#' + id} role="button" data-slide="prev">
+          <a className={'left carousel-control ' + (base || '') + ' ' + (prev || '')} href={'#' + id} role="button" data-slide="prev">
           <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
           <span className="sr-only">Previous</span>
         </a>
-        <a className="right carousel-control" href={'#' + id} role="button" data-slide="next">
+        <a className={'right carousel-control ' + (base || '') + ' ' + (next || '')} href={'#' + id} role="button" data-slide="next">
           <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span className="sr-only">Next</span>
         </a>
@@ -33,14 +34,14 @@ export default class Carousel extends React.Component {
   }
 
   render() {
-    const { id, interval, children, indicators, controls } = this.props;
+    const { id, interval, children, indicators, controls, classes } = this.props;
     return (<div id={id} className="carousel slide" data-ride="carousel" data-interval={interval || 5000}>
-      <div className="carousel-inner" role="listbox">
+      <div className={'carousel-inner ' + (classes.inner || '')} role="listbox">
         { this.getIndicators(children, indicators) }
 
         {children}
 
-        { this.getControls(controls, id) }
+        { this.getControls(controls, id, classes.controls) }
       </div>
     </div>);
   }
@@ -52,4 +53,5 @@ Carousel.propTypes = {
   children: React.PropTypes.any,
   indicators: React.PropTypes.bool,
   controls: React.PropTypes.bool,
+  classes: React.PropTypes.object,
 };
