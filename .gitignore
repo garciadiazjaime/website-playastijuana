@@ -4,3 +4,4 @@ bower_components
 npm-debug.log
 lib/
 dist/
+static/js/app.js

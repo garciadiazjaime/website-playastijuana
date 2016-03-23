@@ -29,8 +29,14 @@ export default class CategoryList extends React.Component {
 
   render() {
     const { data, category } = this.props;
+    const activeClassName = !category ? 'active' : '';
     return (<div className="row">
       <ul>
+        <li>
+          <Link to={'/'} title="ver todos" className={style[activeClassName]}>
+            Ver todos
+          </Link>
+        </li>
         {this.renderItems(data, category)}
       </ul>
     </div>);

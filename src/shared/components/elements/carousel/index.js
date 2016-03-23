@@ -21,11 +21,9 @@ export default class Carousel extends React.Component {
     if (flag !== false) {
       return (<div>
           <a className={'left carousel-control ' + (base || '') + ' ' + (prev || '')} href={'#' + id} role="button" data-slide="prev">
-          <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
           <span className="sr-only">Previous</span>
         </a>
         <a className={'right carousel-control ' + (base || '') + ' ' + (next || '')} href={'#' + id} role="button" data-slide="next">
-          <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span className="sr-only">Next</span>
         </a>
       </div>);
@@ -35,7 +33,7 @@ export default class Carousel extends React.Component {
 
   render() {
     const { id, interval, children, indicators, controls, classes } = this.props;
-    return (<div id={id} className="carousel slide" data-ride="carousel" data-interval={interval || 5000}>
+    return (<div id={id} className="carousel slide container-fluid" data-ride="carousel" data-interval={interval || 5000}>
       <div className={'carousel-inner ' + (classes.inner || '')} role="listbox">
         { this.getIndicators(children, indicators) }
 

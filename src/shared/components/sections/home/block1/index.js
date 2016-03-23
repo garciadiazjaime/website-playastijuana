@@ -15,7 +15,7 @@ export default class Block1 extends React.Component {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
           <div className={style.imgContainer}>
-            <img src={item.image} alt={item.title} />
+            <img src={item.image || '/images/demo.jpg'} alt={item.title} />
             <h3>item.title</h3>
             <h4>{item.description}</h4>
           </div>
