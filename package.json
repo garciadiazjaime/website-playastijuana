@@ -1,6 +1,6 @@
 {
   "name": "website-playastijuana",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mint basic website blueprint",
   "main": "dist/server.js",
   "scripts": {
