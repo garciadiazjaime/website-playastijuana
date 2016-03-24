@@ -58,7 +58,11 @@ if(TARGET === 'dev' || !TARGET) {
     },
 
     plugins: [
+      new webpack.NoErrorsPlugin(),
       new webpack.HotModuleReplacementPlugin(),
+      new webpack.DefinePlugin({
+       'process.env.TIER': JSON.stringify('FE')
+     })
       // new NpmInstallPlugin({
       //   save: true // --save
       // }),

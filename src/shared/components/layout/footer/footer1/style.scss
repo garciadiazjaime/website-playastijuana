@@ -1,13 +1,16 @@
 @import '../../../../theme/constants';
 @import '../../../../theme/wrappers/wrappers';
 .footerWrapper {
-  margin-top: 50px;
+  margin-top: 70px;
+  padding-bottom: 10px;
+  background-color: $green;
 }
 .brand{
-  background-color: $blue;
+  background-color: $teal;
   height: 340px;
   float: right;
   padding: 50px;
+  margin-top: -20px;
   p{
     color: $lightGreen;
     font-size: 15px;
@@ -32,8 +35,9 @@
   font-weight: bold;
   text-align: center;
   font-size: 15px;
+  margin-top: -20px;
   p{
-    color: $blue;
+    color: $teal;
   }
   h2{
     color: $white;
@@ -42,23 +46,23 @@
     &::before{
       font-size: 23px;
       content:"¡";
-      color: $blue;
+      color: $teal;
       font-weight: bold;
-      color: $blue;
+      color: $teal;
     }
     &::after{
       font-size: 23px;
       content:"!";
       font-size: 23px;
       font-weight: bold;
-      color: $blue;
+      color: $teal;
     }
   }
   a{
     display: block;
-    color: $blue;
+    color: $teal;
     &:hover{
-      color: $blueHover;
+      color: $tealHover;
     }
   }
   .facebook{
@@ -83,7 +87,7 @@
   a{
     color: $darkGray;
     &:hover{
-      color: $blue;
+      color: $teal;
     }
   }
   img{

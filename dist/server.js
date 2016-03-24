@@ -92,6 +92,14 @@
 
 	app.use('/api/', _api2.default);
 
+	app.get('/robots.txt', function (req, res) {
+	  res.status(200).send('robots');
+	});
+
+	app.get('/sitemap.xml', function (req, res) {
+	  res.status(200).send('sitemap');
+	});
+
 	app.get('/*', function (req, res) {
 	  (0, _reactRouter.match)({ routes: _routes2.default, location: req.url }, function (error, redirectLocation, renderProps) {
 	    if (error) {
@@ -287,8 +295,8 @@
 	    { path: '/', component: items.component },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: items.default }),
 	    routes,
-	    _react2.default.createElement(_reactRouter.Route, { path: 'directorio/:category', component: items.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'directorio/:category/:place', component: items.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: 'directorio/playas-tijuana/:category', component: items.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'directorio/playas-tijuana/:category/:place', component: items.default })
 	  )
 	);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
@@ -574,6 +582,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(4);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -609,11 +619,15 @@
 	            _react2.default.createElement(
 	              'h1',
 	              null,
-	              'Directorio',
 	              _react2.default.createElement(
-	                'span',
-	                { className: style.playami },
-	                'Playami'
+	                _reactRouter.Link,
+	                { to: '/', title: 'Directorio Playas de Tijuana' },
+	                'Directorio',
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: style.playami },
+	                  'Playami'
+	                )
 	              )
 	            )
 	          )
@@ -774,25 +788,34 @@
 	        'div',
 	        { className: 'row ' + style.brand },
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: style.logo, to: '/inicio' },
-	          _react2.default.createElement('img', { src: '/images/logo_mint.png', alt: 'Mint IT Media' })
+	          'a',
+	          { className: style.logo, href: 'http://mintitmedia.com', title: 'Diseño y Desarrollo Web en Tijuana' },
+	          _react2.default.createElement('img', { src: '/images/logo_mint.png', alt: 'Diseño y Desarrollo Web en Tijuana' })
 	        ),
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          'El equipo de Mint IT Media se enorgullese en poner el',
 	          _react2.default.createElement(
-	            'span',
-	            { className: style.yellow },
-	            ' Directorio'
+	            _reactRouter.Link,
+	            { to: '/', title: 'Directorio de Playas de Tijuana' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: style.yellow },
+	              'Directorio'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: style.white },
+	              'Playami '
+	            )
 	          ),
+	          ' es un producto desarrollado por el equipo de diseño y desarrollo web: ',
 	          _react2.default.createElement(
-	            'span',
-	            { className: style.white },
-	            'Playami '
+	            'a',
+	            { href: 'http://mintitmedia.com', title: 'Mint IT Media' },
+	            'Mint IT Media'
 	          ),
-	          'a disposición de la comunidad de Playas de Tijuana.'
+	          ', para la comunidad de Playas de Tijuana y el público en general.'
 	        )
 	      );
 	    }
@@ -928,7 +951,8 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
 
 	var style = __webpack_require__(19);
 
@@ -961,8 +985,8 @@
 	          { className: 'col-xs-4' },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: 'http://garitacenter.com', target: '_blank' },
-	            _react2.default.createElement('img', { src: '/images/gc_logo.png', alt: 'Garita Center' }),
+	            { to: 'http://garitacenter.com', target: '_blank', title: 'Reporte de Garitas en Tijuana para San Ysidro y Otay' },
+	            _react2.default.createElement('img', { src: '/images/gc_logo.png', alt: 'Reporte de Garitas en Tijuana para San Ysidro y Otay' }),
 	            _react2.default.createElement(
 	              'p',
 	              null,
@@ -975,8 +999,8 @@
 	          { className: 'col-xs-4' },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: 'http://misofertasdetrabajo.com', target: '_blank' },
-	            _react2.default.createElement('img', { src: '/images/modt_logo.png', alt: 'Mis ofertas de trabajo' }),
+	            { to: 'http://misofertasdetrabajo.com', target: '_blank', title: 'Ofertas de Trabajo en Tijuana' },
+	            _react2.default.createElement('img', { src: '/images/modt_logo.png', alt: 'Ofertas de Trabajo en Tijuana' }),
 	            _react2.default.createElement(
 	              'p',
 	              null,
@@ -989,8 +1013,8 @@
 	          { className: 'col-xs-4' },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: 'http://gigplaylist.com', target: '_blank' },
-	            _react2.default.createElement('img', { src: '/images/gp_logo.png', alt: 'Gig playlist' }),
+	            { to: 'http://gigplaylist.com', target: '_blank', title: 'Eventos, conciertos, tokadas, música, ruido en Tijuana' },
+	            _react2.default.createElement('img', { src: '/images/gp_logo.png', alt: 'Eventos, conciertos, tokadas, música, ruido en Tijuana' }),
 	            _react2.default.createElement(
 	              'p',
 	              null,
@@ -1093,15 +1117,15 @@
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(29);
+	var _block3 = __webpack_require__(30);
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _categories = __webpack_require__(37);
+	var _categories = __webpack_require__(38);
 
 	var _categories2 = _interopRequireDefault(_categories);
 
-	var _places = __webpack_require__(38);
+	var _places = __webpack_require__(39);
 
 	var _places2 = _interopRequireDefault(_places);
 
@@ -1137,6 +1161,23 @@
 	      return null;
 	    }
 	  }, {
+	    key: 'getCarouselData',
+	    value: function getCarouselData() {
+	      return [{
+	        image: '/images/demo.jpg',
+	        title: '1O verlay title',
+	        description: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+	      }, {
+	        image: '/images/demo.jpg',
+	        title: '2O verlay title',
+	        description: '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+	      }, {
+	        image: '/images/demo.jpg',
+	        title: '3O verlay title',
+	        description: '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+	      }];
+	    }
+	  }, {
 	    key: 'filterPlacesByCategoryId',
 	    value: function filterPlacesByCategoryId(places, categoryId) {
 	      if (categoryId) {
@@ -1159,7 +1200,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_block2.default, null),
+	        _react2.default.createElement(_block2.default, { data: this.getCarouselData() }),
 	        _react2.default.createElement(_block4.default, { categories: _categories2.default, places: places, category: category, place: place })
 	      );
 	    }
@@ -1225,6 +1266,14 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _lodash = __webpack_require__(25);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _carousel = __webpack_require__(28);
+
+	var _carousel2 = _interopRequireDefault(_carousel);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1233,7 +1282,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(28);
+
+	var style = __webpack_require__(29);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -1245,62 +1295,57 @@
 	  }
 
 	  _createClass(Block1, [{
+	    key: 'renderItems',
+	    value: function renderItems(data) {
+	      if (_lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          var className = index === 0 ? 'active' : '';
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'item ' + className + ' ' + (style.item || ''), key: index },
+	            _react2.default.createElement(
+	              'div',
+	              { className: style.imgContainer },
+	              _react2.default.createElement('img', { src: item.image || '/images/demo.jpg', alt: item.title }),
+	              _react2.default.createElement(
+	                'h3',
+	                null,
+	                item.title
+	              ),
+	              _react2.default.createElement(
+	                'h4',
+	                null,
+	                item.description
+	              )
+	            )
+	          );
+	        });
+	      }
+	      return null;
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var data = this.props.data;
+
+	      var carouselClasses = {
+	        inner: style.inner,
+	        controls: {
+	          base: style.controls,
+	          prev: style.prev,
+	          next: style.next
+	        }
+	      };
 	      return _react2.default.createElement(
 	        'div',
 	        { className: style.feature },
 	        _react2.default.createElement(
 	          'div',
-	          { id: 'carousel-main', className: 'carousel slide container-fluid', 'data-ride': 'carousel', 'data-interval': 8000 },
+	          { className: style.carouselContainer },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'carousel-inner ' + style.inner, role: 'listbox' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'item active ' + style.item },
-	              _react2.default.createElement(
-	                'div',
-	                { className: style.imgContainer },
-	                _react2.default.createElement('img', { src: '/images/demo.jpg' })
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'item ' + style.item },
-	              _react2.default.createElement(
-	                'div',
-	                { className: style.imgContainer },
-	                _react2.default.createElement('img', { src: '/images/demo.jpg' })
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'item ' + style.item },
-	              _react2.default.createElement(
-	                'div',
-	                { className: style.imgContainer },
-	                _react2.default.createElement('img', { src: '/images/demo.jpg' })
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { className: 'left carousel-control ' + style.controls + ' ' + style.prev, href: '#carousel-main', role: 'button', 'data-slide': 'prev' },
-	            _react2.default.createElement(
-	              'span',
-	              { className: 'sr-only' },
-	              'Previous'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { className: 'right carousel-control ' + style.controls + ' ' + style.next, href: '#carousel-main', role: 'button', 'data-slide': 'next' },
-	            _react2.default.createElement(
-	              'span',
-	              { className: 'sr-only' },
-	              'Next'
-	            )
+	            _carousel2.default,
+	            { id: 'main-carousel', interval: 8000, indicators: false, classes: carouselClasses },
+	            this.renderItems(data)
 	          )
 	        )
 	      );
@@ -1312,15 +1357,13 @@
 
 	exports.default = Block1;
 
+
+	Block1.propTypes = {
+	  data: _react2.default.PropTypes.array.isRequired
+	};
+
 /***/ },
 /* 28 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","feature":"style__feature___3zFaz","inner":"style__inner___m2WR-","item":"style__item___1hdp3","imgContainer":"style__imgContainer___1f347","controls":"style__controls___15CM-","prev":"style__prev___KokMH","next":"style__next___2VHzS"};
-
-/***/ },
-/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1335,9 +1378,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _category = __webpack_require__(30);
+	var _lodash = __webpack_require__(25);
 
-	var _place = __webpack_require__(33);
+	var _lodash2 = _interopRequireDefault(_lodash);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1348,7 +1391,140 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(36);
+	var Carousel = function (_React$Component) {
+	  _inherits(Carousel, _React$Component);
+
+	  function Carousel() {
+	    _classCallCheck(this, Carousel);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Carousel).apply(this, arguments));
+	  }
+
+	  _createClass(Carousel, [{
+	    key: 'getIndicators',
+	    value: function getIndicators(data, flag) {
+	      // todo: implement based on bootsrap syntax
+	      if (flag !== false && _lodash2.default.isArray(data) && data.length) {
+	        return data.map(function (item, index) {
+	          return _react2.default.createElement(
+	            'div',
+	            { key: index },
+	            item
+	          );
+	        });
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'getControls',
+	    value: function getControls(flag, id, classes) {
+	      var base = classes.base;
+	      var prev = classes.prev;
+	      var next = classes.next;
+
+	      if (flag !== false) {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'left carousel-control ' + (base || '') + ' ' + (prev || ''), href: '#' + id, role: 'button', 'data-slide': 'prev' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'sr-only' },
+	              'Previous'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'right carousel-control ' + (base || '') + ' ' + (next || ''), href: '#' + id, role: 'button', 'data-slide': 'next' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'sr-only' },
+	              'Next'
+	            )
+	          )
+	        );
+	      }
+	      return null;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var id = _props.id;
+	      var interval = _props.interval;
+	      var children = _props.children;
+	      var indicators = _props.indicators;
+	      var controls = _props.controls;
+	      var classes = _props.classes;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { id: id, className: 'carousel slide container-fluid', 'data-ride': 'carousel', 'data-interval': interval || 5000 },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'carousel-inner ' + (classes.inner || ''), role: 'listbox' },
+	          this.getIndicators(children, indicators),
+	          children,
+	          this.getControls(controls, id, classes.controls)
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Carousel;
+	}(_react2.default.Component);
+
+	exports.default = Carousel;
+
+
+	Carousel.propTypes = {
+	  id: _react2.default.PropTypes.string.isRequired,
+	  interval: _react2.default.PropTypes.number.isRequired,
+	  children: _react2.default.PropTypes.any,
+	  indicators: _react2.default.PropTypes.bool,
+	  controls: _react2.default.PropTypes.bool,
+	  classes: _react2.default.PropTypes.object
+	};
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","prev":"style__prev___KokMH","next":"style__next___2VHzS","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","feature":"style__feature___3zFaz","carouselContainer":"style__carouselContainer___3tYAW","inner":"style__inner___m2WR-","item":"style__item___1hdp3","imgContainer":"style__imgContainer___1f347","controls":"style__controls___15CM-"};
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _category = __webpack_require__(31);
+
+	var _place = __webpack_require__(34);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var style = __webpack_require__(37);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -1403,12 +1579,12 @@
 	};
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _categoryList = __webpack_require__(31);
+	var _categoryList = __webpack_require__(32);
 
 	var _categoryList2 = _interopRequireDefault(_categoryList);
 
@@ -1417,7 +1593,7 @@
 	module.exports.CategoryList = _categoryList2.default;
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1450,7 +1626,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(32);
+	var style = __webpack_require__(33);
 
 	var CategoryList = function (_React$Component) {
 	  _inherits(CategoryList, _React$Component);
@@ -1472,9 +1648,13 @@
 	            'li',
 	            { key: index },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/directorio/' + slug, title: item.name, className: style[activeClassName] },
-	              item.name
+	              'h2',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/directorio/playas-tijuana/' + slug, title: item.name, className: style[activeClassName] },
+	                item.name
+	              )
 	            )
 	          );
 	        });
@@ -1488,7 +1668,7 @@
 	      var data = _props.data;
 	      var category = _props.category;
 
-	      var activeClassName = category ? '' : 'active';
+	      var activeClassName = !category ? 'active' : '';
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'row' },
@@ -1522,19 +1702,19 @@
 	};
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___Awltf","vCenter":"style__vCenter___2LWX6","vCenterRel":"style__vCenterRel___29EI3","hCenter":"style__hCenter___2QtNO","inheritHeight":"style__inheritHeight___c3WLk","hideOverflow":"style__hideOverflow___3AF4T","active":"style__active___2j7T0"};
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _placeList = __webpack_require__(34);
+	var _placeList = __webpack_require__(35);
 
 	var _placeList2 = _interopRequireDefault(_placeList);
 
@@ -1543,7 +1723,7 @@
 	module.exports.PlaceList = _placeList2.default;
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1578,7 +1758,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(35);
+	var style = __webpack_require__(36);
 
 	var PlaceList = function (_React$Component) {
 	  _inherits(PlaceList, _React$Component);
@@ -1620,7 +1800,7 @@
 	      var placeSlug = (0, _slug2.default)(data.name);
 	      return _react2.default.createElement(
 	        _reactRouter.Link,
-	        { to: '/directorio/' + categorySlug + '/' + placeSlug, title: data.name },
+	        { to: '/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug, title: data.name + ' - ' + categoryName },
 	        data.name
 	      );
 	    }
@@ -1637,15 +1817,24 @@
 	              var categoriesNames = _this2.getCategoryNames(catetoryMap, item.categories);
 	              return _react2.default.createElement(
 	                'div',
-	                { className: style.placeCard },
+	                { className: style.placeCard + ' ' + style[categoriesNames], key: index },
+	                _react2.default.createElement('img', { src: '/images/placeholder.png', alt: item.name + ' - ' + categoriesNames }),
 	                _react2.default.createElement(
-	                  'h1',
-	                  { key: index, className: style[categoriesNames] },
-	                  _this2.getTitle(item, categoriesNames),
+	                  'div',
+	                  { className: style.legend + ' ' + style[categoriesNames] },
 	                  _react2.default.createElement(
-	                    'span',
-	                    { className: style.subtitle },
-	                    categoriesNames
+	                    'h2',
+	                    { key: index },
+	                    _this2.getTitle(item, categoriesNames)
+	                  ),
+	                  _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    _react2.default.createElement(
+	                      _reactRouter.Link,
+	                      { to: '/directorio/playas-tijuana/' + categories, title: 'Directorio Playas de Tijuana ' + categories },
+	                      categoriesNames
+	                    )
 	                  )
 	                )
 	              );
@@ -1666,7 +1855,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { className: 'row ' + style.placeContainer },
 	        this.renderItems(data, categories)
 	      );
 	    }
@@ -1685,21 +1874,21 @@
 	};
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1UVGi","placeCard":"style__placeCard___kUEUP","vCenter":"style__vCenter___1mU6D","vCenterRel":"style__vCenterRel___u9e_E","hCenter":"style__hCenter___1JvrY","inheritHeight":"style__inheritHeight___1GtAP","hideOverflow":"style__hideOverflow___z7o_0","subtitle":"style__subtitle___1CS09","Autos":"style__Autos___2oWc5","Bar":"style__Bar___38S_t","Comida":"style__Comida___1sGs9","Tienda":"style__Tienda___7z_Yd","Belleza":"style__Belleza___Z_E2U","Salud":"style__Salud___3NTCm","Educacion":"style__Educacion___37EUL","Ejercicio":"style__Ejercicio___3UF1I","Ropa":"style__Ropa___1VvqX","Servicios":"style__Servicios___2MYSk","Entretenimiento":"style__Entretenimiento___2T1yU"};
+	module.exports = {"fCenter":"style__fCenter___1UVGi","placeCard":"style__placeCard___kUEUP","legend":"style__legend___2Xg5T","vCenter":"style__vCenter___1mU6D","vCenterRel":"style__vCenterRel___u9e_E","hCenter":"style__hCenter___1JvrY","inheritHeight":"style__inheritHeight___1GtAP","hideOverflow":"style__hideOverflow___z7o_0","placeContainer":"style__placeContainer___2pMS3","Autos":"style__Autos___2oWc5","Bar":"style__Bar___38S_t","Comida":"style__Comida___1sGs9","Tienda":"style__Tienda___7z_Yd","Belleza":"style__Belleza___Z_E2U","Salud":"style__Salud___3NTCm","Educacion":"style__Educacion___37EUL","Ejercicio":"style__Ejercicio___3UF1I","Ropa":"style__Ropa___1VvqX","Servicios":"style__Servicios___2MYSk","Entretenimiento":"style__Entretenimiento___2T1yU"};
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","categories":"style__categories___1b9mU"};
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1756,7 +1945,7 @@
 	/*eslint-enable */
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	"use strict";

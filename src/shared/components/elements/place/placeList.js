@@ -34,7 +34,7 @@ export default class PlaceList extends React.Component {
   getTitle(data, categoryName) {
     const categorySlug = slugUtil(categoryName);
     const placeSlug = slugUtil(data.name);
-    return (<Link to={'/directorio/' + categorySlug + '/' + placeSlug} title={data.name}>
+    return (<Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categoryName}>
         {data.name}
       </Link>);
   }
@@ -44,11 +44,18 @@ export default class PlaceList extends React.Component {
       const catetoryMap = this.getCategoryMap(categories);
       return places.slice(0, 21).map((item, index) => {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
-        return (<div className={style.placeCard}>
-            <h1 key={index} className={style[categoriesNames]}>
-              {this.getTitle(item, categoriesNames)}
-              <span className={style.subtitle}>{categoriesNames}</span>
-            </h1>
+        return (<div className={style.placeCard + ' ' + style[categoriesNames]} key={index}>
+            <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} />
+            <div className={style.legend + ' ' + style[categoriesNames]}>
+              <h2 key={index}>
+                {this.getTitle(item, categoriesNames)}
+              </h2>
+              <h3>
+                <Link to={'/directorio/playas-tijuana/' + categories} title={'Directorio Playas de Tijuana ' + categories}>
+                  {categoriesNames}
+                </Link>
+              </h3>
+            </div>
           </div>);
       });
     }
@@ -57,7 +64,7 @@ export default class PlaceList extends React.Component {
 
   render() {
     const { data, categories } = this.props;
-    return (<div className="row">
+    return (<div className={'row ' + style.placeContainer}>
       {this.renderItems(data, categories)}
     </div>);
   }
