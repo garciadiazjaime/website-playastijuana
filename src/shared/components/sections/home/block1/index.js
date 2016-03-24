@@ -16,7 +16,7 @@ export default class Block1 extends React.Component {
         return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
           <div className={style.imgContainer}>
             <img src={item.image || '/images/demo.jpg'} alt={item.title} />
-            <h3>item.title</h3>
+            <h3>{item.title}</h3>
             <h4>{item.description}</h4>
           </div>
         </div>);
@@ -36,9 +36,11 @@ export default class Block1 extends React.Component {
       },
     };
     return (<div className={style.feature}>
-      <Carousel id="main-carousel" interval={8000} indicators={false} classes={carouselClasses}>
-        {this.renderItems(data)}
-      </Carousel>
+      <div className={style.carouselContainer}>
+        <Carousel id="main-carousel" interval={8000} indicators={false} classes={carouselClasses}>
+          {this.renderItems(data)}
+        </Carousel>
+      </div>
     </div>);
   }
 }

@@ -15,10 +15,10 @@
     @include transform(skew(0deg, -5deg));
   }
 }
-.inner {
-  overflow: visible;
-}
-.item {
+.carouselContainer{
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
   &::before {
     content: "";
     position: absolute;
@@ -26,7 +26,7 @@
     height: 85px;
     left: -25px;
     top: -25px;
-    background-color: $blue;
+    background-color: $teal;
     display: block;
     z-index: -1;
   }
@@ -41,6 +41,12 @@
     display: block;
     z-index: -1;
   }
+}
+.inner{
+  overflow: hidden;
+}
+.item {
+  position: relative;
   .imgContainer {
     width: 100%;
     overflow: hidden;
@@ -49,6 +55,27 @@
       max-width: 100000px;
       min-height: 300px;
       display: block;
+    }
+    h3{
+      position: absolute;
+      font-weight: bold;
+      top: 25px;
+      left: 25px;
+      margin: 0;
+      color: $teal;
+      padding: 15px;
+      background-color: $gray;
+    }
+    h4{
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      margin: 0;
+      width: 30%;
+      color: $teal;
+      text-align: right;
+      padding: 15px;
+      background-color: $gray;
     }
   }
 }
@@ -63,8 +90,8 @@
   border-bottom: 15px solid transparent;
   border-right: 15px solid $brown;
   position: absolute;
-  left: -25px;
-  top: 55%;
+  @extend .vCenter;
+  left: 10px;
   &:hover {
     border-right-color: $orange;
   }
@@ -76,8 +103,8 @@
   border-bottom: 15px solid transparent;
   border-left: 15px solid $brown;
   position: absolute;
-  right: -25px;
-  top: 36%;
+  @extend .vCenter;
+  right: 10px!important;
   &:hover {
     border-left-color: $orange;
   }
