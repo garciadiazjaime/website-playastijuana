@@ -9,14 +9,22 @@
 body{
   font-family: 'opensans_regular', sans-serif;
 }
-a:hover {
+a{
+  color: inherit;
+}
+a:hover, a:focus {
   text-decoration: none;
+  color: inherit;
 }
 
 *:focus {outline:0px none transparent;}
 
 .container-fluid{
 	max-width: 1024px;
+  position: relative;
+}
+.row{
+  position: relative;
 }
 
 

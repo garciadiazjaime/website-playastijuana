@@ -1,19 +1,26 @@
 @import '../../../theme/constants';
+.placeContainer{
+  border-left: 2px solid $orange;
+}
 .placeCard {
-  height: 260px !important;
-  width: 260px;
+  height: 230px !important;
+  background-color: $gray;
+  width: 230px;
   position: relative;
   border-radius: 130px;
   display: inline-block;
-  margin: 0 5px 20px;
-  background-image: url('/images/placeholder.png');
-  background-size: cover;
-  h1{
-    font-size: 16px;
-    text-align: center;
+  margin: 0 25px 20px;
+  overflow: hidden;
+  img{
+    max-width: 100%;
+    min-height: 100%;
+    opacity: .3;
+  }
+  .legend {
+    background-color: $teal;
     padding: 15px;
     width: 80%;
-    font-weight: bold;
+    text-align: center;
     @extend .fCenter;
     a {
       color: $white;
@@ -22,82 +29,83 @@
         opacity: 1;
       }
     }
-    .subtitle{
+    h2{
+      font-size: 16px;
+      margin: 0;
+      font-weight: bold;
+    }
+    h3{
       display: block;
       font-size: 12px;
       margin-top: 10px;
+      margin-bottom: 0;
+      font-weight: bold;
     }
   }
   .Autos{
     background-color: $yellow;
-    .subtitle{
+    h3 a{
       color: darken($yellow, 25%);
     }
   }
   .Bar{
     background-color: $orange;
-    .subtitle{
+    h3 a{
       color: darken($orange, 25%);
     }
   }
   .Comida{
-    background-color: $blue;
-    .subtitle{
-      color: darken($blue, 25%);
+    background-color: $teal;
+    h3 a{
+      color: darken($teal, 25%);
     }
   }
   .Tienda{
     background-color: $green;
-    .subtitle{
+    h3 a{
       color: darken($green, 25%);
     }
   }
   .Belleza{
-    background-color: $yellow;
-    .subtitle{
-      color: darken($yellow, 25%);
+    background-color: $pumpkin;
+    h3 a{
+      color: darken($pumpkin, 25%);
     }
   }
   .Salud{
-    background-color: $yellow;
-    .subtitle{
-      color: darken($yellow, 25%);
+    background-color: $purple;
+    h3 a{
+      color: darken($purple, 25%);
     }
   }
   .Educacion{
-    background-color: $green;
-    .subtitle{
-      color: darken($green, 25%);
-    }
-  }
-  .Ejercicio{
-    background-color: $orange;
-    .subtitle{
-      color: darken($orange, 25%);
-    }
-  }
-  .Ropa{
     background-color: $blue;
-    .subtitle{
+    h3 a{
       color: darken($blue, 25%);
     }
   }
+  .Ejercicio{
+    background-color: $lightBlue;
+    h3 a{
+      color: darken($lightBlue, 25%);
+    }
+  }
+  .Ropa{
+    background-color: $pink;
+    h3 a{
+      color: darken($pink, 25%);
+    }
+  }
   .Servicios{
-    background-color: $green;
-    .subtitle{
-      color: darken($green, 25%);
+    background-color: $lemon;
+    h3 a{
+      color: darken($lemon, 25%);
     }
   }
   .Entretenimiento{
-    background-color: $yellow;
-    .subtitle{
-      color: darken($yellow, 25%);
-    }
-  }
-  .Entretenimiento{
-    background-color: $yellow;
-    .subtitle{
-      color: darken($yellow, 25%);
+    background-color: $pine;
+    h3 a{
+      color: darken($pine, 25%);
     }
   }
 
