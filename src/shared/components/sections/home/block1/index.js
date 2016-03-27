@@ -1,6 +1,7 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
 import _ from 'lodash';
+import { Link } from 'react-router';
 
 import Carousel from '../../../elements/carousel';
 
@@ -15,9 +16,9 @@ export default class Block1 extends React.Component {
         const className = index === 0 ? 'active' : '';
         return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
           <div className={style.imgContainer}>
-            <img src={item.image || '/images/demo.jpg'} alt={item.title} />
-            <h3>{item.title}</h3>
-            <h4>{item.description}</h4>
+            <img itemProp="image" src={item.image || '/images/demo.jpg'} alt={item.title} />
+            <h3 itemProp="name"><Link to={item.url} title={item.title}>{item.title}</Link></h3>
+            <h4 itemProp="description">{item.description}</h4>
           </div>
         </div>);
       });
@@ -36,7 +37,7 @@ export default class Block1 extends React.Component {
       },
     };
     return (<div className={style.feature}>
-      <div className={style.carouselContainer}>
+      <div className={style.carouselContainer} itemScope itemType="http://schema.org/LocalBusiness">
         <Carousel id="main-carousel" interval={8000} indicators={false} classes={carouselClasses}>
           {this.renderItems(data)}
         </Carousel>

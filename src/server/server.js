@@ -7,7 +7,6 @@ import bodyParser from 'body-parser';
 import config from '../../config';
 import apiRoutes from './helpers/api';
 import routes from '../shared/config/routes';
-// import routes from '../../build/routes';
 
 const app = express();
 
@@ -22,10 +21,6 @@ app.use(bodyParser.urlencoded({
 app.use(express.static('static'));
 
 app.use('/api/', apiRoutes);
-
-app.get('/robots.txt', (req, res) => {
-  res.status(200).send('robots');
-});
 
 app.get('/sitemap.xml', (req, res) => {
   res.status(200).send('sitemap');

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint",
     "dev": "./node_modules/.bin/webpack-dev-server",
-    "build": "npm run build-be && npm run build-fe && npm run assets",
+    "build": "npm run build-be && npm run build-fe && npm run assets && npm run minify",
     "build-fe": "./node_modules/.bin/webpack",
     "build-be": "./node_modules/.bin/webpack",
     "start": "node dist/server.js",
@@ -14,7 +14,10 @@
     "sprites": "./node_modules/.bin/gulp build:sprites",
     "lint": "./node_modules/.bin/eslint --ignore-pattern **/app-*.js, **/**/sprite.js --ext .js,.jsx src",
     "deploy": "git push openshift HEAD:master",
-    "assets": "cp -rf ./build/. ./static/ && rm ./static/index.html"
+    "assets": "cp -rf ./build/. ./static/ && rm ./static/index.html",
+    "minify-css": "./node_modules/.bin/gulp minify-css",
+    "minify-js": "./node_modules/.bin/gulp minify-js",
+    "minify": "npm run minify-css && npm run minify-js"
   },
   "author": "Mint IT Media",
   "license": "ISC",
@@ -49,7 +52,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/garciadiazjaime/website-boilerplate"
+    "url": "https://github.com/garciadiazjaime/website-playastijuana"
   },
   "private": true
 }

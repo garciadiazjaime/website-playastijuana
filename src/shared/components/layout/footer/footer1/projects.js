@@ -25,7 +25,7 @@ export default class Projects extends React.Component {
         </Link>
       </div>
       <div className="col-xs-4">
-        <Link to="http://gigplaylist.com" target="_blank" title="Eventos, conciertos, tokadas, música, ruido en Tijuana">
+        <Link to="http://mintitmedia.com" target="_blank" title="Eventos, conciertos, tokadas, música, ruido en Tijuana">
           <img src="/images/gp_logo.png" alt="Eventos, conciertos, tokadas, música, ruido en Tijuana" />
           <p>Gig playlist</p>
         </Link>
