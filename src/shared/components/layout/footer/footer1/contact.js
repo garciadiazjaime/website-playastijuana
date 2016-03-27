@@ -18,7 +18,7 @@ export default class FooterTop extends React.Component {
         <Link className={style.facebook} target="_blank" to="http://facebook.com/mintitmedia">/mintitmedia</Link>
       </div>
       <div className="col-xs-12 col-sm-5">
-        <Link to="mailto:mintitmedia.com">info@mintitmedia.com</Link>
+        <Link to="http://mintitmedia.com">info at mintitmedia.com</Link>
         <Link to="phone:6643082240">(664)308-2240</Link>
       </div>
     </div>);

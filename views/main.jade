@@ -1,4 +1,4 @@
-DOCTYPE(html)
+doctype html
 html
   head
     title='Directorio Playas de Tijuana | Autos, Bar, Comida, Tiendas, Educación, Entretenimiento'
@@ -9,13 +9,12 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
     link(href='/images/favicon.ico' rel='shortcut icon' type='image/png')
-    link(href='/libs/bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet' type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css')
-    link(href='/css/base.css' rel='stylesheet' type='text/css')
-    link(href='/css/screen.css' rel='stylesheet' type='text/css')
+    link(href='/css/screen.min.css' rel='stylesheet' type='text/css')
   body
     #app!= content
 
-    script(src='/libs/jquery/jquery.min.js', defer)
-    script(src='/libs/bootstrap/js/bootstrap.min.js', defer)
-    script(src='/js/app.js', defer)
+    script(src='https://code.jquery.com/jquery-2.2.2.min.js', integrity='sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', defer)
+    script(src='/js/app.min.js', defer)
