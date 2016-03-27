@@ -44,14 +44,14 @@ export default class PlaceList extends React.Component {
       const catetoryMap = this.getCategoryMap(categories);
       return places.slice(0, 21).map((item, index) => {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
-        return (<div className={style.placeCard + ' ' + style[categoriesNames]} key={index}>
-            <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} />
+        return (<div className={style.placeCard + ' ' + style[categoriesNames]} key={index} itemScope itemType="http://schema.org/LocalBusiness">
+            <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} itemProp="image" />
             <div className={style.legend + ' ' + style[categoriesNames]}>
-              <h2 key={index}>
+              <h2 key={index} itemProp="name">
                 {this.getTitle(item, categoriesNames)}
               </h2>
               <h3>
-                <Link to={'/directorio/playas-tijuana/' + categories} title={'Directorio Playas de Tijuana ' + categories}>
+                <Link to={'/directorio/playas-tijuana/' + categories} title={'Directorio Playas de Tijuana ' + categories} itemProp="description">
                   {categoriesNames}
                 </Link>
               </h3>

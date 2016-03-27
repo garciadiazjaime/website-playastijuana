@@ -22,10 +22,6 @@ app.use(express.static('static'));
 
 app.use('/api/', apiRoutes);
 
-app.get('/robots.txt', (req, res) => {
-  res.status(200).send('robots');
-});
-
 app.get('/sitemap.xml', (req, res) => {
   res.status(200).send('sitemap');
 });
