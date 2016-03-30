@@ -108,5 +108,28 @@
       color: darken($pine, 25%);
     }
   }
-
+}
+@media#{$isTablet}{
+}
+@media#{$isPhone}{
+  .placeContainer{
+    border-left:none;
+  }
+  .placeCard{
+    height: auto!important;
+    margin: 0 auto 10px;
+    @include border-radius(0);
+    display: block;
+    width: 90%;
+    img{
+      display: none;
+    }
+    .legend{
+      width: 100%;
+      top: 0;
+      left: 0;
+      @include transform(translate(0,0));
+      position: relative;
+    }
+  }
 }

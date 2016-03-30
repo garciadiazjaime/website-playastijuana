@@ -98,4 +98,21 @@
 }
 
 @media #{$isPhone}{
+  .footerWrapper{
+    padding-bottom: 0;
+  }
+  .brand{
+    height: auto;
+    padding: 25px;
+    margin-top: 0;
+  }
+  .contact{
+    height: auto;
+    padding: 25px 0;
+    margin-top: 0;
+  }
+  .projects{
+    height: auto;
+    padding: 25px 0;
+  }
 }
