@@ -17,7 +17,7 @@ export default class CategoryList extends React.Component {
         const activeClassName = slug === category ? 'active' : '';
         return (<li key={index}>
           <h2 itemProp="description">
-            <Link to={'/directorio/playas-tijuana/' + slug} title={item.name} className={style[activeClassName]}>
+            <Link to={'/directorio/playas-tijuana/' + slug} title={item.name} className={style[activeClassName]} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               {item.name}
             </Link>
           </h2>
@@ -30,16 +30,31 @@ export default class CategoryList extends React.Component {
   render() {
     const { data, category } = this.props;
     const activeClassName = !category ? 'active' : '';
-    return (<div className="row">
-      <ul itemScope itemType="http://schema.org/LocalBusiness">
-        <li>
-          <Link to={'/'} title="ver todos" className={style[activeClassName]}>
-            Ver todos
-          </Link>
-        </li>
-        {this.renderItems(data, category)}
-      </ul>
-    </div>);
+    return (<nav className={'navbar ' + style.navbar}>
+    <div className="row">
+      <div className={'navbar-header ' + style.navbar_header}>
+        <button type="button" className={'navbar-toggle collapsed ' + style.navbar_toggle} data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span className="sr-only">Toggle navigation</span>
+          <span className={'icon-bar ' + style.icon_bar}></span>
+          <span className={'icon-bar ' + style.icon_bar}></span>
+          <span className={'icon-bar ' + style.icon_bar}></span>
+        </button>
+        <h2>{category}</h2>
+      </div>
+      <div className={'collapse navbar-collapse ' + style.navbar_collapse} id="bs-example-navbar-collapse-1">
+        <ul className="nav navbar-nav" itemScope itemType="http://schema.org/LocalBusiness">
+          <li>
+            <h2 itemProp="description">
+              <Link to={'/'} title="ver todos" className={style[activeClassName]}>
+                Ver todos
+              </Link>
+            </h2>
+          </li>
+          {this.renderItems(data, category)}
+        </ul>
+      </div>
+    </div>
+    </nav>);
   }
 }
 

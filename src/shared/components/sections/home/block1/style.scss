@@ -59,6 +59,7 @@
     h3{
       position: absolute;
       font-weight: bold;
+      font-size: 23px;
       top: 25px;
       left: 25px;
       margin: 0;
@@ -68,6 +69,7 @@
     }
     h4{
       position: absolute;
+      font-size: 16px;
       bottom: 25px;
       right: 25px;
       margin: 0;
@@ -107,5 +109,41 @@
   right: 10px!important;
   &:hover {
     border-left-color: $orange;
+  }
+}
+@media#{$isTablet}{
+}
+@media#{$isPhone}{
+  .feature{
+    margin: 30px auto;
+  }
+  .carouselContainer{
+    margin: 0 -15px;
+    &::before{
+      left: 0;
+      width: 100%;
+    }
+    &::after{
+      right: 0;
+      width: 100%;
+    }
+  }
+  .item{
+    .imgContainer {
+      h3{
+        top: 5px;
+        left: 5px;
+        padding: 10px;
+        font-size: 16px;
+        max-width: 70%;
+      }
+      h4{
+        bottom: 5px;
+        right: 5px;
+        padding: 10px;
+        font-size: 14px;
+        width: 70%
+      }
+    }
   }
 }
