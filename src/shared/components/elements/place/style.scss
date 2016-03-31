@@ -7,14 +7,13 @@
   background-color: $gray;
   width: 230px;
   position: relative;
-  border-radius: 130px;
+  @include border-radius(130px);
   display: inline-block;
   margin: 0 25px 20px;
   overflow: hidden;
   img{
     max-width: 100%;
     min-height: 100%;
-    opacity: .3;
   }
   .legend {
     background-color: $teal;
