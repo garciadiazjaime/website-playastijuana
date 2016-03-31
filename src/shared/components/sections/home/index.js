@@ -58,7 +58,6 @@ export default class HomeSection extends React.Component {
     const { category, place } = this.props.params;
     const categoryId = this.getCategoryId(CategoriesData, category);
     const places = this.filterPlacesByCategoryId(PlacesData, categoryId);
-
     return (<div>
       <Block1 data={this.getCarouselData()} />
       <Block2 categories={CategoriesData} places={places} category={category} place={place} />

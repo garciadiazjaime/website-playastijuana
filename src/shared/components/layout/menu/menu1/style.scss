@@ -14,7 +14,7 @@
       display: inline-block;
       width: 37px;
       height: 43px;
-      vertical-align: center;
+      vertical-align: middle;
       margin-right: 15px;
     }
   }
@@ -22,4 +22,9 @@
 @media#{$isTablet}{
 }
 @media#{$isPhone}{
+  .header{
+    h1{
+      font-size: 23px;
+    }
+  }
 }

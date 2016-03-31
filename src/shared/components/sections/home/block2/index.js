@@ -13,10 +13,10 @@ export default class Block2 extends React.Component {
 
     return (<div className="container-fluid">
       <div className="row">
-        <div className={'col-sm-2 col-xs-12 ' + style.categories}>
+        <div className={'col-sm-3 col-xs-12 col-md-2 ' + style.categories}>
           <CategoryList data={categories} category={category} />
         </div>
-        <div className={'col-sm-10 col-xs-12 ' + style.results}>
+        <div className="col-sm-9 col-xs-12 col-md-10">
           <PlaceList data={places} categories={categories} />
         </div>
       </div>

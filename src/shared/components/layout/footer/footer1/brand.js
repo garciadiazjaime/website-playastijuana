@@ -14,10 +14,14 @@ export default class Brand extends React.Component {
       <p>
         <Link to="/" title="Directorio de Playas de Tijuana">
           <span className={style.yellow}>Directorio</span>
-          <span className={style.white}>Playami </span>
-        </Link> es un producto desarrollado por el equipo de
-        diseño y desarrollo web: <a href="http://mintitmedia.com" title="Mint IT Media">Mint IT Media</a>,
-        para la comunidad de Playas de Tijuana y el público en general.
+          <span className={style.white}> Playas de Tijuana</span>
+        </Link> es un producto desarrollado por
+        <a href="http://mintitmedia.com" title="Diseño y desarrollo web en Tijuana"> Mint IT Media</a>,
+        para la comunidad de Playas de Tijuana y el público en general.&nbsp;
+        <strong>Directorio de Playas de Tijuana</strong> es un servicio que pone de manera
+        sencilla la información referente a restaruantes, negocios, escuelas
+        ubicados en Playas de Tijuana. Direcotrio Playas de Tijuana no se hace
+        responsable de la información aquí publicada.
       </p>
     </div>);
   }

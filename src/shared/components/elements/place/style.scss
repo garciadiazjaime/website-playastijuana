@@ -7,14 +7,13 @@
   background-color: $gray;
   width: 230px;
   position: relative;
-  border-radius: 130px;
+  @include border-radius(130px);
   display: inline-block;
   margin: 0 25px 20px;
   overflow: hidden;
   img{
     max-width: 100%;
     min-height: 100%;
-    opacity: .3;
   }
   .legend {
     background-color: $teal;
@@ -108,5 +107,28 @@
       color: darken($pine, 25%);
     }
   }
-
+}
+@media#{$isTablet}{
+}
+@media#{$isPhone}{
+  .placeContainer{
+    border-left:none;
+  }
+  .placeCard{
+    height: auto!important;
+    margin: 0 auto 10px;
+    @include border-radius(0);
+    display: block;
+    width: 90%;
+    img{
+      display: none;
+    }
+    .legend{
+      width: 100%;
+      top: 0;
+      left: 0;
+      @include transform(translate(0,0));
+      position: relative;
+    }
+  }
 }

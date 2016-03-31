@@ -17,7 +17,8 @@
     "assets": "cp -rf ./build/. ./static/ && rm ./static/index.html",
     "minify-css": "./node_modules/.bin/gulp minify-css",
     "minify-js": "./node_modules/.bin/gulp minify-js",
-    "minify": "npm run minify-css && npm run minify-js"
+    "clean-minify": "./node_modules/.bin/gulp clean-minify",
+    "minify": "npm run clean-minify && npm run minify-css && npm run minify-js"
   },
   "author": "Mint IT Media",
   "license": "ISC",
