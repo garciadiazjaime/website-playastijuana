@@ -71,13 +71,17 @@ gulp.task('build:sprites', (cb) => {
   runSequence('clean:sprites', 'sprites:generate', ['replace:sprite_url', 'clean:spritejs'], cb);
 });
 
+gulp.task('clean-minify', function() {
+  del(['./static/css/screen.min.css', './static/js/app.min.js']);
+});
+
 gulp.task('minify-css', function() {
-  return gulp.src('static/css/*.css')
+  gulp.src('./static/css/*.css')
     .pipe(cleanCSS({
       compatibility: 'ie8'
     }))
     .pipe(concat('screen.min.css'))
-    .pipe(gulp.dest('static/css'));
+    .pipe(gulp.dest('./static/css'));
 });
 
 gulp.task('minify-js', function() {

@@ -31,10 +31,9 @@ export default class PlaceList extends React.Component {
     return response;
   }
 
-  getTitle(data, categoryName) {
-    const categorySlug = slugUtil(categoryName);
+  getTitle(data, categorySlug) {
     const placeSlug = slugUtil(data.name);
-    return (<Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categoryName}>
+    return (<Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categorySlug}>
         {data.name}
       </Link>);
   }
@@ -42,16 +41,17 @@ export default class PlaceList extends React.Component {
   renderItems(places, categories) {
     if (_.isArray(places) && places.length) {
       const catetoryMap = this.getCategoryMap(categories);
-      return places.slice(0, 21).map((item, index) => {
+      return places.slice(0, 51).map((item, index) => {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
+        const categorySlug = slugUtil(categoriesNames);
         return (<div className={style.placeCard + ' ' + style[categoriesNames]} key={index} itemScope itemType="http://schema.org/LocalBusiness">
             <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} itemProp="image" />
             <div className={style.legend + ' ' + style[categoriesNames]}>
               <h2 key={index} itemProp="name">
-                {this.getTitle(item, categoriesNames)}
+                {this.getTitle(item, categorySlug)}
               </h2>
               <h3>
-                <Link to={'/directorio/playas-tijuana/' + categories} title={'Directorio Playas de Tijuana ' + categories} itemProp="description">
+                <Link to={'/directorio/playas-tijuana/' + categorySlug} title={'Directorio Playas de Tijuana ' + categoriesNames} itemProp="description">
                   {categoriesNames}
                 </Link>
               </h3>

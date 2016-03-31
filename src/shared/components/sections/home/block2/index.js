@@ -16,7 +16,7 @@ export default class Block2 extends React.Component {
         <div className={'col-sm-3 col-xs-12 col-md-2 ' + style.categories}>
           <CategoryList data={categories} category={category} />
         </div>
-        <div className={'col-sm-9 col-xs-12 col-md-10 ' + style.results}>
+        <div className="col-sm-9 col-xs-12 col-md-10">
           <PlaceList data={places} categories={categories} />
         </div>
       </div>
