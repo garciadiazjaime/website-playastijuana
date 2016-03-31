@@ -41,7 +41,7 @@ export default class PlaceList extends React.Component {
   renderItems(places, categories) {
     if (_.isArray(places) && places.length) {
       const catetoryMap = this.getCategoryMap(categories);
-      return places.slice(0, 21).map((item, index) => {
+      return places.slice(0, 51).map((item, index) => {
         const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
         const categorySlug = slugUtil(categoriesNames);
         return (<div className={style.placeCard + ' ' + style[categoriesNames]} key={index} itemScope itemType="http://schema.org/LocalBusiness">

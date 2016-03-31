@@ -25,7 +25,7 @@ export default class CategoryList extends React.Component {
         const activeClassName = slug === category ? 'active' : '';
         return (<li key={index}>
           <h2 itemProp="description">
-            <Link to={'/directorio/playas-tijuana/' + slug} title={item.name} className={style[activeClassName]}>
+            <Link to={'/directorio/playas-tijuana/' + slug} title={'Directorio Playas de Tijuana ' + item.name} className={style[activeClassName]}>
               {item.name}
             </Link>
           </h2>
@@ -53,7 +53,7 @@ export default class CategoryList extends React.Component {
         <ul className="nav navbar-nav" itemScope itemType="http://schema.org/LocalBusiness">
           <li>
             <h2 itemProp="description">
-              <Link to={'/'} title="ver todos" className={style[activeClassName]}>
+              <Link to={'/'} title="Directorio Playas de Tijuana" className={style[activeClassName]}>
                 Ver todos
               </Link>
             </h2>
