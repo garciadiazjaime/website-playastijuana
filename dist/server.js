@@ -76,8 +76,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import routes from '../../build/routes';
-
 	var app = (0, _express2.default)();
 
 	app.set('views', './views');
@@ -91,10 +89,6 @@
 	app.use(_express2.default.static('static'));
 
 	app.use('/api/', _api2.default);
-
-	app.get('/robots.txt', function (req, res) {
-	  res.status(200).send('robots');
-	});
 
 	app.get('/sitemap.xml', function (req, res) {
 	  res.status(200).send('sitemap');
@@ -503,6 +497,7 @@
 	    value: function componentDidMount() {
 	      this.scrollHandler(true);
 	      // window.addEventListener('scroll', this.onScroll, false);
+	      this.googleAnalytics();
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
@@ -523,6 +518,19 @@
 	      } else {
 	        $('#menu_wrapper').removeClass('navbar-fixed-top');
 	      }
+	    }
+	  }, {
+	    key: 'googleAnalytics',
+	    value: function googleAnalytics() {
+	      /*eslint-disable */
+	      (function (i, s, o, g, r, a, m) {
+	        i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
+	          (i[r].q = i[r].q || []).push(arguments);
+	        }, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m);
+	      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	      ga('create', 'UA-75576478-1', 'auto');
+	      ga('send', 'pageview');
+	      /*eslint-enable */
 	    }
 	  }, {
 	    key: 'scrollHandler',
@@ -626,7 +634,7 @@
 	                _react2.default.createElement(
 	                  'span',
 	                  { className: style.playami },
-	                  'Playami'
+	                  ' Playas de Tijuana'
 	                )
 	              )
 	            )
@@ -806,16 +814,22 @@
 	            _react2.default.createElement(
 	              'span',
 	              { className: style.white },
-	              'Playami '
+	              ' Playas de Tijuana'
 	            )
 	          ),
-	          ' es un producto desarrollado por el equipo de diseño y desarrollo web: ',
+	          ' es un producto desarrollado por',
 	          _react2.default.createElement(
 	            'a',
-	            { href: 'http://mintitmedia.com', title: 'Mint IT Media' },
-	            'Mint IT Media'
+	            { href: 'http://mintitmedia.com', title: 'Diseño y desarrollo web en Tijuana' },
+	            ' Mint IT Media'
 	          ),
-	          ', para la comunidad de Playas de Tijuana y el público en general.'
+	          ', para la comunidad de Playas de Tijuana y el público en general. ',
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'Directorio de Playas de Tijuana'
+	          ),
+	          ' es un servicio que pone de manera sencilla la información referente a restaruantes, negocios, escuelas ubicados en Playas de Tijuana. Direcotrio Playas de Tijuana no se hace responsable de la información aquí publicada.'
 	        )
 	      );
 	    }
@@ -882,7 +896,13 @@
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            'Si deseas salir en este directorio, crear tu propio directorio o tienes alguna página o app en mente: '
+	            'Si deseas salir en ',
+	            _react2.default.createElement(
+	              'strong',
+	              null,
+	              'Directorio Playas de Tijuana'
+	            ),
+	            ', crear tu propio directorio o tienes alguna página o app en mente: '
 	          ),
 	          _react2.default.createElement(
 	            'h2',
@@ -907,11 +927,6 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-xs-12 col-sm-5' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'mailto:mintitmedia.com' },
-	            'info@mintitmedia.com'
-	          ),
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: 'phone:6643082240' },
@@ -1013,7 +1028,7 @@
 	          { className: 'col-xs-4' },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: 'http://gigplaylist.com', target: '_blank', title: 'Eventos, conciertos, tokadas, música, ruido en Tijuana' },
+	            { to: 'http://mintitmedia.com', target: '_blank', title: 'Eventos, conciertos, tokadas, música, ruido en Tijuana' },
 	            _react2.default.createElement('img', { src: '/images/gp_logo.png', alt: 'Eventos, conciertos, tokadas, música, ruido en Tijuana' }),
 	            _react2.default.createElement(
 	              'p',
@@ -1166,15 +1181,21 @@
 	      return [{
 	        image: '/images/demo.jpg',
 	        title: '1O verlay title',
-	        description: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+	        description: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	        category: 'bar',
+	        url: '/directorio/playas-tijuana/bar/di-vino-bar'
 	      }, {
 	        image: '/images/demo.jpg',
 	        title: '2O verlay title',
-	        description: '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+	        description: '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	        category: 'bar',
+	        url: '/directorio/playas-tijuana/bar/bar-matt'
 	      }, {
 	        image: '/images/demo.jpg',
 	        title: '3O verlay title',
-	        description: '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+	        description: '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	        category: 'bar',
+	        url: '/directorio/playas-tijuana/bar/la-cerve'
 	      }];
 	    }
 	  }, {
@@ -1196,7 +1217,6 @@
 
 	      var categoryId = this.getCategoryId(_categories2.default, category);
 	      var places = this.filterPlacesByCategoryId(_places2.default, categoryId);
-
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -1270,6 +1290,8 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
+	var _reactRouter = __webpack_require__(4);
+
 	var _carousel = __webpack_require__(28);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
@@ -1306,15 +1328,19 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: style.imgContainer },
-	              _react2.default.createElement('img', { src: item.image || '/images/demo.jpg', alt: item.title }),
+	              _react2.default.createElement('img', { itemProp: 'image', src: item.image || '/images/demo.jpg', alt: item.title }),
 	              _react2.default.createElement(
 	                'h3',
-	                null,
-	                item.title
+	                { itemProp: 'name' },
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: item.url, title: item.title },
+	                  item.title
+	                )
 	              ),
 	              _react2.default.createElement(
 	                'h4',
-	                null,
+	                { itemProp: 'description' },
 	                item.description
 	              )
 	            )
@@ -1341,7 +1367,7 @@
 	        { className: style.feature },
 	        _react2.default.createElement(
 	          'div',
-	          { className: style.carouselContainer },
+	          { className: style.carouselContainer, itemScope: true, itemType: 'http://schema.org/LocalBusiness' },
 	          _react2.default.createElement(
 	            _carousel2.default,
 	            { id: 'main-carousel', interval: 8000, indicators: false, classes: carouselClasses },
@@ -1552,12 +1578,12 @@
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-2 col-xs-12 ' + style.categories },
+	            { className: 'col-sm-3 col-xs-12 col-md-2 ' + style.categories },
 	            _react2.default.createElement(_category.CategoryList, { data: categories, category: category })
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-10 col-xs-12 ' + style.results },
+	            { className: 'col-sm-9 col-xs-12 col-md-10' },
 	            _react2.default.createElement(_place.PlaceList, { data: places, categories: categories })
 	          )
 	        )
@@ -1638,6 +1664,16 @@
 	  }
 
 	  _createClass(CategoryList, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      // this helps to close menu on mobile.
+	      $('#dropdown-categories').click(function () {
+	        if ($('#dropdown-categories-container .navbar-header button').is(':visible')) {
+	          $('#dropdown-categories-container .navbar-header button').click();
+	        }
+	      });
+	    }
+	  }, {
 	    key: 'renderItems',
 	    value: function renderItems(data, category) {
 	      if (_lodash2.default.isArray(data)) {
@@ -1649,10 +1685,10 @@
 	            { key: index },
 	            _react2.default.createElement(
 	              'h2',
-	              null,
+	              { itemProp: 'description' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/directorio/playas-tijuana/' + slug, title: item.name, className: style[activeClassName] },
+	                { to: '/directorio/playas-tijuana/' + slug, title: 'Directorio Playas de Tijuana ' + item.name, className: style[activeClassName] },
 	                item.name
 	              )
 	            )
@@ -1670,21 +1706,54 @@
 
 	      var activeClassName = !category ? 'active' : '';
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'row' },
+	        'nav',
+	        { className: 'navbar ' + style.navbar },
 	        _react2.default.createElement(
-	          'ul',
-	          null,
+	          'div',
+	          { className: 'row', id: 'dropdown-categories-container' },
 	          _react2.default.createElement(
-	            'li',
-	            null,
+	            'div',
+	            { className: 'navbar-header ' + style.navbar_header },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/', title: 'ver todos', className: style[activeClassName] },
-	              'Ver todos'
+	              'button',
+	              { type: 'button', className: 'navbar-toggle collapsed ' + style.navbar_toggle, 'data-toggle': 'collapse', 'data-target': '#dropdown-categories', 'aria-expanded': 'false' },
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'sr-only' },
+	                'Toggle navigation'
+	              ),
+	              _react2.default.createElement('span', { className: 'icon-bar ' + style.icon_bar }),
+	              _react2.default.createElement('span', { className: 'icon-bar ' + style.icon_bar }),
+	              _react2.default.createElement('span', { className: 'icon-bar ' + style.icon_bar })
+	            ),
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              category
 	            )
 	          ),
-	          this.renderItems(data, category)
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'collapse navbar-collapse ' + style.navbar_collapse, id: 'dropdown-categories' },
+	            _react2.default.createElement(
+	              'ul',
+	              { className: 'nav navbar-nav', itemScope: true, itemType: 'http://schema.org/LocalBusiness' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'h2',
+	                  { itemProp: 'description' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/', title: 'Directorio Playas de Tijuana', className: style[activeClassName] },
+	                    'Ver todos'
+	                  )
+	                )
+	              ),
+	              this.renderItems(data, category)
+	            )
+	          )
 	        )
 	      );
 	    }
@@ -1706,7 +1775,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___Awltf","vCenter":"style__vCenter___2LWX6","vCenterRel":"style__vCenterRel___29EI3","hCenter":"style__hCenter___2QtNO","inheritHeight":"style__inheritHeight___c3WLk","hideOverflow":"style__hideOverflow___3AF4T","active":"style__active___2j7T0"};
+	module.exports = {"fCenter":"style__fCenter___Awltf","vCenter":"style__vCenter___2LWX6","vCenterRel":"style__vCenterRel___29EI3","hCenter":"style__hCenter___2QtNO","inheritHeight":"style__inheritHeight___c3WLk","hideOverflow":"style__hideOverflow___3AF4T","navbar":"style__navbar___zSCbK","navbar_header":"style__navbar_header___M3Ixl","navbar_toggle":"style__navbar_toggle___VGUMC","icon_bar":"style__icon_bar___1ebr-","active":"style__active___2j7T0","navbar_collapse":"style__navbar_collapse___3dBpy"};
 
 /***/ },
 /* 34 */
@@ -1795,12 +1864,11 @@
 	    }
 	  }, {
 	    key: 'getTitle',
-	    value: function getTitle(data, categoryName) {
-	      var categorySlug = (0, _slug2.default)(categoryName);
+	    value: function getTitle(data, categorySlug) {
 	      var placeSlug = (0, _slug2.default)(data.name);
 	      return _react2.default.createElement(
 	        _reactRouter.Link,
-	        { to: '/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug, title: data.name + ' - ' + categoryName },
+	        { to: '/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug, title: data.name + ' - ' + categorySlug },
 	        data.name
 	      );
 	    }
@@ -1813,26 +1881,27 @@
 	        var _ret = function () {
 	          var catetoryMap = _this2.getCategoryMap(categories);
 	          return {
-	            v: places.slice(0, 21).map(function (item, index) {
+	            v: places.slice(0, 51).map(function (item, index) {
 	              var categoriesNames = _this2.getCategoryNames(catetoryMap, item.categories);
+	              var categorySlug = (0, _slug2.default)(categoriesNames);
 	              return _react2.default.createElement(
 	                'div',
-	                { className: style.placeCard + ' ' + style[categoriesNames], key: index },
-	                _react2.default.createElement('img', { src: '/images/placeholder.png', alt: item.name + ' - ' + categoriesNames }),
+	                { className: style.placeCard + ' ' + style[categoriesNames], key: index, itemScope: true, itemType: 'http://schema.org/LocalBusiness' },
+	                _react2.default.createElement('img', { src: '/images/placeholder.png', alt: item.name + ' - ' + categoriesNames, itemProp: 'image' }),
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: style.legend + ' ' + style[categoriesNames] },
 	                  _react2.default.createElement(
 	                    'h2',
-	                    { key: index },
-	                    _this2.getTitle(item, categoriesNames)
+	                    { key: index, itemProp: 'name' },
+	                    _this2.getTitle(item, categorySlug)
 	                  ),
 	                  _react2.default.createElement(
 	                    'h3',
 	                    null,
 	                    _react2.default.createElement(
 	                      _reactRouter.Link,
-	                      { to: '/directorio/playas-tijuana/' + categories, title: 'Directorio Playas de Tijuana ' + categories },
+	                      { to: '/directorio/playas-tijuana/' + categorySlug, title: 'Directorio Playas de Tijuana ' + categoriesNames, itemProp: 'description' },
 	                      categoriesNames
 	                    )
 	                  )
