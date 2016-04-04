@@ -13,7 +13,7 @@
   margin-top: -20px;
   p{
     color: $lightGreen;
-    font-size: 15px;
+    font-size: 14px;
     text-align: center;
     .yellow{
       color: $yellow;
@@ -59,7 +59,7 @@
     }
   }
   a{
-    display: block;
+    display: inline-block;;
     color: $teal;
     &:hover{
       color: $tealHover;
@@ -71,7 +71,7 @@
       vertical-align: middle;
       width: 21px;
       height: 22px;
-      background-image: url('/images/fb_icon.png');
+      background-image: url('/images/fb-icon.png');
       position: relative;
       display: inline-block;
       margin-right: 10px;

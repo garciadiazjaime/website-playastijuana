@@ -53,7 +53,7 @@ export default class CategoryList extends React.Component {
         <ul className="nav navbar-nav" itemScope itemType="http://schema.org/LocalBusiness">
           <li>
             <h2 itemProp="description">
-              <Link to={'/'} title="Directorio Playas de Tijuana" className={style[activeClassName]}>
+              <Link to={'/directorio/playas-tijuana'} title="Directorio Playas de Tijuana" className={style[activeClassName]}>
                 Ver todos
               </Link>
             </h2>

@@ -29,7 +29,7 @@ export default class PlaceList extends React.Component {
 
   renderItems(places) {
     if (_.isArray(places) && places.length) {
-      return places.slice(0, 51).map((item, index) => {
+      return places.slice(0, 63).map((item, index) => {
         const categoriesNames = this.getCategoryNames(item.categories);
         const categorySlug = slugUtil(categoriesNames);
         const imageEl = this.getImage(item, categoriesNames);

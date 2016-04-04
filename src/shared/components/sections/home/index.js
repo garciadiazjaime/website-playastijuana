@@ -26,22 +26,22 @@ export default class HomeSection extends React.Component {
   getCarouselData() {
     return [{
       image: '/images/demo.jpg',
-      title: '1O verlay title',
-      description: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      title: 'AKI Sushi De Playas',
+      description: 'El mejor sushi en Playas de Tijuana',
+      category: 'comida',
+      url: '/directorio/playas-tijuana/comida/aki-sushi-de-playas',
+    }, {
+      image: '/images/demo.jpg',
+      title: 'Di Vino bar',
+      description: 'El mejor bar y restaurante en Playas de Tijuana',
       category: 'bar',
       url: '/directorio/playas-tijuana/bar/di-vino-bar',
     }, {
       image: '/images/demo.jpg',
-      title: '2O verlay title',
-      description: '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      title: 'Bar Matt',
+      description: 'El mejor bar en Playas de Tijuana',
       category: 'bar',
       url: '/directorio/playas-tijuana/bar/bar-matt',
-    }, {
-      image: '/images/demo.jpg',
-      title: '3O verlay title',
-      description: '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      category: 'bar',
-      url: '/directorio/playas-tijuana/bar/la-cerve',
     }];
   }
 
