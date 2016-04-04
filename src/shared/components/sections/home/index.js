@@ -48,7 +48,7 @@ export default class HomeSection extends React.Component {
   filterPlacesByCategoryId(places, categoryId) {
     if (categoryId) {
       return places.filter((item) => {
-        return item.categories.indexOf(categoryId) !== -1;
+        return _.isArray(item.categories) && item.categories.length && item.categories[0].id === categoryId;
       });
     }
     return places;
