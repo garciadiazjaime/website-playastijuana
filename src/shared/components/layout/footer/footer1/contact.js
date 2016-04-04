@@ -9,9 +9,12 @@ export default class FooterTop extends React.Component {
   render() {
     return (<div className={'row ' + style.contact}>
       <div className="col-xs-10 col-xs-offset-1">
-        <p>Si deseas salir en <strong>Directorio Playas de Tijuana</strong>,
-        crear tu propio directorio o tienes alguna página o app en mente: </p>
-        <h2>No dudes en contactarnos</h2>
+        <p>Si deseas salir en&nbsp;
+          <Link to="/directorio/playas-tijuana" title="Directorio de Playas de Tijuana">
+            Directorio de Playas de Tijuana
+          </Link>, crear tu propio directorio o tienes alguna página o app en mente:
+        </p>
+        <h2>Contáctanos</h2>
       </div>
       <div className="col-xs-12 col-xs-offset-1 col-sm-5">
         <Link to="http://mintitmedia.com" target="_blank">mintitmedia.com</Link>
