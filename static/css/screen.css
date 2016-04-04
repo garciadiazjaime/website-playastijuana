@@ -53,7 +53,7 @@ body {
     color: #0e888e; }
   .style__header___3oysY h1::before {
     content: "";
-    background-image: url("/images/logo_playami.png");
+    background-image: url("/images/logo-playami.png");
     display: inline-block;
     width: 37px;
     height: 43px;
@@ -123,7 +123,7 @@ body {
   margin-top: -20px; }
   .style__brand___1i--U p {
     color: #8cf2d3;
-    font-size: 15px;
+    font-size: 14px;
     text-align: center; }
     .style__brand___1i--U p .style__yellow___RRjP0 {
       color: #ffc200;
@@ -161,7 +161,7 @@ body {
       font-weight: bold;
       color: #0e888e; }
   .style__contact___2AMMK a {
-    display: block;
+    display: inline-block;
     color: #0e888e; }
     .style__contact___2AMMK a:hover {
       color: #18a0a0; }
@@ -170,7 +170,7 @@ body {
     vertical-align: middle;
     width: 21px;
     height: 22px;
-    background-image: url("/images/fb_icon.png");
+    background-image: url("/images/fb-icon.png");
     position: relative;
     display: inline-block;
     margin-right: 10px; }
