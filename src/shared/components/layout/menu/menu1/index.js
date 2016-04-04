@@ -10,7 +10,7 @@ export default class MainMenu extends React.Component {
     return (<div className="container-fluid">
       <div className={'row ' + style.header}>
         <div className="col-xs-12">
-          <h1><Link to="/" title="Directorio Playas de Tijuana">Directorio<span className={style.playami}> Playas de Tijuana</span></Link></h1>
+          <h1><Link to="/directorio/playas-tijuana" title="Directorio Playas de Tijuana">Directorio<span className={style.playami}> Playas de Tijuana</span></Link></h1>
         </div>
       </div>
     </div>);

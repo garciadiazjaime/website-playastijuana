@@ -9,26 +9,10 @@ import slugUtil from '../../../utils/slug';
 
 
 export default class PlaceList extends React.Component {
-  getCategoryNames(catetoryMap, categories) {
-    const response = [];
-    if (!_.isEmpty(catetoryMap) && _.isArray(categories) && categories.length) {
-      categories.map((item) => {
-        if (catetoryMap[item]) {
-          response.push(catetoryMap[item]);
-        }
-      });
-    }
-    return response.join(' ');
-  }
-
-  getCategoryMap(data) {
-    const response = {};
-    if (_.isArray(data) && data.length) {
-      data.map((item) => {
-        response[item.id] = item.name;
-      });
-    }
-    return response;
+  getCategoryNames(categories) {
+    return categories.map((item) => {
+      return item.name;
+    }).join(' ');
   }
 
   getTitle(data, categorySlug) {
@@ -38,14 +22,19 @@ export default class PlaceList extends React.Component {
       </Link>);
   }
 
-  renderItems(places, categories) {
+  getImage(item, categoriesNames) {
+    const imgUrl = _.isArray(item.image_set) && item.image_set.length ? item.image_set[0].url.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : '/images/placeholder.png';
+    return (<img src={imgUrl} alt={item.name + ' - ' + categoriesNames} itemProp="image" />);
+  }
+
+  renderItems(places) {
     if (_.isArray(places) && places.length) {
-      const catetoryMap = this.getCategoryMap(categories);
-      return places.slice(0, 51).map((item, index) => {
-        const categoriesNames = this.getCategoryNames(catetoryMap, item.categories);
+      return places.slice(0, 63).map((item, index) => {
+        const categoriesNames = this.getCategoryNames(item.categories);
         const categorySlug = slugUtil(categoriesNames);
+        const imageEl = this.getImage(item, categoriesNames);
         return (<div className={style.placeCard + ' ' + style[categoriesNames]} key={index} itemScope itemType="http://schema.org/LocalBusiness">
-            <img src="/images/placeholder.png" alt={item.name + ' - ' + categoriesNames} itemProp="image" />
+            {imageEl}
             <div className={style.legend + ' ' + style[categoriesNames]}>
               <h2 key={index} itemProp="name">
                 {this.getTitle(item, categorySlug)}
@@ -63,9 +52,9 @@ export default class PlaceList extends React.Component {
   }
 
   render() {
-    const { data, categories } = this.props;
+    const { data } = this.props;
     return (<div className={'row ' + style.placeContainer}>
-      {this.renderItems(data, categories)}
+      {this.renderItems(data)}
     </div>);
   }
 }
