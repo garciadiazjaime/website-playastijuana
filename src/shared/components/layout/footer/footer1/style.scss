@@ -84,6 +84,9 @@
   text-align: center;
   color: $darkGray;
   padding-top: 15px;
+  p{
+    margin-bottom: 0;
+  }
   a{
     color: $darkGray;
     &:hover{
@@ -92,11 +95,29 @@
   }
   img{
     display: block;
-    margin: 0 auto;
+    margin: 10px auto 0;
     padding-bottom: 15px;
   }
 }
-
+.about{
+  background: $yellow;
+  padding: 50px;
+  font-size: 15px;
+  font-weight: Normal;
+  color: $teal;
+  h2{
+    font-size: 22px;
+    color: $orange;
+    margin-top:0;
+    margin-bottom: 25px;
+  }
+  a{
+    font-weight: Bold;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
 @media #{$isPhone}{
   .footerWrapper{
     padding-bottom: 0;

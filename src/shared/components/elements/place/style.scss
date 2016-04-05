@@ -3,26 +3,19 @@
   border-left: 2px solid $orange;
 }
 .placeCard {
-  height: 230px !important;
-  background-color: $gray;
-  width: 230px;
   position: relative;
-  @include border-radius(130px);
-  display: inline-block;
-  margin: 0 25px 20px;
-  overflow: hidden;
+  border-bottom: 1px solid $gray;
+  padding-bottom: 20px;
+  margin: 0 0 30px 20px ;
   img{
-    max-width: 100%;
-    min-height: 100%;
+    width: 120px;
+    height: 120px;
   }
   .legend {
-    background-color: $teal;
+    display: inline-block;
     padding: 15px;
-    width: 80%;
-    text-align: center;
-    @extend .fCenter;
+    text-align: left;
     a {
-      color: $white;
       opacity: .8;
       &:hover{
         opacity: 1;
@@ -41,68 +34,156 @@
       font-weight: bold;
     }
   }
-  .Autos{
-    background-color: $yellow;
+}
+.Autos{
+  border-bottom-color: $yellow;
+  img{
+    border: 1px solid $yellow;
+  }
+  .legend{
+    a{
+      color: $yellow;
+    }
     h3 a{
       color: darken($yellow, 25%);
     }
   }
-  .Bar{
-    background-color: $orange;
+}
+.Bar{
+  border-bottom-color: $orange;
+  img{
+    border: 1px solid $orange;
+  }
+  .legend{
+    a{
+      color: $orange;
+    }
     h3 a{
       color: darken($orange, 25%);
     }
   }
-  .Comida{
-    background-color: $teal;
+}
+.Comida{
+  border-bottom-color: $teal;
+  img{
+    border: 1px solid $teal;
+  }
+  .legend{
+    a{
+      color: $teal;
+    }
     h3 a{
       color: darken($teal, 25%);
     }
   }
-  .Tienda{
-    background-color: $green;
+}
+.Tienda{
+  border-bottom-color: $green;
+  img{
+    border: 1px solid $green;
+  }
+  .legend{
+    a{
+      color: $green;
+    }
     h3 a{
       color: darken($green, 25%);
     }
   }
-  .Belleza{
-    background-color: $pumpkin;
+}
+.Belleza{
+  border-bottom-color: $pumpkin;
+  img{
+    border: 1px solid $pumpkin;
+  }
+  .legend{
+    a{
+      color: $pumpkin;
+    }
     h3 a{
       color: darken($pumpkin, 25%);
     }
   }
-  .Salud{
-    background-color: $purple;
+}
+.Salud{
+  border-bottom-color: $purple;
+  img{
+    border: 1px solid $purple;
+  }
+  .legend{
+    a{
+      color: $purple;
+    }
     h3 a{
       color: darken($purple, 25%);
     }
   }
-  .Educacion{
-    background-color: $blue;
+}
+.Educacion{
+  border-bottom-color: $blue;
+  img{
+    border: 1px solid $blue;
+  }
+  .legend{
+    a{
+      color: $blue;
+    }
     h3 a{
       color: darken($blue, 25%);
     }
   }
-  .Ejercicio{
-    background-color: $lightBlue;
+}
+.Ejercicio{
+  border-bottom-color: $lightBlue;
+  img{
+    border: 1px solid $lightBlue;
+  }
+  .legend{
+    a{
+      color: $lightBlue;
+    }
     h3 a{
       color: darken($lightBlue, 25%);
     }
   }
-  .Ropa{
-    background-color: $pink;
+}
+.Ropa{
+  border-bottom-color: $pink;
+  img{
+    border: 1px solid $pink;
+  }
+  .legend{
+    a{
+      color: $pink;
+    }
     h3 a{
       color: darken($pink, 25%);
     }
   }
-  .Servicios{
-    background-color: $lemon;
+}
+.Servicios{
+  border-bottom-color: $lemon;
+  img{
+    border: 1px solid $lemon;
+  }
+  .legend{
+    a{
+      color: $lemon;
+    }
     h3 a{
       color: darken($lemon, 25%);
     }
   }
-  .Entretenimiento{
-    background-color: $pine;
+}
+.Entretenimiento{
+  border-bottom-color: $pine;
+  img{
+    border: 1px solid $pine;
+  }
+  .legend{
+    a{
+      color: $pine;
+    }
     h3 a{
       color: darken($pine, 25%);
     }
@@ -120,15 +201,15 @@
     @include border-radius(0);
     display: block;
     width: 90%;
-    img{
-      display: none;
-    }
     .legend{
-      width: 100%;
-      top: 0;
-      left: 0;
-      @include transform(translate(0,0));
-      position: relative;
+      width: 230px;
+      vertical-align: top;
+    }
+    img{
+      width: 50px;
+      height: 50px;
+      margin-top: 15px;
+      vertical-align: top;
     }
   }
 }
