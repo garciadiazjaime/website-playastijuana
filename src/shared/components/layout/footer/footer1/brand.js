@@ -20,13 +20,6 @@ export default class Brand extends React.Component {
         <a href="http://mintitmedia.com" title="Diseño y desarrollo web en Tijuana" target="_blank">
           Mint IT Media
         </a>, para la comunidad de Playas de Tijuana y el público en general.&nbsp;
-        <Link to="/directorio/playas-tijuana" title="Directorio de Playas de Tijuana">
-          Directorio de Playas de Tijuana
-        </Link> es un servicio que publica de manera sencilla la información referente a restaurantes, negocios, escuelas
-        ubicados en Playas de Tijuana.&nbsp;
-        <Link to="/directorio/playas-tijuana" title="Directorio de Playas de Tijuana">
-          Direcotrio Playas de Tijuana
-        </Link> no se hace responsable de la información aquí publicada.
       </p>
     </div>);
   }

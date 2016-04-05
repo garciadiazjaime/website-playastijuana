@@ -35,7 +35,7 @@ export default class PlaceList extends React.Component {
         const imageEl = this.getImage(item, categoriesNames);
         return (<div className={style.placeCard + ' ' + style[categoriesNames]} key={index} itemScope itemType="http://schema.org/LocalBusiness">
             {imageEl}
-            <div className={style.legend + ' ' + style[categoriesNames]}>
+            <div className={style.legend}>
               <h2 key={index} itemProp="name">
                 {this.getTitle(item, categorySlug)}
               </h2>
