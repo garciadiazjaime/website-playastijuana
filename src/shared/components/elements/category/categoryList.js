@@ -21,7 +21,7 @@ export default class CategoryList extends React.Component {
   renderItems(data, category) {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
-        const slug = slugUtil(item.name);
+        const slug = slugUtil(item.plural);
         const activeClassName = slug === category ? 'active' : '';
         return (<li key={index}>
           <h2 itemProp="description">
