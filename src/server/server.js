@@ -34,8 +34,7 @@ app.get('/*', function (req, res) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (renderProps) {
       const content = renderToString(<RoutingContext {...renderProps} />);
-      res.render('main', { content });
-      // res.status(200).send(renderToString(<RoutingContext {...renderProps} />))
+      res.render('index', { content });
     } else {
       res.status(404).send('Not found');
     }
