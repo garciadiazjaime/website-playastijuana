@@ -19,14 +19,14 @@ export default class CategoryList extends React.Component {
   }
 
   renderItems(data, category) {
-    if (_.isArray(data)) {
+    if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
-        const slug = slugUtil(item.name);
+        const slug = slugUtil(item.plural);
         const activeClassName = slug === category ? 'active' : '';
         return (<li key={index}>
           <h2 itemProp="description">
-            <Link to={'/directorio/playas-tijuana/' + slug} title={'Directorio Playas de Tijuana ' + item.name} className={style[activeClassName]}>
-              {item.name}
+            <Link to={'/directorio/playas-tijuana/' + slug} title={'Directorio Playas de Tijuana ' + item.plural} className={style[activeClassName]}>
+              {item.plural}
             </Link>
           </h2>
         </li>);

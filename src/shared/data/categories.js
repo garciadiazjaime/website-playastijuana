@@ -1,47 +1,48 @@
 /*eslint-disable */
 export default [{
-  "id": 1,
-  "name": "Autos",
-  "slug": "autos",
+  "id": 3,
+  "name": "Restaurante",
+  "plural": "Restaurantes",
+  "position": 0
+}, {
+  "id": 7,
+  "name": "Escuela",
+  "plural": "Escuelas",
+  "position": 1
 }, {
   "id": 2,
   "name": "Bar",
-  "slug": "bar",
-}, {
-  "id": 3,
-  "name": "Comida",
-  "slug": "comida",
+  "plural": "Bares",
+  "position": 2
 }, {
   "id": 4,
-  "name": "Tienda",
-  "slug": "tienda",
+  "name": "Negocio",
+  "plural": "Negocios",
+  "position": 3
 }, {
-  "id": 5,
-  "name": "Belleza",
-  "slug": "belleza",
-}, {
-  "id": 6,
-  "name": "Salud",
-  "slug": "salud",
-}, {
-  "id": 7,
-  "name": "Educación",
-  "slug": "educacion",
+  "id": 1,
+  "name": "Autos",
+  "plural": "Autos",
+  "position": 4
 }, {
   "id": 8,
   "name": "Ejercicio",
-  "slug": "ejercicio",
+  "plural": "Ejercicio",
+  "position": 5
 }, {
-  "id": 9,
-  "name": "Ropa",
-  "slug": "ropa",
+  "id": 6,
+  "name": "Salud",
+  "plural": "Salud",
+  "position": 6
+}, {
+  "id": 5,
+  "name": "Belleza",
+  "plural": "Belleza",
+  "position": 7
 }, {
   "id": 10,
   "name": "Servicios",
-  "slug": "servicios",
-}, {
-  "id": 11,
-  "name": "Entretenimiento",
-  "slug": "entretenimiento",
+  "plural": "Servicios",
+  "position": 8
 }];
 /*eslint-enable */

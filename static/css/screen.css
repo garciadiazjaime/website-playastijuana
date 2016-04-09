@@ -181,14 +181,32 @@ body {
   text-align: center;
   color: #999182;
   padding-top: 15px; }
+  .style__projects___2bCs6 p {
+    margin-bottom: 0; }
   .style__projects___2bCs6 a {
     color: #999182; }
     .style__projects___2bCs6 a:hover {
       color: #0e888e; }
   .style__projects___2bCs6 img {
     display: block;
-    margin: 0 auto;
+    margin: 10px auto 0;
     padding-bottom: 15px; }
+
+.style__about___vuj9k {
+  background: #ffc200;
+  padding: 50px;
+  font-size: 15px;
+  font-weight: Normal;
+  color: #0e888e; }
+  .style__about___vuj9k h2 {
+    font-size: 22px;
+    color: #f45f2e;
+    margin-top: 0;
+    margin-bottom: 25px; }
+  .style__about___vuj9k a {
+    font-weight: Bold; }
+    .style__about___vuj9k a:hover {
+      text-decoration: underline; }
 
 @media only screen and (max-width: 767px) {
   .style__footerWrapper___zbtoF {
@@ -435,7 +453,8 @@ body {
     color: #0e888e;
     font-size: 23px;
     margin-top: 12px;
-    margin-left: 20px; }
+    margin-left: 20px;
+    text-transform: capitalize; }
 
 .style__navbar_toggle___VGUMC {
   margin-right: 0; }
@@ -482,7 +501,7 @@ body {
     background: #e0dccd; }
     .style__navbar_collapse___3dBpy li {
       padding-left: 35px; } }
-.style__fCenter___1UVGi, .style__placeCard___kUEUP .style__legend___2Xg5T {
+.style__fCenter___1UVGi {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -532,27 +551,18 @@ body {
   border-left: 2px solid #f45f2e; }
 
 .style__placeCard___kUEUP {
-  height: 230px !important;
-  background-color: #e0dccd;
-  width: 230px;
   position: relative;
-  -webkit-border-radius: 130px;
-  -moz-border-radius: 130px;
-  -ms-border-radius: 130px;
-  border-radius: 130px;
-  display: inline-block;
-  margin: 0 25px 20px;
-  overflow: hidden; }
+  border-bottom: 1px solid #e0dccd;
+  padding-bottom: 20px;
+  margin: 0 0 30px 20px; }
   .style__placeCard___kUEUP img {
-    max-width: 100%;
-    min-height: 100%; }
+    width: 120px;
+    height: 120px; }
   .style__placeCard___kUEUP .style__legend___2Xg5T {
-    background-color: #0e888e;
+    display: inline-block;
     padding: 15px;
-    width: 80%;
-    text-align: center; }
+    text-align: left; }
     .style__placeCard___kUEUP .style__legend___2Xg5T a {
-      color: #fff;
       opacity: .8; }
       .style__placeCard___kUEUP .style__legend___2Xg5T a:hover {
         opacity: 1; }
@@ -566,50 +576,105 @@ body {
       margin-top: 10px;
       margin-bottom: 0;
       font-weight: bold; }
-  .style__placeCard___kUEUP .style__Autos___2oWc5 {
-    background-color: #ffc200; }
-    .style__placeCard___kUEUP .style__Autos___2oWc5 h3 a {
-      color: #806100; }
-  .style__placeCard___kUEUP .style__Bar___38S_t {
-    background-color: #f45f2e; }
-    .style__placeCard___kUEUP .style__Bar___38S_t h3 a {
-      color: #9a2c08; }
-  .style__placeCard___kUEUP .style__Comida___1sGs9 {
-    background-color: #0e888e; }
-    .style__placeCard___kUEUP .style__Comida___1sGs9 h3 a {
-      color: #03191a; }
-  .style__placeCard___kUEUP .style__Tienda___7z_Yd {
-    background-color: #66d3b4; }
-    .style__placeCard___kUEUP .style__Tienda___7z_Yd h3 a {
-      color: #299073; }
-  .style__placeCard___kUEUP .style__Belleza___Z_E2U {
-    background-color: #f28c30; }
-    .style__placeCard___kUEUP .style__Belleza___Z_E2U h3 a {
-      color: #994e0a; }
-  .style__placeCard___kUEUP .style__Salud___3NTCm {
-    background-color: #a83f92; }
-    .style__placeCard___kUEUP .style__Salud___3NTCm h3 a {
-      color: #4b1c41; }
-  .style__placeCard___kUEUP .style__Educacion___37EUL {
-    background-color: #126ab2; }
-    .style__placeCard___kUEUP .style__Educacion___37EUL h3 a {
-      color: #06253e; }
-  .style__placeCard___kUEUP .style__Ejercicio___3UF1I {
-    background-color: #3b9de0; }
-    .style__placeCard___kUEUP .style__Ejercicio___3UF1I h3 a {
-      color: #155886; }
-  .style__placeCard___kUEUP .style__Ropa___1VvqX {
-    background-color: #d33c60; }
-    .style__placeCard___kUEUP .style__Ropa___1VvqX h3 a {
-      color: #751a30; }
-  .style__placeCard___kUEUP .style__Servicios___2MYSk {
-    background-color: #bfc936; }
-    .style__placeCard___kUEUP .style__Servicios___2MYSk h3 a {
-      color: #60651b; }
-  .style__placeCard___kUEUP .style__Entretenimiento___2T1yU {
-    background-color: #5bb222; }
-    .style__placeCard___kUEUP .style__Entretenimiento___2T1yU h3 a {
-      color: #24470e; }
+
+.style__Autos___2oWc5 {
+  border-bottom-color: #ffc200; }
+  .style__Autos___2oWc5 img {
+    border: 1px solid #ffc200; }
+  .style__Autos___2oWc5 .style__legend___2Xg5T a {
+    color: #ffc200; }
+  .style__Autos___2oWc5 .style__legend___2Xg5T h3 a {
+    color: #806100; }
+
+.style__Bar___38S_t {
+  border-bottom-color: #f45f2e; }
+  .style__Bar___38S_t img {
+    border: 1px solid #f45f2e; }
+  .style__Bar___38S_t .style__legend___2Xg5T a {
+    color: #f45f2e; }
+  .style__Bar___38S_t .style__legend___2Xg5T h3 a {
+    color: #9a2c08; }
+
+.style__Comida___1sGs9 {
+  border-bottom-color: #0e888e; }
+  .style__Comida___1sGs9 img {
+    border: 1px solid #0e888e; }
+  .style__Comida___1sGs9 .style__legend___2Xg5T a {
+    color: #0e888e; }
+  .style__Comida___1sGs9 .style__legend___2Xg5T h3 a {
+    color: #03191a; }
+
+.style__Tienda___7z_Yd {
+  border-bottom-color: #66d3b4; }
+  .style__Tienda___7z_Yd img {
+    border: 1px solid #66d3b4; }
+  .style__Tienda___7z_Yd .style__legend___2Xg5T a {
+    color: #66d3b4; }
+  .style__Tienda___7z_Yd .style__legend___2Xg5T h3 a {
+    color: #299073; }
+
+.style__Belleza___Z_E2U {
+  border-bottom-color: #f28c30; }
+  .style__Belleza___Z_E2U img {
+    border: 1px solid #f28c30; }
+  .style__Belleza___Z_E2U .style__legend___2Xg5T a {
+    color: #f28c30; }
+  .style__Belleza___Z_E2U .style__legend___2Xg5T h3 a {
+    color: #994e0a; }
+
+.style__Salud___3NTCm {
+  border-bottom-color: #a83f92; }
+  .style__Salud___3NTCm img {
+    border: 1px solid #a83f92; }
+  .style__Salud___3NTCm .style__legend___2Xg5T a {
+    color: #a83f92; }
+  .style__Salud___3NTCm .style__legend___2Xg5T h3 a {
+    color: #4b1c41; }
+
+.style__Educacion___37EUL {
+  border-bottom-color: #126ab2; }
+  .style__Educacion___37EUL img {
+    border: 1px solid #126ab2; }
+  .style__Educacion___37EUL .style__legend___2Xg5T a {
+    color: #126ab2; }
+  .style__Educacion___37EUL .style__legend___2Xg5T h3 a {
+    color: #06253e; }
+
+.style__Ejercicio___3UF1I {
+  border-bottom-color: #3b9de0; }
+  .style__Ejercicio___3UF1I img {
+    border: 1px solid #3b9de0; }
+  .style__Ejercicio___3UF1I .style__legend___2Xg5T a {
+    color: #3b9de0; }
+  .style__Ejercicio___3UF1I .style__legend___2Xg5T h3 a {
+    color: #155886; }
+
+.style__Ropa___1VvqX {
+  border-bottom-color: #d33c60; }
+  .style__Ropa___1VvqX img {
+    border: 1px solid #d33c60; }
+  .style__Ropa___1VvqX .style__legend___2Xg5T a {
+    color: #d33c60; }
+  .style__Ropa___1VvqX .style__legend___2Xg5T h3 a {
+    color: #751a30; }
+
+.style__Servicios___2MYSk {
+  border-bottom-color: #bfc936; }
+  .style__Servicios___2MYSk img {
+    border: 1px solid #bfc936; }
+  .style__Servicios___2MYSk .style__legend___2Xg5T a {
+    color: #bfc936; }
+  .style__Servicios___2MYSk .style__legend___2Xg5T h3 a {
+    color: #60651b; }
+
+.style__Entretenimiento___2T1yU {
+  border-bottom-color: #5bb222; }
+  .style__Entretenimiento___2T1yU img {
+    border: 1px solid #5bb222; }
+  .style__Entretenimiento___2T1yU .style__legend___2Xg5T a {
+    color: #5bb222; }
+  .style__Entretenimiento___2T1yU .style__legend___2Xg5T h3 a {
+    color: #24470e; }
 
 @media only screen and (max-width: 767px) {
   .style__placeContainer___2pMS3 {
@@ -623,18 +688,14 @@ body {
     border-radius: 0;
     display: block;
     width: 90%; }
-    .style__placeCard___kUEUP img {
-      display: none; }
     .style__placeCard___kUEUP .style__legend___2Xg5T {
-      width: 100%;
-      top: 0;
-      left: 0;
-      -moz-transform: translate(0, 0);
-      -o-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-      -webkit-transform: translate(0, 0);
-      transform: translate(0, 0);
-      position: relative; } }
+      width: 230px;
+      vertical-align: top; }
+    .style__placeCard___kUEUP img {
+      width: 50px;
+      height: 50px;
+      margin-top: 15px;
+      vertical-align: top; } }
 .style__fCenter___ByilZ {
   position: absolute;
   top: 50%;
