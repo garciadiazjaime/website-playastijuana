@@ -14,9 +14,10 @@ export default class Block1 extends React.Component {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const className = index === 0 ? 'active' : '';
+        const imgUrl = item.image && item.image.length ? item.image.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : '/images/demo.png';
         return (<div className={'item ' + className + ' ' + (style.item || '')} key={index}>
           <div className={style.imgContainer}>
-            <img itemProp="image" src={item.image || '/images/demo.jpg'} alt={item.description} />
+            <img itemProp="image" src={imgUrl} alt={item.description} />
             <h3 itemProp="name"><Link to={item.url} title={item.title}>{item.title}</Link></h3>
             <h4 itemProp="description">{item.description}</h4>
           </div>

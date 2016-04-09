@@ -18,7 +18,7 @@ export default class PlaceList extends React.Component {
   getTitle(data, categorySlug) {
     const placeSlug = slugUtil(data.name);
     return (<Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categorySlug}>
-        {data.name}
+        {data.name.toUpperCase()}
       </Link>);
   }
 
@@ -64,9 +64,9 @@ export default class PlaceList extends React.Component {
 
   renderItems(places) {
     if (_.isArray(places) && places.length) {
-      return places.slice(0, 63).map((item, index) => {
+      return places.slice(0, 70).map((item, index) => {
         const { category, categoryId } = item;
-        const categorySlug = slugUtil(category);
+        const categorySlug = slugUtil(category.plural);
         const imageEl = this.getImage(item, category);
         const links = this.getLinks(item);
         return (<div className={style.placeCard + ' category_' + categoryId} key={index} itemScope itemType="http://schema.org/LocalBusiness">
