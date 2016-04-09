@@ -11,9 +11,9 @@ export default class Projects extends React.Component {
     return (<div className={'row ' + style.projects}>
       <div className="col-xs-12">
         <p>
-          Projectos hermanos de&nbsp;
+          Proyectos hermanos de&nbsp;
           <Link to="/directorio/playas-tijuana" title="Directorio de Playas de Tijuana">
-            Directorio de Playas de Tijuana
+            Directorio Playas de Tijuana
           </Link>
         </p>
       </div>
