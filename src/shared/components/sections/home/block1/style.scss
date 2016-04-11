@@ -59,13 +59,13 @@
     h3{
       position: absolute;
       font-weight: bold;
-      font-size: 23px;
+      font-size: 30px;
       top: 25px;
       left: 25px;
       margin: 0;
-      color: $teal;
+      color: $white;
+      text-shadow: 2px 2px 6px $black;
       padding: 15px;
-      background-color: $gray;
     }
     h4{
       position: absolute;
@@ -73,11 +73,14 @@
       bottom: 25px;
       right: 25px;
       margin: 0;
-      width: 30%;
-      color: $teal;
+      width: 50%;
+      color: $white;
+      text-shadow: 2px 2px 6px $black;
       text-align: right;
       padding: 15px;
-      background-color: $gray;
+      br{
+        line-height: 30px;
+      }
     }
   }
 }
@@ -90,12 +93,14 @@
   height: 0;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  border-right: 15px solid $brown;
+  border-right: 15px solid $white;
+  opacity: .8;
   position: absolute;
   @extend .vCenter;
   left: 10px;
   &:hover {
-    border-right-color: $orange;
+    border-right-color: $white;
+    opacity: 1;
   }
 }
 .next {
@@ -103,15 +108,15 @@
   height: 0;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  border-left: 15px solid $brown;
+  border-left: 15px solid $white;
+  opacity: .8%;
   position: absolute;
   @extend .vCenter;
   right: 10px!important;
   &:hover {
-    border-left-color: $orange;
+    border-left-color: $white;
+    opacity: 1;
   }
-}
-@media#{$isTablet}{
 }
 @media#{$isPhone}{
   .feature{
