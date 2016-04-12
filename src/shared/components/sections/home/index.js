@@ -26,22 +26,22 @@ export default class HomeSection extends React.Component {
   getCarouselData() {
     return [{
       image: 'https://www.dropbox.com/s/15q8zymwsdzcoig/directorio-playas-tijuana-banner-1.png?dl=0',
-      title: 'AKI Sushi De Playas',
-      description: 'El mejor restaurante sushi en Playas de Tijuana',
-      category: 'comida',
-      url: '/directorio/playas-tijuana/comida/aki-sushi-de-playas',
+      title: 'Mint IT Media',
+      description: 'Páginas Web, Sistemas y directorios como éste.',
+      category: 'negocios',
+      url: 'http://mintitmedia.com',
     }, {
       image: 'https://www.dropbox.com/s/mkl142df3lv9i6z/directorio-playas-tijuana-banner-2.png?dl=0',
-      title: 'Di Vino bar',
-      description: 'El mejor bar y restaurante en Playas de Tijuana',
-      category: 'bar',
-      url: '/directorio/playas-tijuana/bar/di-vino-bar',
+      title: 'AR Pays',
+      description: 'Pays de dátil y nuez <br />(664)163-1837',
+      category: 'restaurantes',
+      url: '/directorio/playas-tijuana/bar/ar-pays',
     }, {
       image: 'https://www.dropbox.com/s/sxuulx1lkqvrjio/directorio-playas-tijuana-banner-3.png?dl=0',
-      title: 'Bar Matt',
-      description: 'El mejor bar en Playas de Tijuana',
-      category: 'bar',
-      url: '/directorio/playas-tijuana/bar/bar-matt',
+      title: 'Bazar Emma',
+      description: 'Venta de Antigüedades/Muebles en general<br />Ave. Paseo Ensenada 1312 Playas de Tijuana Secc Jardines<br />11am - 7pm de Lunes a Sábado<br />(664)375-2373',
+      category: 'negocios',
+      url: '/directorio/playas-tijuana/negocios/bazar-emma',
     }];
   }
 

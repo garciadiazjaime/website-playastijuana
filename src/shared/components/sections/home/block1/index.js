@@ -19,7 +19,7 @@ export default class Block1 extends React.Component {
           <div className={style.imgContainer}>
             <img itemProp="image" src={imgUrl} alt={item.description} />
             <h3 itemProp="name"><Link to={item.url} title={item.title}>{item.title}</Link></h3>
-            <h4 itemProp="description">{item.description}</h4>
+            <h4 itemProp="description" dangerouslySetInnerHTML={{ __html: item.description }} />
           </div>
         </div>);
       });
