@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 const style = require('./style.scss');
 import slugUtil from '../../../utils/slug';
-
+import SVG from '../../svg';
 
 export default class PlaceList extends React.Component {
   getCategoryNames(categories) {
@@ -52,7 +52,7 @@ export default class PlaceList extends React.Component {
     for (const prop in data) {
       if (data.hasOwnProperty(prop) && data[prop]) {
         response.push(<a href={data[prop]} title={name + 'en ' + prop} target="_blank" className={prop} key={index}>
-          {prop}&nbsp;
+          <SVG network={prop} className={style.gmaps}/>
         </a>);
         index ++;
       }
