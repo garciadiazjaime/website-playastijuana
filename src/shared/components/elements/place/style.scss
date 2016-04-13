@@ -33,6 +33,9 @@
       margin-bottom: 0;
       font-weight: bold;
     }
+    svg{
+      margin: 20px 20px 0 0;
+    }
   }
 }
 .Autos{
@@ -188,6 +191,9 @@
       color: darken($pine, 25%);
     }
   }
+}
+.gmaps{
+
 }
 @media#{$isTablet}{
 }
