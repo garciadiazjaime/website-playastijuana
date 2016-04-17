@@ -9,6 +9,37 @@ import slugUtil from '../../../utils/slug';
 import SVG from '../../svg';
 
 export default class PlaceList extends React.Component {
+
+  constructor(props) {
+    super(props);
+    // this.shareFacebook = this.shareFacebook.bind(this);
+    this.displayImages = this.displayImages.bind(this);
+  }
+
+  componentDidMount() {
+    this.loadImages();
+  }
+
+  componentDidUpdate() {
+    this.loadImages();
+  }
+
+  getImage(url, index) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        resolve({
+          url,
+          index,
+        });
+      };
+      img.onerror = () => {
+        reject(url);
+      };
+      img.src = url;
+    });
+  }
+
   getCategoryNames(categories) {
     return categories.map((item) => {
       return item.name;
@@ -20,11 +51,6 @@ export default class PlaceList extends React.Component {
     return (<Link to={'/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug} title={data.name + ' - ' + categorySlug}>
         {data.name.toUpperCase()}
       </Link>);
-  }
-
-  getImage(item, category) {
-    const imgUrl = _.isArray(item.image_set) && item.image_set.length ? item.image_set[0].url.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : '/images/placeholder.png';
-    return (<img src={imgUrl} alt={item.name + ' - ' + category} itemProp="image" />);
   }
 
   getLinks(data) {
@@ -46,6 +72,46 @@ export default class PlaceList extends React.Component {
     return response;
   }
 
+  loadImages() {
+    const images = [];
+    $('.place_list_pivote .place_image_pivote').each((index, item) => {
+      const image = {
+        url: item.dataset.imageUrl,
+        index: item.dataset.index,
+      };
+      images.push(image);
+    });
+    this.displayImages(images);
+  }
+
+  displayImages(images) {
+    const imageData = images.shift();
+    const rescursive = this.displayImages;
+    if (imageData) {
+      this.getImage(imageData.url, imageData.index)
+        .then((data) => {
+          $('#image_' + data.index).attr('src', data.url);
+          rescursive(images);
+        })
+        .catch((url) => {
+          console.log('Error loading ' + url);
+          rescursive(images);
+        });
+    }
+  }
+
+  renderImage(item, category, index) {
+    if (item && _.isArray(item.image_set) && item.image_set.length) {
+      const imgUrl = item.image_set[0].url.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
+      return (<div key={index}>
+          <img src="/images/landing.png" alt={item.name + ' - ' + category.name} className={'place_image_pivote ' + style.imagePlaceholder } data-image-url={imgUrl} data-index={index} id={'image_' + index} />
+        </div>);
+    }
+    return (<div key={index}>
+      <img src="/images/placeholder.png" alt={item.name + ' - ' + category.name} className={style.imagePlaceholder} />
+    </div>);
+  }
+
   renderLinks(data, name) {
     const response = [];
     let index = 0;
@@ -64,12 +130,12 @@ export default class PlaceList extends React.Component {
 
   renderItems(places) {
     if (_.isArray(places) && places.length) {
-      return places.slice(0, 70).map((item, index) => {
-        const { category, categoryId } = item;
+      return places.slice(0, 80).map((item, index) => {
+        const { category } = item;
         const categorySlug = slugUtil(category.plural);
-        const imageEl = this.getImage(item, category);
+        const imageEl = this.renderImage(item, category, index);
         const links = this.getLinks(item);
-        return (<div className={style.placeCard + ' category_' + categoryId} key={index} itemScope itemType="http://schema.org/LocalBusiness">
+        return (<div className={style.placeCard + ' category_' + category.name} key={index} itemScope itemType="http://schema.org/LocalBusiness">
             {imageEl}
             <div className={style.legend}>
               <h2 key={index} itemProp="name">
@@ -90,7 +156,7 @@ export default class PlaceList extends React.Component {
 
   render() {
     const { data } = this.props;
-    return (<div className={'row ' + style.placeContainer}>
+    return (<div className={'row place_list_pivote ' + style.placeContainer}>
       {this.renderItems(data)}
     </div>);
   }

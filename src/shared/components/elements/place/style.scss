@@ -1,4 +1,8 @@
 @import '../../../theme/constants';
+.imagePlaceholder {
+  background: url(/images/loading.gif) 50% no-repeat;
+  max-height: 100px;
+}
 .placeContainer{
   border-left: 2px solid $orange;
 }
