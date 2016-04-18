@@ -1,4 +1,8 @@
 @import '../../../theme/constants';
+.imagePlaceholder {
+  background: url(/images/loading.gif) 50% no-repeat;
+  max-height: 100px;
+}
 .placeContainer{
   border-left: 2px solid $orange;
 }
@@ -32,6 +36,9 @@
       margin-top: 10px;
       margin-bottom: 0;
       font-weight: bold;
+    }
+    svg{
+      margin: 20px 20px 0 0;
     }
   }
 }
@@ -188,6 +195,9 @@
       color: darken($pine, 25%);
     }
   }
+}
+.gmaps{
+
 }
 @media#{$isTablet}{
 }

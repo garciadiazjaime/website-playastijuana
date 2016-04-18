@@ -24555,7 +24555,8 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
 
 	var style = __webpack_require__(214);
 
@@ -24595,6 +24596,21 @@
 	              'div',
 	              { className: 'col-xs-12' },
 	              _react2.default.createElement(_about2.default, null)
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-xs-12' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://plus.google.com/102083249909313249138', title: 'Directorio Playas de Tijuana - Google Plus', target: '_blank' },
+	                'G'
+	              ),
+	              ' ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://www.facebook.com/directorioplayastijuana/', title: 'Directorio Playas de Tijuana - Facebook', target: '_blank' },
+	                'F'
+	              )
 	            )
 	          )
 	        )
@@ -24901,12 +24917,12 @@
 	          { className: 'col-xs-4' },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: 'http://mintitmedia.com', target: '_blank', title: 'Eventos, conciertos, tokadas, música, ruido en Tijuana' },
-	            _react2.default.createElement('img', { src: '/images/gp-logo.png', alt: 'Eventos, conciertos, tokadas, música, ruido en Tijuana' }),
+	            { to: 'http://www.hoytoca.me/', target: '_blank', title: 'Educación Sexual para el Mundo Real' },
+	            _react2.default.createElement('img', { src: '/images/gp-logo.png', alt: 'Educación Sexual para el Mundo Real' }),
 	            _react2.default.createElement(
 	              'p',
 	              null,
-	              'Gig playlist'
+	              'Hoy Toca'
 	            )
 	          )
 	        )
@@ -25164,11 +25180,11 @@
 
 	var _block4 = _interopRequireDefault(_block3);
 
-	var _categories = __webpack_require__(235);
+	var _categories = __webpack_require__(236);
 
 	var _categories2 = _interopRequireDefault(_categories);
 
-	var _places = __webpack_require__(236);
+	var _places = __webpack_require__(237);
 
 	var _places2 = _interopRequireDefault(_places);
 
@@ -25208,22 +25224,22 @@
 	    value: function getCarouselData() {
 	      return [{
 	        image: 'https://www.dropbox.com/s/15q8zymwsdzcoig/directorio-playas-tijuana-banner-1.png?dl=0',
-	        title: 'AKI Sushi De Playas',
-	        description: 'El mejor restaurante sushi en Playas de Tijuana',
-	        category: 'comida',
-	        url: '/directorio/playas-tijuana/comida/aki-sushi-de-playas'
+	        title: 'Mint IT Media',
+	        description: 'Páginas Web, Sistemas y directorios como éste.',
+	        category: 'negocios',
+	        url: 'http://mintitmedia.com'
 	      }, {
 	        image: 'https://www.dropbox.com/s/mkl142df3lv9i6z/directorio-playas-tijuana-banner-2.png?dl=0',
-	        title: 'Di Vino bar',
-	        description: 'El mejor bar y restaurante en Playas de Tijuana',
-	        category: 'bar',
-	        url: '/directorio/playas-tijuana/bar/di-vino-bar'
+	        title: 'AR Pays',
+	        description: 'Pays de dátil y nuez <br />(664)163-1837',
+	        category: 'restaurantes',
+	        url: '/directorio/playas-tijuana/bar/ar-pays'
 	      }, {
 	        image: 'https://www.dropbox.com/s/sxuulx1lkqvrjio/directorio-playas-tijuana-banner-3.png?dl=0',
-	        title: 'Bar Matt',
-	        description: 'El mejor bar en Playas de Tijuana',
-	        category: 'bar',
-	        url: '/directorio/playas-tijuana/bar/bar-matt'
+	        title: 'Bazar Emma',
+	        description: 'Venta de Antigüedades/Muebles en general<br />Ave. Paseo Ensenada 1312 Playas de Tijuana Secc Jardines<br />11am - 7pm de Lunes a Sábado<br />(664)375-2373',
+	        category: 'negocios',
+	        url: '/directorio/playas-tijuana/negocios/bazar-emma'
 	      }];
 	    }
 	  }, {
@@ -37746,11 +37762,7 @@
 	                  item.title
 	                )
 	              ),
-	              _react2.default.createElement(
-	                'h4',
-	                { itemProp: 'description' },
-	                item.description
-	              )
+	              _react2.default.createElement('h4', { itemProp: 'description', dangerouslySetInnerHTML: { __html: item.description } })
 	            )
 	          );
 	        });
@@ -37966,7 +37978,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(234);
+	var style = __webpack_require__(235);
 
 	var Block2 = function (_React$Component) {
 	  _inherits(Block2, _React$Component);
@@ -38249,6 +38261,10 @@
 
 	var _slug2 = _interopRequireDefault(_slug);
 
+	var _svg = __webpack_require__(233);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38257,18 +38273,50 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(233);
+	var style = __webpack_require__(234);
 
 	var PlaceList = function (_React$Component) {
 	  _inherits(PlaceList, _React$Component);
 
-	  function PlaceList() {
+	  function PlaceList(props) {
 	    _classCallCheck(this, PlaceList);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(PlaceList).apply(this, arguments));
+	    // this.shareFacebook = this.shareFacebook.bind(this);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PlaceList).call(this, props));
+
+	    _this.displayImages = _this.displayImages.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(PlaceList, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.loadImages();
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      this.loadImages();
+	    }
+	  }, {
+	    key: 'getImage',
+	    value: function getImage(url, index) {
+	      return new Promise(function (resolve, reject) {
+	        var img = new Image();
+	        img.onload = function () {
+	          resolve({
+	            url: url,
+	            index: index
+	          });
+	        };
+	        img.onerror = function () {
+	          reject(url);
+	        };
+	        img.src = url;
+	      });
+	    }
+	  }, {
 	    key: 'getCategoryNames',
 	    value: function getCategoryNames(categories) {
 	      return categories.map(function (item) {
@@ -38284,12 +38332,6 @@
 	        { to: '/directorio/playas-tijuana/' + categorySlug + '/' + placeSlug, title: data.name + ' - ' + categorySlug },
 	        data.name.toUpperCase()
 	      );
-	    }
-	  }, {
-	    key: 'getImage',
-	    value: function getImage(item, category) {
-	      var imgUrl = _lodash2.default.isArray(item.image_set) && item.image_set.length ? item.image_set[0].url.replace('www.dropbox.com', 'dl.dropboxusercontent.com') : '/images/placeholder.png';
-	      return _react2.default.createElement('img', { src: imgUrl, alt: item.name + ' - ' + category, itemProp: 'image' });
 	    }
 	  }, {
 	    key: 'getLinks',
@@ -38312,6 +38354,51 @@
 	      return response;
 	    }
 	  }, {
+	    key: 'loadImages',
+	    value: function loadImages() {
+	      var images = [];
+	      $('.place_list_pivote .place_image_pivote').each(function (index, item) {
+	        var image = {
+	          url: item.dataset.imageUrl,
+	          index: item.dataset.index
+	        };
+	        images.push(image);
+	      });
+	      this.displayImages(images);
+	    }
+	  }, {
+	    key: 'displayImages',
+	    value: function displayImages(images) {
+	      var imageData = images.shift();
+	      var rescursive = this.displayImages;
+	      if (imageData) {
+	        this.getImage(imageData.url, imageData.index).then(function (data) {
+	          $('#image_' + data.index).attr('src', data.url);
+	          rescursive(images);
+	        }).catch(function (url) {
+	          console.log('Error loading ' + url);
+	          rescursive(images);
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'renderImage',
+	    value: function renderImage(item, category, index) {
+	      if (item && _lodash2.default.isArray(item.image_set) && item.image_set.length) {
+	        var imgUrl = item.image_set[0].url.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
+	        return _react2.default.createElement(
+	          'div',
+	          { key: index },
+	          _react2.default.createElement('img', { src: '/images/landing.png', alt: item.name + ' - ' + category.name, className: 'place_image_pivote ' + style.imagePlaceholder, 'data-image-url': imgUrl, 'data-index': index, id: 'image_' + index })
+	        );
+	      }
+	      return _react2.default.createElement(
+	        'div',
+	        { key: index },
+	        _react2.default.createElement('img', { src: '/images/placeholder.png', alt: item.name + ' - ' + category.name, className: style.imagePlaceholder })
+	      );
+	    }
+	  }, {
 	    key: 'renderLinks',
 	    value: function renderLinks(data, name) {
 	      var response = [];
@@ -38321,8 +38408,7 @@
 	          response.push(_react2.default.createElement(
 	            'a',
 	            { href: data[prop], title: name + 'en ' + prop, target: '_blank', className: prop, key: index },
-	            prop,
-	            ' '
+	            _react2.default.createElement(_svg2.default, { network: prop, className: style.gmaps })
 	          ));
 	          index++;
 	        }
@@ -38339,16 +38425,15 @@
 	      var _this2 = this;
 
 	      if (_lodash2.default.isArray(places) && places.length) {
-	        return places.slice(0, 70).map(function (item, index) {
+	        return places.slice(0, 80).map(function (item, index) {
 	          var category = item.category;
-	          var categoryId = item.categoryId;
 
 	          var categorySlug = (0, _slug2.default)(category.plural);
-	          var imageEl = _this2.getImage(item, category);
+	          var imageEl = _this2.renderImage(item, category, index);
 	          var links = _this2.getLinks(item);
 	          return _react2.default.createElement(
 	            'div',
-	            { className: style.placeCard + ' category_' + categoryId, key: index, itemScope: true, itemType: 'http://schema.org/LocalBusiness' },
+	            { className: style.placeCard + ' category_' + category.name, key: index, itemScope: true, itemType: 'http://schema.org/LocalBusiness' },
 	            imageEl,
 	            _react2.default.createElement(
 	              'div',
@@ -38381,7 +38466,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row ' + style.placeContainer },
+	        { className: 'row place_list_pivote ' + style.placeContainer },
 	        this.renderItems(data)
 	      );
 	    }
@@ -38403,20 +38488,156 @@
 
 /***/ },
 /* 233 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___1UVGi","vCenter":"style__vCenter___1mU6D","vCenterRel":"style__vCenterRel___u9e_E","hCenter":"style__hCenter___1JvrY","inheritHeight":"style__inheritHeight___1GtAP","hideOverflow":"style__hideOverflow___z7o_0","placeContainer":"style__placeContainer___2pMS3","placeCard":"style__placeCard___kUEUP","legend":"style__legend___2Xg5T","Autos":"style__Autos___2oWc5","Bar":"style__Bar___38S_t","Comida":"style__Comida___1sGs9","Tienda":"style__Tienda___7z_Yd","Belleza":"style__Belleza___Z_E2U","Salud":"style__Salud___3NTCm","Educacion":"style__Educacion___37EUL","Ejercicio":"style__Ejercicio___3UF1I","Ropa":"style__Ropa___1VvqX","Servicios":"style__Servicios___2MYSk","Entretenimiento":"style__Entretenimiento___2T1yU"};
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var SVG = function (_React$Component) {
+	  _inherits(SVG, _React$Component);
+
+	  function SVG() {
+	    _classCallCheck(this, SVG);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SVG).apply(this, arguments));
+	  }
+
+	  _createClass(SVG, [{
+	    key: 'renderItems',
+	    value: function renderItems(network, className) {
+	      switch (network) {
+	        case 'facebook':
+	          /*eslint-disable */
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15', fill: '#3a589d' }),
+	            _react2.default.createElement('path', { d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z', fill: '#fff' })
+	          );
+	          break;
+	        case 'twitter':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	            _react2.default.createElement('path', { d: 'M23.5 9.7c-0.6 0.3-1.3 0.5-2 0.5 0.7-0.4 1.3-1.1 1.5-1.9 -0.7 0.4-1.4 0.7-2.2 0.8 -0.6-0.7-1.5-1.1-2.5-1.1 -1.9 0-3.5 1.6-3.5 3.5 0 0.3 0 0.5 0.1 0.8 -2.9-0.1-5.5-1.5-7.2-3.6 -0.3 0.5-0.5 1.1-0.5 1.8 0 1.2 0.6 2.3 1.6 2.9 -0.6 0-1.1-0.2-1.6-0.4 0 0 0 0 0 0 0 1.7 1.2 3.1 2.8 3.4 -0.3 0.1-0.6 0.1-0.9 0.1 -0.2 0-0.4 0-0.7-0.1 0.4 1.4 1.7 2.4 3.3 2.4 -1.2 0.9-2.7 1.5-4.3 1.5 -0.3 0-0.6 0-0.8 0 1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.9 0-0.1 0-0.3 0-0.4C22.4 11 23 10.4 23.5 9.7z' })
+	          );
+	          break;
+	        case 'pinterest':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { className: this.props.background, cx: '15', cy: '15', r: '15' }),
+	            _react2.default.createElement('path', { d: 'M14.4 18.1c-0.5 2.6-1.1 5.1-2.9 6.4 -0.6-4 0.8-6.9 1.5-10.1 -1.1-1.8 0.1-5.5 2.4-4.6 2.8 1.1-2.4 6.8 1.1 7.5 3.7 0.8 5.2-6.4 2.9-8.8 -3.3-3.4-9.7-0.1-8.9 4.8 0.2 1.2 1.4 1.5 0.5 3.2 -2.1-0.5-2.8-2.1-2.7-4.4 0.1-3.7 3.3-6.2 6.5-6.6 4-0.4 7.8 1.5 8.3 5.2 0.6 4.2-1.8 8.8-6.1 8.5C15.8 19.2 15.4 18.6 14.4 18.1' })
+	          );
+	          break;
+	        case 'instagram':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	            _react2.default.createElement('path', { d: 'M20.6 7H9.4c-1.3 0-2.4 0.9-2.4 2.1v11.8c0 1.2 1.1 2.1 2.4 2.1h11.3c1.3 0 2.4-0.9 2.4-2.1V9.1C23 7.9 22 7 20.6 7zM18.6 9.2c0-0.3 0.2-0.5 0.5-0.5h1.7c0.3 0 0.5 0.2 0.5 0.5v1.7c0 0.3-0.2 0.5-0.5 0.5h-1.7c-0.3 0-0.5-0.2-0.5-0.5V9.2zM17.7 11.7v0c0 0 0 0 0 0H17.7zM14.9 12c2 0 3.5 1.6 3.5 3.5 0 2-1.6 3.5-3.5 3.5 -2 0-3.5-1.6-3.5-3.5C11.4 13.6 13 12 14.9 12zM22 20.7c0 0.8-0.6 1.4-1.4 1.4H9.3c-0.8 0-1.4-0.6-1.4-1.4V13.3h2.9c-0.3 0.7-0.5 1.4-0.5 2.2 0 2.6 2.1 4.7 4.7 4.7 2.6 0 4.7-2.1 4.7-4.7 0-0.7-0.2-1.4-0.5-2h2.8V20.7z' })
+	          );
+	          break;
+	        case 'google':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.4 50 50' },
+	            _react2.default.createElement('path', { d: 'M287.6 730.8c-9.8-9.8-25.6-9.8-35.4 0 -9.8 9.8-9.8 25.6 0 35.4 1.3 1.3 2.7 2.4 4.2 3.4l34.5-34.5C290 733.5 288.8 732.1 287.6 730.8z', fill: '#30A45A' }),
+	            _react2.default.createElement('path', { d: 'M290.9 734.9l-34.5 34.5c1.5 1 3.1 1.8 4.7 2.4l32.2-32.2C292.7 738 291.9 736.4 290.9 734.9z', fill: '#FCDD00' }),
+	            _react2.default.createElement('path', { d: 'M261.1 771.8c8.9 3.3 19.3 1.4 26.5-5.7l-10.4-10.4L261.1 771.8z', fill: '#5382C2' }),
+	            _react2.default.createElement('path', { d: 'M293.3 739.6l-16.1 16.1 10.4 10.4C294.7 759 296.6 748.5 293.3 739.6z', fill: '#C2C1C1' }),
+	            _react2.default.createElement('path', { d: 'M276.5 746.3c2.1 0 4.2-0.1 6.4 0.1 0.7 0.1 1 0.3 1.1 1 0.8 7.7-3.6 13.7-11.1 15.2 -7.6 1.5-15.7-4.1-16.8-11.8 -1.2-8.1 4.4-15.7 12.3-16.6 4-0.5 7.6 0.5 10.8 2.9 0.7 0.5 0.8 0.8 0.1 1.4 -0.9 0.8-1.8 1.8-2.7 2.6 -0.4 0.4-0.6 0.6-1.2 0.1 -3-2.3-6.9-2.3-10.1-0.2 -3 2-4.5 5.9-3.6 9.4 1 3.9 4 6.5 7.8 6.8 3.8 0.3 7.1-1.5 8.4-4.7 0.4-0.9 0.4-1.3-0.8-1.3 -2 0.1-3.9 0-5.9 0 -0.9 0-1.2-0.2-1.1-1.1 0.1-1 0-2.1-0.1-3.1 0-0.7 0.2-0.9 0.9-0.9C272.7 746.3 274.6 746.3 276.5 746.3z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M283.8 740.4c-0.2-0.3-0.3-0.6-0.4-1 -0.3-0.9-0.2-1.8 0.2-2.7 0.5-0.9 1.3-1.5 2.4-1.7 1.9-0.4 3.9 0.7 4.3 2.8 0.1 0.8 0 1.6-0.4 2.3 -0.3 0.5-0.6 1-1 1.5 0 0.1-0.1 0.1-0.1 0.2 -0.3 0.4-0.6 0.9-0.9 1.3 -0.5 0.9-0.8 1.8-0.9 2.7 0 0.2-0.1 0.3-0.2 0.4 -0.1-0.1-0.2-0.1-0.2-0.2 0 0 0-0.1 0-0.1 -0.2-1.5-0.8-2.7-1.7-3.9C284.5 741.4 284.1 740.9 283.8 740.4z', fill: '#D95138' })
+	          );
+	          break;
+	        case 'foursquare':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.5 50 49.9' },
+	            _react2.default.createElement('circle', { cx: '269.9', cy: '748.4', r: '25', fill: '#f64d78' }),
+	            _react2.default.createElement('path', { d: 'M280.2 733.6c0 0-14.5 0-16.8 0s-3 1.8-3 2.9c0 1.1 0 26.8 0 26.8 0 1.2 0.7 1.7 1 1.9 0.4 0.2 1.4 0.3 2-0.4 0 0 7.9-9.2 8.1-9.4 0.2-0.2 0.2-0.2 0.4-0.2 0.4 0 3.5 0 5.1 0 2.2 0 2.5-1.5 2.7-2.5 0.2-0.8 2.3-11.6 3-15C283.3 735 282.6 733.6 280.2 733.6zM279.8 752.6c0.2-0.8 2.3-11.6 3-15M279.2 738.1l-0.7 3.7c-0.1 0.4-0.6 0.8-1 0.8 -0.5 0-6.8 0-6.8 0 -0.7 0-1.3 0.4-1.3 1.2v0.9c0 0.7 0.5 1.3 1.3 1.3 0 0 5.3 0 5.8 0 0.5 0 1 0.6 0.9 1.1 -0.1 0.6-0.6 3.3-0.7 3.6 -0.1 0.3-0.4 0.8-1 0.8 -0.5 0-4.5 0-4.5 0 -0.8 0-1.1 0.1-1.6 0.8 -0.6 0.7-5.5 6.7-5.5 6.7 0 0.1-0.1 0-0.1 0v-20.9c0-0.5 0.4-1 1-1 0 0 13 0 13.5 0C278.8 737.1 279.3 737.5 279.2 738.1z', fill: '#FFF' })
+	          );
+	          break;
+	        case 'yelp':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.5 50 49.9' },
+	            _react2.default.createElement('circle', { cx: '269.9', cy: '748.4', r: '25', fill: '#bc341f' }),
+	            _react2.default.createElement('path', { d: 'M264 741.2c-1.1-1.8-2.2-3.5-3.2-5.3 -0.6-1-0.4-1.6 0.6-2.2 1.7-0.9 3.5-1.3 5.4-1.7 0.3-0.1 0.7-0.1 1-0.1 1.2-0.1 1.7 0.4 1.7 1.6 0.2 3.2 0.4 6.4 0.7 9.6 -0.1 0.9 0.2 1.8 0.1 2.8 -0.1 1.1-0.4 1.5-1.3 1.7 -0.8 0.2-1.2-0.5-1.6-1 -1-1.6-2-3.2-3-4.8C264.2 741.6 264.1 741.4 264 741.2z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M276 743.2c0.4-0.3 0.7-0.8 1-1.1 0.5-0.6 1.1-0.7 1.8-0.2 0.4 0.3 0.8 0.7 1.1 1.1 0.6 0.9 1.3 1.8 1.7 2.7 0.2 0.4 0.4 0.9 0.5 1.4 0.1 0.7-0.1 1.2-0.8 1.4 -2.3 0.7-4.7 1.3-7 1.8 -0.8 0.2-1.2-0.1-1.6-0.7 -0.4-0.6-0.3-1.2 0.1-1.8C273.8 746.4 275 744.8 276 743.2z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M257.7 751.5c0-1.1 0.1-2.1 0.3-3.1 0.2-1.1 0.9-1.5 1.9-1.1 2.2 0.9 4.4 1.8 6.6 2.7 0.6 0.3 0.9 0.8 0.8 1.4 0 0.6-0.3 1.1-0.9 1.3 -2.3 0.7-4.5 1.5-6.8 2.2 -0.9 0.3-1.4 0-1.7-0.9 0-0.2-0.1-0.3-0.1-0.5C257.7 752.8 257.7 752.2 257.7 751.5z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M272.7 754.6c0-1 0.9-1.7 1.9-1.4 2.2 0.7 4.4 1.5 6.6 2.2 1 0.4 1.3 1 0.9 2 -0.8 1.7-1.9 3.2-3.4 4.4 -0.8 0.7-1.5 0.6-2.1-0.3 -1.3-2-2.5-4-3.7-6.1C272.8 755.2 272.7 754.9 272.7 754.6z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M270.1 759.7c0 1.2 0 2.4 0 3.6 0 1-0.5 1.5-1.5 1.4 -1.9-0.2-3.7-0.9-5.3-2 -0.8-0.6-0.9-1.2-0.3-1.9 1.5-1.9 3.1-3.7 4.6-5.6 0.4-0.5 1-0.6 1.6-0.4 0.6 0.2 0.9 0.6 0.9 1.3 0 1.2 0 2.5 0 3.7C270.1 759.7 270.1 759.7 270.1 759.7z', fill: '#fff' })
+	          );
+	          break;
+	        default:
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	            _react2.default.createElement('path', { d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z', fill: '#fff' })
+	          );
+	        /*eslint-enable */
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return this.renderItems(this.props.network, this.props.className);
+	    }
+	  }]);
+
+	  return SVG;
+	}(_react2.default.Component);
+
+	exports.default = SVG;
+
+	SVG.propTypes = {
+	  background: _react2.default.PropTypes.string,
+	  color: _react2.default.PropTypes.string,
+	  network: _react2.default.PropTypes.string,
+	  className: _react2.default.PropTypes.string
+	};
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 234 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","categories":"style__categories___1b9mU"};
+	module.exports = {"fCenter":"style__fCenter___1UVGi","vCenter":"style__vCenter___1mU6D","vCenterRel":"style__vCenterRel___u9e_E","hCenter":"style__hCenter___1JvrY","inheritHeight":"style__inheritHeight___1GtAP","hideOverflow":"style__hideOverflow___z7o_0","imagePlaceholder":"style__imagePlaceholder___L35Om","placeContainer":"style__placeContainer___2pMS3","placeCard":"style__placeCard___kUEUP","legend":"style__legend___2Xg5T","Autos":"style__Autos___2oWc5","Bar":"style__Bar___38S_t","Comida":"style__Comida___1sGs9","Tienda":"style__Tienda___7z_Yd","Belleza":"style__Belleza___Z_E2U","Salud":"style__Salud___3NTCm","Educacion":"style__Educacion___37EUL","Ejercicio":"style__Ejercicio___3UF1I","Ropa":"style__Ropa___1VvqX","Servicios":"style__Servicios___2MYSk","Entretenimiento":"style__Entretenimiento___2T1yU"};
 
 /***/ },
 /* 235 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___ByilZ","vCenter":"style__vCenter___1v0oL","vCenterRel":"style__vCenterRel___r367-","hCenter":"style__hCenter___35AKo","inheritHeight":"style__inheritHeight___GkUeM","hideOverflow":"style__hideOverflow___30PJL","categories":"style__categories___1b9mU"};
+
+/***/ },
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -38478,7 +38699,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "categories.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
