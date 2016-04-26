@@ -26,10 +26,10 @@ export default class HomeSection extends React.Component {
   getCarouselData() {
     return [{
       image: 'https://www.dropbox.com/s/15q8zymwsdzcoig/directorio-playas-tijuana-banner-1.png?dl=0',
-      title: 'Mint IT Media',
-      description: 'Páginas Web, Sistemas y directorios como éste.',
+      title: 'Bazar Emma',
+      description: 'Venta de Antigüedades/Muebles en general<br />Ave. Paseo Ensenada 1312 Playas de Tijuana Secc Jardines<br />11am - 7pm de Lunes a Sábado<br />(664)375-2373',
       category: 'negocios',
-      url: 'http://mintitmedia.com',
+      url: '/directorio/playas-tijuana/negocios/bazar-emma',
     }, {
       image: 'https://www.dropbox.com/s/mkl142df3lv9i6z/directorio-playas-tijuana-banner-2.png?dl=0',
       title: 'AR Pays',
@@ -38,10 +38,10 @@ export default class HomeSection extends React.Component {
       url: '/directorio/playas-tijuana/bar/ar-pays',
     }, {
       image: 'https://www.dropbox.com/s/sxuulx1lkqvrjio/directorio-playas-tijuana-banner-3.png?dl=0',
-      title: 'Bazar Emma',
-      description: 'Venta de Antigüedades/Muebles en general<br />Ave. Paseo Ensenada 1312 Playas de Tijuana Secc Jardines<br />11am - 7pm de Lunes a Sábado<br />(664)375-2373',
+      title: 'Mint IT Media',
+      description: 'Páginas Web, Sistemas y directorios como éste.',
       category: 'negocios',
-      url: '/directorio/playas-tijuana/negocios/bazar-emma',
+      url: 'http://mintitmedia.com',
     }];
   }
 
