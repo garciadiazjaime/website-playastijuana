@@ -8,20 +8,40 @@ const style = require('./style.scss');
 import slugUtil from '../../../utils/slug';
 import SVG from '../../svg';
 
+
 export default class PlaceList extends React.Component {
 
   constructor(props) {
     super(props);
     // this.shareFacebook = this.shareFacebook.bind(this);
     this.displayImages = this.displayImages.bind(this);
+    this.scrollHandler = this.props.scrollHandler;
+    this.onScroll = this.onScroll.bind(this);
   }
 
   componentDidMount() {
     this.loadImages();
+    window.addEventListener('scroll', this.onScroll, false);
   }
 
   componentDidUpdate() {
     this.loadImages();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll, false);
+  }
+
+  onScroll() {
+    const pageHeight = document.body.offsetHeight;
+    const footerHeight = $('#footer_section').height();
+    const maxHeight = pageHeight - footerHeight;
+    const scrollY = window.innerHeight + window.scrollY;
+
+    if (scrollY >= maxHeight) {
+      // we're at the bottom of the page
+      this.scrollHandler();
+    }
   }
 
   getImage(url, index) {
@@ -38,12 +58,6 @@ export default class PlaceList extends React.Component {
       };
       img.src = url;
     });
-  }
-
-  getCategoryNames(categories) {
-    return categories.map((item) => {
-      return item.name;
-    }).join(' ');
   }
 
   getTitle(data, categorySlug) {
@@ -130,7 +144,7 @@ export default class PlaceList extends React.Component {
 
   renderItems(places) {
     if (_.isArray(places) && places.length) {
-      return places.slice(0, 80).map((item, index) => {
+      return places.map((item, index) => {
         const { category } = item;
         const categorySlug = slugUtil(category.plural);
         const imageEl = this.renderImage(item, category, index);
@@ -164,6 +178,7 @@ export default class PlaceList extends React.Component {
 
 PlaceList.propTypes = {
   data: React.PropTypes.array.isRequired,
-  categories: React.PropTypes.array.isRequired,
+  category: React.PropTypes.string,
   place: React.PropTypes.string,
+  scrollHandler: React.PropTypes.func.isRequired,
 };

@@ -15,6 +15,7 @@ export default(
     <Route path="/" component={items.component}>
       <IndexRoute component={items.default} />
       {routes}
+      <Route path="directorio" component={items.default} />
       <Route path="directorio/playas-tijuana" component={items.default} />
       <Route path="directorio/playas-tijuana/:category" component={items.default} />
       <Route path="directorio/playas-tijuana/:category/:place" component={items.default} />

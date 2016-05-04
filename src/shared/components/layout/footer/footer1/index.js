@@ -9,7 +9,7 @@ import About from './about';
 
 export default class Footer1 extends React.Component {
   render() {
-    return (<div className={style.footerWrapper}>
+    return (<div className={style.footerWrapper} id="footer_section">
       <div className="container-fluid">
         <div className="row">
           <div className="col-xs-12 col-sm-5">
