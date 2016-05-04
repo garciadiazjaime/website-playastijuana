@@ -18,26 +18,29 @@ export default class CategoryList extends React.Component {
     });
   }
 
-  renderItems(data, category) {
+  renderItems(data, category, clickHandler) {
     if (_.isArray(data) && data.length) {
       return data.map((item, index) => {
         const slug = slugUtil(item.plural);
         const activeClassName = slug === category ? 'active' : '';
+        /*eslint-disable */
         return (<li key={index}>
           <h2 itemProp="description">
-            <Link to={'/directorio/playas-tijuana/' + slug} title={'Directorio Playas de Tijuana ' + item.plural} className={style[activeClassName]}>
+            <Link to={'/directorio/playas-tijuana/' + slug} title={'Directorio Playas de Tijuana ' + item.plural} className={style[activeClassName]} onClick={clickHandler.bind(this, slug)}>
               {item.plural}
             </Link>
           </h2>
         </li>);
+        /*eslint-enable */
       });
     }
     return null;
   }
 
   render() {
-    const { data, category } = this.props;
+    const { data, category, clickHandler } = this.props;
     const activeClassName = !category ? 'active' : '';
+    /*eslint-disable */
     return (<nav className={'navbar ' + style.navbar}>
     <div className="row" id="dropdown-categories-container">
       <div className={'navbar-header ' + style.navbar_header}>
@@ -53,20 +56,22 @@ export default class CategoryList extends React.Component {
         <ul className="nav navbar-nav" itemScope itemType="http://schema.org/LocalBusiness">
           <li>
             <h2 itemProp="description">
-              <Link to={'/directorio/playas-tijuana'} title="Directorio Playas de Tijuana" className={style[activeClassName]}>
+              <Link to={'/directorio/playas-tijuana'} title="Directorio Playas de Tijuana" className={style[activeClassName]} onClick={clickHandler.bind(this)}>
                 Ver todos
               </Link>
             </h2>
           </li>
-          {this.renderItems(data, category)}
+          {this.renderItems(data, category, clickHandler)}
         </ul>
       </div>
     </div>
     </nav>);
+    /*eslint-enable */
   }
 }
 
 CategoryList.propTypes = {
   data: React.PropTypes.array.isRequired,
   category: React.PropTypes.string,
+  clickHandler: React.PropTypes.func.isRequired,
 };

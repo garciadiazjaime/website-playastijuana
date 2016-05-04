@@ -9,15 +9,15 @@ const style = require('./style.scss');
 export default class Block2 extends React.Component {
 
   render() {
-    const { categories, places, category } = this.props;
+    const { categories, places, category, clickHandler, scrollHandler } = this.props;
 
     return (<div className="container-fluid">
       <div className="row">
         <div className={'col-sm-3 col-xs-12 col-md-2 ' + style.categories}>
-          <CategoryList data={categories} category={category} />
+          <CategoryList data={categories} category={category} clickHandler={clickHandler} />
         </div>
         <div className="col-sm-9 col-xs-12 col-md-10">
-          <PlaceList data={places} categories={categories} />
+          <PlaceList data={places} categories={categories} category={category} scrollHandler={scrollHandler} />
         </div>
       </div>
     </div>);
@@ -29,4 +29,6 @@ Block2.propTypes = {
   places: React.PropTypes.array.isRequired,
   category: React.PropTypes.string,
   place: React.PropTypes.string,
+  clickHandler: React.PropTypes.func.isRequired,
+  scrollHandler: React.PropTypes.func.isRequired,
 };
