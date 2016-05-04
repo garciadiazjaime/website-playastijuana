@@ -15,7 +15,7 @@ export default class PlaceList extends React.Component {
     super(props);
     // this.shareFacebook = this.shareFacebook.bind(this);
     this.displayImages = this.displayImages.bind(this);
-    this.scrollHandler = this.props.scrollHandler; // .bind(this);
+    this.scrollHandler = this.props.scrollHandler;
     this.onScroll = this.onScroll.bind(this);
   }
 
