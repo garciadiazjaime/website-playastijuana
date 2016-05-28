@@ -7,7 +7,6 @@ import _ from 'lodash';
 const style = require('./style.scss');
 import slugUtil from '../../../utils/slug';
 import SVG from '../../svg';
-let NUMBER_REQUESTS = 0;
 
 export default class PlaceList extends React.Component {
 
@@ -39,12 +38,7 @@ export default class PlaceList extends React.Component {
     const scrollY = window.innerHeight + window.scrollY;
 
     if (scrollY >= maxHeight) {
-      // we're at the bottom of the page
-      // todo: remove this once footer situation is solved
-      if (NUMBER_REQUESTS < 2) {
-        this.scrollHandler();
-      }
-      NUMBER_REQUESTS ++;
+      this.scrollHandler();
     }
   }
 
