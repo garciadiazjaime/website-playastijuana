@@ -19711,6 +19711,7 @@
 	    { path: '/', component: items.component },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: items.default }),
 	    routes,
+	    _react2.default.createElement(_reactRouter.Route, { path: 'directorio', component: items.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'directorio/playas-tijuana', component: items.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'directorio/playas-tijuana/:category', component: items.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'directorio/playas-tijuana/:category/:place', component: items.default })
@@ -24570,11 +24571,41 @@
 	  }
 
 	  _createClass(Footer1, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      $('#footerReveal').click(function () {
+	        $('#footer_section').addClass(style.fixedFooter);
+	        var fHeight = $(window).height();
+	        $('#footer_section').height(fHeight);
+	        $(this).css('display', 'none');
+	      });
+	      $('#footer_closer').click(function () {
+	        $('#footer_section').removeClass(style.fixedFooter);
+	        $('#footer_section').height();
+	        $('#footerReveal').css('display', 'block');
+	        $('#footer_closer').css('display', 'none');
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: style.footerWrapper },
+	        { className: style.footerWrapper, id: 'footer_section' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: style.removeFixed, id: 'footer_closer' },
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-remove' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'footerReveal', className: style.showFooterBtn },
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'i'
+	          )
+	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
@@ -24723,7 +24754,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___24X-f","vCenter":"style__vCenter___rkH6k","vCenterRel":"style__vCenterRel___W_SE5","hCenter":"style__hCenter___rq5W3","inheritHeight":"style__inheritHeight___IbmOF","hideOverflow":"style__hideOverflow___3nmjb","footerWrapper":"style__footerWrapper___zbtoF","brand":"style__brand___1i--U","yellow":"style__yellow___RRjP0","white":"style__white___3N7gH","contact":"style__contact___2AMMK","facebook":"style__facebook___39dVV","projects":"style__projects___2bCs6","about":"style__about___vuj9k"};
+	module.exports = {"fCenter":"style__fCenter___24X-f","showFooterBtn":"style__showFooterBtn___32mks","vCenter":"style__vCenter___rkH6k","vCenterRel":"style__vCenterRel___W_SE5","hCenter":"style__hCenter___rq5W3","inheritHeight":"style__inheritHeight___IbmOF","hideOverflow":"style__hideOverflow___3nmjb","fixedFooter":"style__fixedFooter___VC2KX","removeFixed":"style__removeFixed___OyCQg","footerWrapper":"style__footerWrapper___zbtoF","brand":"style__brand___1i--U","yellow":"style__yellow___RRjP0","white":"style__white___3N7gH","contact":"style__contact___2AMMK","facebook":"style__facebook___39dVV","projects":"style__projects___2bCs6","about":"style__about___vuj9k"};
 
 /***/ },
 /* 215 */
@@ -25197,13 +25228,38 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
+	var ITEMS_SHOWN = 10;
+
 	var HomeSection = function (_React$Component) {
 	  _inherits(HomeSection, _React$Component);
 
-	  function HomeSection() {
+	  function HomeSection(props) {
 	    _classCallCheck(this, HomeSection);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(HomeSection).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomeSection).call(this, props));
+
+	    _this.selectCategory = _this.selectCategory.bind(_this);
+	    _this.showMorePlaces = _this.showMorePlaces.bind(_this);
+
+	    var placesByCategory = {};
+	    _places2.default.map(function (item) {
+	      if (!placesByCategory[item.category.id]) {
+	        placesByCategory[item.category.id] = [];
+	      }
+	      placesByCategory[item.category.id].push(item);
+	    });
+
+	    var category = _this.props.params.category;
+
+	    var categoryId = _this.getCategoryId(_categories2.default, category);
+
+	    _this.state = {
+	      placesRef: _places2.default,
+	      placesByCategory: placesByCategory,
+	      categoryId: categoryId,
+	      places: !categoryId ? _places2.default.slice(0, ITEMS_SHOWN) : placesByCategory[categoryId].slice(0, ITEMS_SHOWN)
+	    };
+	    return _this;
 	  }
 
 	  _createClass(HomeSection, [{
@@ -25243,14 +25299,37 @@
 	      }];
 	    }
 	  }, {
-	    key: 'filterPlacesByCategoryId',
-	    value: function filterPlacesByCategoryId(places, categoryId) {
-	      if (categoryId) {
-	        return places.filter(function (item) {
-	          return item.category && item.category.id === categoryId;
+	    key: 'showMorePlaces',
+	    value: function showMorePlaces() {
+	      var _state = this.state;
+	      var places = _state.places;
+	      var placesRef = _state.placesRef;
+	      var categoryId = _state.categoryId;
+	      var placesByCategory = _state.placesByCategory;
+
+	      if (places.length < placesRef.length) {
+	        var morePlaces = !categoryId ? placesRef.slice(places.length, places.length + ITEMS_SHOWN) : placesByCategory[categoryId].slice(places.length, places.length + ITEMS_SHOWN);
+	        places.push.apply(places, morePlaces);
+	        this.setState({
+	          places: places
 	        });
 	      }
-	      return places;
+	    }
+	  }, {
+	    key: 'selectCategory',
+	    value: function selectCategory(category) {
+	      var categoryId = this.getCategoryId(_categories2.default, category);
+	      var places = [];
+	      var _state2 = this.state;
+	      var placesRef = _state2.placesRef;
+	      var placesByCategory = _state2.placesByCategory;
+
+	      var morePlaces = !categoryId ? placesRef.slice(places.length, places.length + ITEMS_SHOWN) : placesByCategory[categoryId].slice(places.length, places.length + ITEMS_SHOWN);
+	      places.push.apply(places, morePlaces);
+	      this.setState({
+	        places: places,
+	        categoryId: categoryId
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -25258,14 +25337,13 @@
 	      var _props$params = this.props.params;
 	      var category = _props$params.category;
 	      var place = _props$params.place;
+	      var places = this.state.places;
 
-	      var categoryId = this.getCategoryId(_categories2.default, category);
-	      var places = this.filterPlacesByCategoryId(_places2.default, categoryId);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_block2.default, { data: this.getCarouselData() }),
-	        _react2.default.createElement(_block4.default, { categories: _categories2.default, places: places, category: category, place: place })
+	        _react2.default.createElement(_block4.default, { categories: _categories2.default, places: places, category: category, place: place, clickHandler: this.selectCategory, scrollHandler: this.showMorePlaces })
 	      );
 	    }
 	  }]);
@@ -37996,6 +38074,8 @@
 	      var categories = _props.categories;
 	      var places = _props.places;
 	      var category = _props.category;
+	      var clickHandler = _props.clickHandler;
+	      var scrollHandler = _props.scrollHandler;
 
 
 	      return _react2.default.createElement(
@@ -38007,12 +38087,12 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'col-sm-3 col-xs-12 col-md-2 ' + style.categories },
-	            _react2.default.createElement(_category.CategoryList, { data: categories, category: category })
+	            _react2.default.createElement(_category.CategoryList, { data: categories, category: category, clickHandler: clickHandler })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'col-sm-9 col-xs-12 col-md-10' },
-	            _react2.default.createElement(_place.PlaceList, { data: places, categories: categories })
+	            _react2.default.createElement(_place.PlaceList, { data: places, categories: categories, category: category, scrollHandler: scrollHandler })
 	          )
 	        )
 	      );
@@ -38029,7 +38109,9 @@
 	  categories: _react2.default.PropTypes.array.isRequired,
 	  places: _react2.default.PropTypes.array.isRequired,
 	  category: _react2.default.PropTypes.string,
-	  place: _react2.default.PropTypes.string
+	  place: _react2.default.PropTypes.string,
+	  clickHandler: _react2.default.PropTypes.func.isRequired,
+	  scrollHandler: _react2.default.PropTypes.func.isRequired
 	};
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -38111,11 +38193,14 @@
 	    }
 	  }, {
 	    key: 'renderItems',
-	    value: function renderItems(data, category) {
+	    value: function renderItems(data, category, clickHandler) {
+	      var _this2 = this;
+
 	      if (_lodash2.default.isArray(data) && data.length) {
 	        return data.map(function (item, index) {
 	          var slug = (0, _slug2.default)(item.plural);
 	          var activeClassName = slug === category ? 'active' : '';
+	          /*eslint-disable */
 	          return _react2.default.createElement(
 	            'li',
 	            { key: index },
@@ -38124,11 +38209,12 @@
 	              { itemProp: 'description' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/directorio/playas-tijuana/' + slug, title: 'Directorio Playas de Tijuana ' + item.plural, className: style[activeClassName] },
+	                { to: '/directorio/playas-tijuana/' + slug, title: 'Directorio Playas de Tijuana ' + item.plural, className: style[activeClassName], onClick: clickHandler.bind(_this2, slug) },
 	                item.plural
 	              )
 	            )
 	          );
+	          /*eslint-enable */
 	        });
 	      }
 	      return null;
@@ -38139,8 +38225,10 @@
 	      var _props = this.props;
 	      var data = _props.data;
 	      var category = _props.category;
+	      var clickHandler = _props.clickHandler;
 
 	      var activeClassName = !category ? 'active' : '';
+	      /*eslint-disable */
 	      return _react2.default.createElement(
 	        'nav',
 	        { className: 'navbar ' + style.navbar },
@@ -38182,16 +38270,17 @@
 	                  { itemProp: 'description' },
 	                  _react2.default.createElement(
 	                    _reactRouter.Link,
-	                    { to: '/directorio/playas-tijuana', title: 'Directorio Playas de Tijuana', className: style[activeClassName] },
+	                    { to: '/directorio/playas-tijuana', title: 'Directorio Playas de Tijuana', className: style[activeClassName], onClick: clickHandler.bind(this) },
 	                    'Ver todos'
 	                  )
 	                )
 	              ),
-	              this.renderItems(data, category)
+	              this.renderItems(data, category, clickHandler)
 	            )
 	          )
 	        )
 	      );
+	      /*eslint-enable */
 	    }
 	  }]);
 
@@ -38203,7 +38292,8 @@
 
 	CategoryList.propTypes = {
 	  data: _react2.default.PropTypes.array.isRequired,
-	  category: _react2.default.PropTypes.string
+	  category: _react2.default.PropTypes.string,
+	  clickHandler: _react2.default.PropTypes.func.isRequired
 	};
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "categoryList.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -38286,6 +38376,8 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PlaceList).call(this, props));
 
 	    _this.displayImages = _this.displayImages.bind(_this);
+	    _this.scrollHandler = _this.props.scrollHandler;
+	    _this.onScroll = _this.onScroll.bind(_this);
 	    return _this;
 	  }
 
@@ -38293,11 +38385,29 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.loadImages();
+	      window.addEventListener('scroll', this.onScroll, false);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
 	      this.loadImages();
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      window.removeEventListener('scroll', this.onScroll, false);
+	    }
+	  }, {
+	    key: 'onScroll',
+	    value: function onScroll() {
+	      var pageHeight = document.body.offsetHeight;
+	      var footerHeight = $('#footer_section').height();
+	      var maxHeight = pageHeight - footerHeight;
+	      var scrollY = window.innerHeight + window.scrollY;
+
+	      if (scrollY >= maxHeight) {
+	        this.scrollHandler();
+	      }
 	    }
 	  }, {
 	    key: 'getImage',
@@ -38315,13 +38425,6 @@
 	        };
 	        img.src = url;
 	      });
-	    }
-	  }, {
-	    key: 'getCategoryNames',
-	    value: function getCategoryNames(categories) {
-	      return categories.map(function (item) {
-	        return item.name;
-	      }).join(' ');
 	    }
 	  }, {
 	    key: 'getTitle',
@@ -38425,7 +38528,7 @@
 	      var _this2 = this;
 
 	      if (_lodash2.default.isArray(places) && places.length) {
-	        return places.slice(0, 80).map(function (item, index) {
+	        return places.map(function (item, index) {
 	          var category = item.category;
 
 	          var categorySlug = (0, _slug2.default)(category.plural);
@@ -38480,8 +38583,9 @@
 
 	PlaceList.propTypes = {
 	  data: _react2.default.PropTypes.array.isRequired,
-	  categories: _react2.default.PropTypes.array.isRequired,
-	  place: _react2.default.PropTypes.string
+	  category: _react2.default.PropTypes.string,
+	  place: _react2.default.PropTypes.string,
+	  scrollHandler: _react2.default.PropTypes.func.isRequired
 	};
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "placeList.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
