@@ -1,9 +1,56 @@
 @import '../../../../theme/constants';
 @import '../../../../theme/wrappers/wrappers';
+.showFooterBtn{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: $green;
+  border-radius: 30px;
+  cursor: pointer;
+  color: $white;
+  font-family: $fontA;
+  font-weight: bold;
+  font-size: 20px;
+  span{
+    @extend .fCenter;
+  }
+  &:hover{
+    background-color: lighten($green, 10%);
+  }
+}
+.fixedFooter{
+  position: fixed;
+  top: 0;
+  overflow: scroll;
+  padding-top: 100px;
+  margin-top: 0!important;
+  width: 100%;
+  .removeFixed{
+    display: block!important;
+    position: fixed;
+    color: $white;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 2;
+    opacity: .8;
+    span{
+      font-size: 20px;
+    }
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
 .footerWrapper {
   margin-top: 70px;
   padding-bottom: 10px;
   background-color: $green;
+  .removeFixed{
+    display: none;
+  }
 }
 .brand{
   background-color: $teal;
