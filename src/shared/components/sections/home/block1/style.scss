@@ -135,6 +135,13 @@
   }
   .item{
     .imgContainer {
+      height: 300px;
+      img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translateX(-50%) translateY(-50%));
+      }
       h3{
         top: 5px;
         left: 5px;

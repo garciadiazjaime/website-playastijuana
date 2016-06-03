@@ -5,6 +5,7 @@ import Brand from './brand';
 import Contact from './contact';
 import Projects from './projects';
 import About from './about';
+import SVG from '../../../svg';
 
 export default class Footer1 extends React.Component {
   componentDidMount() {
@@ -12,13 +13,15 @@ export default class Footer1 extends React.Component {
       $('#footer_section').addClass(style.fixedFooter);
       const fHeight = $(window).height();
       $('#footer_section').height(fHeight);
-      $(this).css('display', 'none');
+      $('#footerReveal').css('display', 'none');
+      $('body').addClass(style.noScroll);
     });
     $('#footer_closer').click(function () {
       $('#footer_section').removeClass(style.fixedFooter);
       $('#footer_section').height();
       $('#footerReveal').css('display', 'block');
       $('#footer_closer').css('display', 'none');
+      $('body').removeClass(style.noScroll);
     });
   }
   render() {
@@ -40,8 +43,10 @@ export default class Footer1 extends React.Component {
             <About />
           </div>
           <div className="col-xs-12">
-            <a href="https://plus.google.com/102083249909313249138" title="Directorio Playas de Tijuana - Google Plus" target="_blank">G</a>&nbsp;
-            <a href="https://www.facebook.com/directorioplayastijuana/" title="Directorio Playas de Tijuana - Facebook" target="_blank">F</a>
+            <div className={'row ' + style.smRow}>
+              <a href="https://plus.google.com/102083249909313249138" title="Directorio Playas de Tijuana - Google Plus" target="_blank"><SVG network="googleplus" className={style.gmaps}/></a>&nbsp;
+              <a href="https://www.facebook.com/directorioplayastijuana/" title="Directorio Playas de Tijuana - Facebook" target="_blank"><SVG network="facebook" className={style.facebook}/></a>
+            </div>
           </div>
         </div>
       </div>
