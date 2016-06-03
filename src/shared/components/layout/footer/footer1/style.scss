@@ -1,6 +1,11 @@
 @import '../../../../theme/constants';
 @import '../../../../theme/wrappers/wrappers';
+.noScroll{
+  height: 100%;
+  overflow: hidden;
+}
 .showFooterBtn{
+  box-sizing: border-box;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -21,11 +26,12 @@
   }
 }
 .fixedFooter{
+  padding-top: 100px;
   position: fixed;
   top: 0;
   overflow: scroll;
-  padding-top: 100px;
   margin-top: 0!important;
+  padding-bottom: 120px!important;
   width: 100%;
   .removeFixed{
     display: block!important;
@@ -42,6 +48,9 @@
     &:hover{
       opacity: 1;
     }
+  }
+  svg{
+    margin-top: 20px;
   }
 }
 .footerWrapper {
@@ -165,7 +174,13 @@
     }
   }
 }
+.smRow{
+  padding: 10px 50px;
+}
 @media #{$isPhone}{
+  .fixedFooter{
+    padding-top: 0;
+  }
   .footerWrapper{
     padding-bottom: 0;
   }

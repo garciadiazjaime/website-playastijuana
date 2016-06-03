@@ -19,12 +19,16 @@
     }
   }
 }
+.sm{
+  text-align: right;
+  padding-top: 20px;
+}
 @media#{$isTablet}{
 }
 @media#{$isPhone}{
   .header{
     h1{
-      font-size: 23px;
+      font-size: 14px;
     }
   }
 }
