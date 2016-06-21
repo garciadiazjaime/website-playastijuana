@@ -119,7 +119,7 @@ export default class PlaceList extends React.Component {
           <img src="/images/landing.png" alt={item.name + ' - ' + category.name} className={'place_image_pivote ' + style.imagePlaceholder } data-image-url={imgUrl} data-index={index} id={'image_' + index} />
         </div>);
     }
-    return (<div key={index}>
+    return (<div key={index} className="col-xs-6">
       <img src="/images/placeholder.png" alt={item.name + ' - ' + category.name} className={style.imagePlaceholder} />
     </div>);
   }
