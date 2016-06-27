@@ -24253,7 +24253,7 @@
 
 	var _AppHandler2 = _interopRequireDefault(_AppHandler);
 
-	var _home = __webpack_require__(220);
+	var _home = __webpack_require__(221);
 
 	var _home2 = _interopRequireDefault(_home);
 
@@ -24307,15 +24307,15 @@
 
 	var _menu2 = _interopRequireDefault(_menu);
 
-	var _footer = __webpack_require__(212);
+	var _footer = __webpack_require__(213);
 
 	var _footer2 = _interopRequireDefault(_footer);
 
-	var _scroll = __webpack_require__(218);
+	var _scroll = __webpack_require__(219);
 
 	var _scroll2 = _interopRequireDefault(_scroll);
 
-	var _menu3 = __webpack_require__(219);
+	var _menu3 = __webpack_require__(220);
 
 	var _menu4 = _interopRequireDefault(_menu3);
 
@@ -24441,6 +24441,10 @@
 
 	var _reactRouter = __webpack_require__(160);
 
+	var _svg = __webpack_require__(211);
+
+	var _svg2 = _interopRequireDefault(_svg);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24449,7 +24453,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var style = __webpack_require__(211);
+	var style = __webpack_require__(212);
 
 	var MainMenu = function (_React$Component) {
 	  _inherits(MainMenu, _React$Component);
@@ -24472,7 +24476,7 @@
 	          { className: 'row ' + style.header },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-xs-12' },
+	            { className: 'col-xs-12 col-sm-9' },
 	            _react2.default.createElement(
 	              'h1',
 	              null,
@@ -24486,6 +24490,21 @@
 	                  ' Playas de Tijuana'
 	                )
 	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'hidden-xs col-sm3 ' + style.sm },
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://plus.google.com/102083249909313249138', title: 'Directorio Playas de Tijuana - Google Plus', target: '_blank' },
+	              _react2.default.createElement(_svg2.default, { network: 'googleplus', className: style.gmaps })
+	            ),
+	            ' ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://www.facebook.com/directorioplayastijuana/', title: 'Directorio Playas de Tijuana - Facebook', target: '_blank' },
+	              _react2.default.createElement(_svg2.default, { network: 'facebook', className: style.facebook })
 	            )
 	          )
 	        )
@@ -24511,13 +24530,6 @@
 
 /***/ },
 /* 211 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___cfX-h","vCenter":"style__vCenter___ZA14l","vCenterRel":"style__vCenterRel___1GkYt","hCenter":"style__hCenter___2Rj-i","inheritHeight":"style__inheritHeight___2LMcf","hideOverflow":"style__hideOverflow___3olA9","header":"style__header___3oysY","playami":"style__playami___1p20f"};
-
-/***/ },
-/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -24534,21 +24546,177 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _brand = __webpack_require__(213);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
+
+
+	var SVG = function (_React$Component) {
+	  _inherits(SVG, _React$Component);
+
+	  function SVG() {
+	    _classCallCheck(this, SVG);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SVG).apply(this, arguments));
+	  }
+
+	  _createClass(SVG, [{
+	    key: 'renderItems',
+	    value: function renderItems(network, className) {
+	      switch (network) {
+	        case 'facebook':
+	          /*eslint-disable */
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15', fill: '#3a589d' }),
+	            _react2.default.createElement('path', { d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z', fill: '#fff' })
+	          );
+	          break;
+	        case 'twitter':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	            _react2.default.createElement('path', { d: 'M23.5 9.7c-0.6 0.3-1.3 0.5-2 0.5 0.7-0.4 1.3-1.1 1.5-1.9 -0.7 0.4-1.4 0.7-2.2 0.8 -0.6-0.7-1.5-1.1-2.5-1.1 -1.9 0-3.5 1.6-3.5 3.5 0 0.3 0 0.5 0.1 0.8 -2.9-0.1-5.5-1.5-7.2-3.6 -0.3 0.5-0.5 1.1-0.5 1.8 0 1.2 0.6 2.3 1.6 2.9 -0.6 0-1.1-0.2-1.6-0.4 0 0 0 0 0 0 0 1.7 1.2 3.1 2.8 3.4 -0.3 0.1-0.6 0.1-0.9 0.1 -0.2 0-0.4 0-0.7-0.1 0.4 1.4 1.7 2.4 3.3 2.4 -1.2 0.9-2.7 1.5-4.3 1.5 -0.3 0-0.6 0-0.8 0 1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.9 0-0.1 0-0.3 0-0.4C22.4 11 23 10.4 23.5 9.7z' })
+	          );
+	          break;
+	        case 'pinterest':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { className: this.props.background, cx: '15', cy: '15', r: '15' }),
+	            _react2.default.createElement('path', { d: 'M14.4 18.1c-0.5 2.6-1.1 5.1-2.9 6.4 -0.6-4 0.8-6.9 1.5-10.1 -1.1-1.8 0.1-5.5 2.4-4.6 2.8 1.1-2.4 6.8 1.1 7.5 3.7 0.8 5.2-6.4 2.9-8.8 -3.3-3.4-9.7-0.1-8.9 4.8 0.2 1.2 1.4 1.5 0.5 3.2 -2.1-0.5-2.8-2.1-2.7-4.4 0.1-3.7 3.3-6.2 6.5-6.6 4-0.4 7.8 1.5 8.3 5.2 0.6 4.2-1.8 8.8-6.1 8.5C15.8 19.2 15.4 18.6 14.4 18.1' })
+	          );
+	          break;
+	        case 'instagram':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	            _react2.default.createElement('path', { d: 'M20.6 7H9.4c-1.3 0-2.4 0.9-2.4 2.1v11.8c0 1.2 1.1 2.1 2.4 2.1h11.3c1.3 0 2.4-0.9 2.4-2.1V9.1C23 7.9 22 7 20.6 7zM18.6 9.2c0-0.3 0.2-0.5 0.5-0.5h1.7c0.3 0 0.5 0.2 0.5 0.5v1.7c0 0.3-0.2 0.5-0.5 0.5h-1.7c-0.3 0-0.5-0.2-0.5-0.5V9.2zM17.7 11.7v0c0 0 0 0 0 0H17.7zM14.9 12c2 0 3.5 1.6 3.5 3.5 0 2-1.6 3.5-3.5 3.5 -2 0-3.5-1.6-3.5-3.5C11.4 13.6 13 12 14.9 12zM22 20.7c0 0.8-0.6 1.4-1.4 1.4H9.3c-0.8 0-1.4-0.6-1.4-1.4V13.3h2.9c-0.3 0.7-0.5 1.4-0.5 2.2 0 2.6 2.1 4.7 4.7 4.7 2.6 0 4.7-2.1 4.7-4.7 0-0.7-0.2-1.4-0.5-2h2.8V20.7z' })
+	          );
+	          break;
+	        case 'google':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.4 50 50' },
+	            _react2.default.createElement('path', { d: 'M287.6 730.8c-9.8-9.8-25.6-9.8-35.4 0 -9.8 9.8-9.8 25.6 0 35.4 1.3 1.3 2.7 2.4 4.2 3.4l34.5-34.5C290 733.5 288.8 732.1 287.6 730.8z', fill: '#30A45A' }),
+	            _react2.default.createElement('path', { d: 'M290.9 734.9l-34.5 34.5c1.5 1 3.1 1.8 4.7 2.4l32.2-32.2C292.7 738 291.9 736.4 290.9 734.9z', fill: '#FCDD00' }),
+	            _react2.default.createElement('path', { d: 'M261.1 771.8c8.9 3.3 19.3 1.4 26.5-5.7l-10.4-10.4L261.1 771.8z', fill: '#5382C2' }),
+	            _react2.default.createElement('path', { d: 'M293.3 739.6l-16.1 16.1 10.4 10.4C294.7 759 296.6 748.5 293.3 739.6z', fill: '#C2C1C1' }),
+	            _react2.default.createElement('path', { d: 'M276.5 746.3c2.1 0 4.2-0.1 6.4 0.1 0.7 0.1 1 0.3 1.1 1 0.8 7.7-3.6 13.7-11.1 15.2 -7.6 1.5-15.7-4.1-16.8-11.8 -1.2-8.1 4.4-15.7 12.3-16.6 4-0.5 7.6 0.5 10.8 2.9 0.7 0.5 0.8 0.8 0.1 1.4 -0.9 0.8-1.8 1.8-2.7 2.6 -0.4 0.4-0.6 0.6-1.2 0.1 -3-2.3-6.9-2.3-10.1-0.2 -3 2-4.5 5.9-3.6 9.4 1 3.9 4 6.5 7.8 6.8 3.8 0.3 7.1-1.5 8.4-4.7 0.4-0.9 0.4-1.3-0.8-1.3 -2 0.1-3.9 0-5.9 0 -0.9 0-1.2-0.2-1.1-1.1 0.1-1 0-2.1-0.1-3.1 0-0.7 0.2-0.9 0.9-0.9C272.7 746.3 274.6 746.3 276.5 746.3z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M283.8 740.4c-0.2-0.3-0.3-0.6-0.4-1 -0.3-0.9-0.2-1.8 0.2-2.7 0.5-0.9 1.3-1.5 2.4-1.7 1.9-0.4 3.9 0.7 4.3 2.8 0.1 0.8 0 1.6-0.4 2.3 -0.3 0.5-0.6 1-1 1.5 0 0.1-0.1 0.1-0.1 0.2 -0.3 0.4-0.6 0.9-0.9 1.3 -0.5 0.9-0.8 1.8-0.9 2.7 0 0.2-0.1 0.3-0.2 0.4 -0.1-0.1-0.2-0.1-0.2-0.2 0 0 0-0.1 0-0.1 -0.2-1.5-0.8-2.7-1.7-3.9C284.5 741.4 284.1 740.9 283.8 740.4z', fill: '#D95138' })
+	          );
+	          break;
+	        case 'googleplus':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '0 0 50 50' },
+	            _react2.default.createElement('circle', { cx: '25', cy: '25', r: '25', fill: '#DA5031' }),
+	            _react2.default.createElement('path', { d: 'M23.6 27.9c-0.5-0.7-1-1.3-1.1-2.1 -0.2-0.8 0-1.6 0.3-2.3 -0.3 0-0.7 0-1 0 -2.2 0.1-4.1-0.5-5.7-2.1 -1.2-1.2-1.8-2.6-1.9-4.2 -0.3-2.6 0.8-4.6 2.6-6.4 1.5-1.4 3.4-2.1 5.4-2.4 2-0.2 4-0.2 6-0.2C30 8.2 31.8 8.2 33.5 8.2c0.1 0 0.2 0 0.3 0 0 0 0 0.1 0 0.1 -0.8 0.5-1.5 1-2.4 1.3 -0.9 0.3-1.8 0.4-2.7 0.1 0 0 0 0.1-0.1 0.1 0.1 0.1 0.1 0.2 0.2 0.3 0.7 0.6 1.3 1.3 1.7 2.1 1.5 2.5 1.4 6.4-1.3 8.7 -0.7 0.6-1.3 1.2-2 1.8 -0.9 0.8-0.8 2.2 0.1 3 1.2 1 2.4 2 3.5 3 2.6 2.3 2.7 6.2 0.8 8.7 -1.4 1.9-3.3 3.1-5.5 3.7 -1.8 0.5-3.6 0.7-5.5 0.7 -1.9-0.1-3.8-0.5-5.5-1.4 -1.4-0.7-2.5-1.8-2.9-3.3 -0.6-1.9-0.2-3.6 1-5.1 1-1.3 2.4-2.2 4-2.7 1.2-0.4 2.4-0.6 3.6-0.8C21.8 28.2 22.7 28.1 23.6 27.9zM23.5 39.8c1.5 0.1 2.8-0.1 4-0.8 2.8-1.4 3.3-5 1-7 -0.8-0.7-1.6-1.3-2.4-2 -0.5-0.4-1.1-0.7-1.8-0.7 -0.7 0-1.4 0.1-2.1 0.2 -1.3 0.1-2.6 0.5-3.8 1.1 -3 1.6-3.1 5-1.4 6.9 0.8 0.9 1.9 1.5 3.1 1.9C21.3 39.7 22.4 39.8 23.5 39.8zM18.2 14.3c0 1.3 0.1 2.3 0.5 3.3 0.5 1.4 1.2 2.6 2.3 3.6 2 1.7 4.7 1 6-0.7 0.5-0.7 0.7-1.5 0.7-2.4 0.1-1-0.1-2-0.4-3 -0.4-1.7-1.2-3.2-2.5-4.4 -2-1.8-5.1-1.2-6.2 1.2C18.2 12.8 18.2 13.6 18.2 14.3z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M33.2 24.5c0-0.7 0-1.4 0-2.1 1.1 0 2.2 0 3.3 0 0-0.1 0-0.2 0-0.3 0-0.9 0-1.8 0-2.6 0-0.4 0.1-0.4 0.4-0.4 0.4 0 0.8 0 1.2 0 0.3 0 0.4 0.1 0.4 0.4 0 1 0 1.9 0 2.9 1.1 0 2.2 0 3.3 0 0 0.7 0 1.4 0 2.1 -0.1 0-0.2 0-0.3 0 -0.9 0-1.7 0-2.6 0 -0.4 0-0.4 0-0.4 0.4 0 0.8 0 1.6 0 2.4 0 0.5-0.1 0.5-0.5 0.5 -0.4 0-0.7 0-1.1 0 -0.4 0-0.5-0.1-0.5-0.5 0-0.8 0-1.6 0-2.4 0-0.4-0.1-0.4-0.4-0.4 -0.9 0-1.8 0-2.8 0C33.3 24.5 33.3 24.5 33.2 24.5z', fill: '#fff' })
+	          );
+	          break;
+	        case 'foursquare':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.5 50 49.9' },
+	            _react2.default.createElement('circle', { cx: '269.9', cy: '748.4', r: '25', fill: '#f64d78' }),
+	            _react2.default.createElement('path', { d: 'M280.2 733.6c0 0-14.5 0-16.8 0s-3 1.8-3 2.9c0 1.1 0 26.8 0 26.8 0 1.2 0.7 1.7 1 1.9 0.4 0.2 1.4 0.3 2-0.4 0 0 7.9-9.2 8.1-9.4 0.2-0.2 0.2-0.2 0.4-0.2 0.4 0 3.5 0 5.1 0 2.2 0 2.5-1.5 2.7-2.5 0.2-0.8 2.3-11.6 3-15C283.3 735 282.6 733.6 280.2 733.6zM279.8 752.6c0.2-0.8 2.3-11.6 3-15M279.2 738.1l-0.7 3.7c-0.1 0.4-0.6 0.8-1 0.8 -0.5 0-6.8 0-6.8 0 -0.7 0-1.3 0.4-1.3 1.2v0.9c0 0.7 0.5 1.3 1.3 1.3 0 0 5.3 0 5.8 0 0.5 0 1 0.6 0.9 1.1 -0.1 0.6-0.6 3.3-0.7 3.6 -0.1 0.3-0.4 0.8-1 0.8 -0.5 0-4.5 0-4.5 0 -0.8 0-1.1 0.1-1.6 0.8 -0.6 0.7-5.5 6.7-5.5 6.7 0 0.1-0.1 0-0.1 0v-20.9c0-0.5 0.4-1 1-1 0 0 13 0 13.5 0C278.8 737.1 279.3 737.5 279.2 738.1z', fill: '#FFF' })
+	          );
+	          break;
+	        case 'yelp':
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.5 50 49.9' },
+	            _react2.default.createElement('circle', { cx: '269.9', cy: '748.4', r: '25', fill: '#bc341f' }),
+	            _react2.default.createElement('path', { d: 'M264 741.2c-1.1-1.8-2.2-3.5-3.2-5.3 -0.6-1-0.4-1.6 0.6-2.2 1.7-0.9 3.5-1.3 5.4-1.7 0.3-0.1 0.7-0.1 1-0.1 1.2-0.1 1.7 0.4 1.7 1.6 0.2 3.2 0.4 6.4 0.7 9.6 -0.1 0.9 0.2 1.8 0.1 2.8 -0.1 1.1-0.4 1.5-1.3 1.7 -0.8 0.2-1.2-0.5-1.6-1 -1-1.6-2-3.2-3-4.8C264.2 741.6 264.1 741.4 264 741.2z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M276 743.2c0.4-0.3 0.7-0.8 1-1.1 0.5-0.6 1.1-0.7 1.8-0.2 0.4 0.3 0.8 0.7 1.1 1.1 0.6 0.9 1.3 1.8 1.7 2.7 0.2 0.4 0.4 0.9 0.5 1.4 0.1 0.7-0.1 1.2-0.8 1.4 -2.3 0.7-4.7 1.3-7 1.8 -0.8 0.2-1.2-0.1-1.6-0.7 -0.4-0.6-0.3-1.2 0.1-1.8C273.8 746.4 275 744.8 276 743.2z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M257.7 751.5c0-1.1 0.1-2.1 0.3-3.1 0.2-1.1 0.9-1.5 1.9-1.1 2.2 0.9 4.4 1.8 6.6 2.7 0.6 0.3 0.9 0.8 0.8 1.4 0 0.6-0.3 1.1-0.9 1.3 -2.3 0.7-4.5 1.5-6.8 2.2 -0.9 0.3-1.4 0-1.7-0.9 0-0.2-0.1-0.3-0.1-0.5C257.7 752.8 257.7 752.2 257.7 751.5z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M272.7 754.6c0-1 0.9-1.7 1.9-1.4 2.2 0.7 4.4 1.5 6.6 2.2 1 0.4 1.3 1 0.9 2 -0.8 1.7-1.9 3.2-3.4 4.4 -0.8 0.7-1.5 0.6-2.1-0.3 -1.3-2-2.5-4-3.7-6.1C272.8 755.2 272.7 754.9 272.7 754.6z', fill: '#fff' }),
+	            _react2.default.createElement('path', { d: 'M270.1 759.7c0 1.2 0 2.4 0 3.6 0 1-0.5 1.5-1.5 1.4 -1.9-0.2-3.7-0.9-5.3-2 -0.8-0.6-0.9-1.2-0.3-1.9 1.5-1.9 3.1-3.7 4.6-5.6 0.4-0.5 1-0.6 1.6-0.4 0.6 0.2 0.9 0.6 0.9 1.3 0 1.2 0 2.5 0 3.7C270.1 759.7 270.1 759.7 270.1 759.7z', fill: '#fff' })
+	          );
+	          break;
+	        default:
+	          return _react2.default.createElement(
+	            'svg',
+	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
+	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
+	            _react2.default.createElement('path', { d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z', fill: '#fff' })
+	          );
+	        /*eslint-enable */
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return this.renderItems(this.props.network, this.props.className);
+	    }
+	  }]);
+
+	  return SVG;
+	}(_react2.default.Component);
+
+	exports.default = SVG;
+
+	SVG.propTypes = {
+	  background: _react2.default.PropTypes.string,
+	  color: _react2.default.PropTypes.string,
+	  network: _react2.default.PropTypes.string,
+	  className: _react2.default.PropTypes.string
+	};
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 212 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"fCenter":"style__fCenter___cfX-h","vCenter":"style__vCenter___ZA14l","vCenterRel":"style__vCenterRel___1GkYt","hCenter":"style__hCenter___2Rj-i","inheritHeight":"style__inheritHeight___2LMcf","hideOverflow":"style__hideOverflow___3olA9","header":"style__header___3oysY","playami":"style__playami___1p20f","sm":"style__sm___1NvWS"};
+
+/***/ },
+/* 213 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _brand = __webpack_require__(214);
 
 	var _brand2 = _interopRequireDefault(_brand);
 
-	var _contact = __webpack_require__(215);
+	var _contact = __webpack_require__(216);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
-	var _projects = __webpack_require__(216);
+	var _projects = __webpack_require__(217);
 
 	var _projects2 = _interopRequireDefault(_projects);
 
-	var _about = __webpack_require__(217);
+	var _about = __webpack_require__(218);
 
 	var _about2 = _interopRequireDefault(_about);
+
+	var _svg = __webpack_require__(211);
+
+	var _svg2 = _interopRequireDefault(_svg);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24559,7 +24727,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(214);
+	var style = __webpack_require__(215);
 
 	var Footer1 = function (_React$Component) {
 	  _inherits(Footer1, _React$Component);
@@ -24577,13 +24745,15 @@
 	        $('#footer_section').addClass(style.fixedFooter);
 	        var fHeight = $(window).height();
 	        $('#footer_section').height(fHeight);
-	        $(this).css('display', 'none');
+	        $('#footerReveal').css('display', 'none');
+	        $('body').addClass(style.noScroll);
 	      });
 	      $('#footer_closer').click(function () {
 	        $('#footer_section').removeClass(style.fixedFooter);
 	        $('#footer_section').height();
 	        $('#footerReveal').css('display', 'block');
 	        $('#footer_closer').css('display', 'none');
+	        $('body').removeClass(style.noScroll);
 	      });
 	    }
 	  }, {
@@ -24632,15 +24802,19 @@
 	              'div',
 	              { className: 'col-xs-12' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: 'https://plus.google.com/102083249909313249138', title: 'Directorio Playas de Tijuana - Google Plus', target: '_blank' },
-	                'G'
-	              ),
-	              ' ',
-	              _react2.default.createElement(
-	                'a',
-	                { href: 'https://www.facebook.com/directorioplayastijuana/', title: 'Directorio Playas de Tijuana - Facebook', target: '_blank' },
-	                'F'
+	                'div',
+	                { className: 'row ' + style.smRow },
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: 'https://plus.google.com/102083249909313249138', title: 'Directorio Playas de Tijuana - Google Plus', target: '_blank' },
+	                  _react2.default.createElement(_svg2.default, { network: 'googleplus', className: style.gmaps })
+	                ),
+	                ' ',
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: 'https://www.facebook.com/directorioplayastijuana/', title: 'Directorio Playas de Tijuana - Facebook', target: '_blank' },
+	                  _react2.default.createElement(_svg2.default, { network: 'facebook', className: style.facebook })
+	                )
 	              )
 	            )
 	          )
@@ -24663,7 +24837,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -24691,7 +24865,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(214);
+	var style = __webpack_require__(215);
 
 	var Brand = function (_React$Component) {
 	  _inherits(Brand, _React$Component);
@@ -24750,14 +24924,14 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "brand.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___24X-f","showFooterBtn":"style__showFooterBtn___32mks","vCenter":"style__vCenter___rkH6k","vCenterRel":"style__vCenterRel___W_SE5","hCenter":"style__hCenter___rq5W3","inheritHeight":"style__inheritHeight___IbmOF","hideOverflow":"style__hideOverflow___3nmjb","fixedFooter":"style__fixedFooter___VC2KX","removeFixed":"style__removeFixed___OyCQg","footerWrapper":"style__footerWrapper___zbtoF","brand":"style__brand___1i--U","yellow":"style__yellow___RRjP0","white":"style__white___3N7gH","contact":"style__contact___2AMMK","facebook":"style__facebook___39dVV","projects":"style__projects___2bCs6","about":"style__about___vuj9k"};
+	module.exports = {"fCenter":"style__fCenter___24X-f","showFooterBtn":"style__showFooterBtn___32mks","vCenter":"style__vCenter___rkH6k","vCenterRel":"style__vCenterRel___W_SE5","hCenter":"style__hCenter___rq5W3","inheritHeight":"style__inheritHeight___IbmOF","hideOverflow":"style__hideOverflow___3nmjb","noScroll":"style__noScroll___1ZSBh","fixedFooter":"style__fixedFooter___VC2KX","removeFixed":"style__removeFixed___OyCQg","footerWrapper":"style__footerWrapper___zbtoF","brand":"style__brand___1i--U","yellow":"style__yellow___RRjP0","white":"style__white___3N7gH","contact":"style__contact___2AMMK","facebook":"style__facebook___39dVV","projects":"style__projects___2bCs6","about":"style__about___vuj9k","smRow":"style__smRow___26FLl"};
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -24784,7 +24958,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var style = __webpack_require__(214);
+	var style = __webpack_require__(215);
 
 	var FooterTop = function (_React$Component) {
 	  _inherits(FooterTop, _React$Component);
@@ -24856,7 +25030,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "contact.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -24884,7 +25058,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(214);
+	var style = __webpack_require__(215);
 
 	var Projects = function (_React$Component) {
 	  _inherits(Projects, _React$Component);
@@ -24969,7 +25143,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "projects.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -24997,7 +25171,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(214);
+	var style = __webpack_require__(215);
 
 	var Projects = function (_React$Component) {
 	  _inherits(Projects, _React$Component);
@@ -25112,7 +25286,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "about.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -25159,7 +25333,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -25178,7 +25352,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -25195,19 +25369,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(221);
+	var _lodash = __webpack_require__(222);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _slug = __webpack_require__(223);
+	var _slug = __webpack_require__(224);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
-	var _block = __webpack_require__(224);
+	var _block = __webpack_require__(225);
 
 	var _block2 = _interopRequireDefault(_block);
 
-	var _block3 = __webpack_require__(227);
+	var _block3 = __webpack_require__(228);
 
 	var _block4 = _interopRequireDefault(_block3);
 
@@ -25361,7 +25535,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -37716,10 +37890,10 @@
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(222)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(223)(module), (function() { return this; }())))
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -37735,7 +37909,7 @@
 
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37770,7 +37944,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37787,13 +37961,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(221);
+	var _lodash = __webpack_require__(222);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
 	var _reactRouter = __webpack_require__(160);
 
-	var _carousel = __webpack_require__(225);
+	var _carousel = __webpack_require__(226);
 
 	var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -37806,7 +37980,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
 
-	var style = __webpack_require__(226);
+	var style = __webpack_require__(227);
 
 	var Block1 = function (_React$Component) {
 	  _inherits(Block1, _React$Component);
@@ -37889,7 +38063,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37906,7 +38080,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(221);
+	var _lodash = __webpack_require__(222);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -38019,14 +38193,14 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___1IAv0","vCenter":"style__vCenter___3op1c","prev":"style__prev___KokMH","next":"style__next___2VHzS","vCenterRel":"style__vCenterRel___3rmpk","hCenter":"style__hCenter___bN1_x","inheritHeight":"style__inheritHeight___3EV0T","hideOverflow":"style__hideOverflow___1jYcy","feature":"style__feature___3zFaz","carouselContainer":"style__carouselContainer___3tYAW","inner":"style__inner___m2WR-","item":"style__item___1hdp3","imgContainer":"style__imgContainer___1f347","controls":"style__controls___15CM-"};
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -38043,9 +38217,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _category = __webpack_require__(228);
+	var _category = __webpack_require__(229);
 
-	var _place = __webpack_require__(231);
+	var _place = __webpack_require__(232);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38117,14 +38291,14 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
 	'use strict';
 
-	var _categoryList = __webpack_require__(229);
+	var _categoryList = __webpack_require__(230);
 
 	var _categoryList2 = _interopRequireDefault(_categoryList);
 
@@ -38135,7 +38309,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -38154,11 +38328,11 @@
 
 	var _reactRouter = __webpack_require__(160);
 
-	var _lodash = __webpack_require__(221);
+	var _lodash = __webpack_require__(222);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _slug = __webpack_require__(223);
+	var _slug = __webpack_require__(224);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
@@ -38170,7 +38344,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	var style = __webpack_require__(230);
+	var style = __webpack_require__(231);
 
 	var CategoryList = function (_React$Component) {
 	  _inherits(CategoryList, _React$Component);
@@ -38299,21 +38473,21 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "categoryList.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"fCenter":"style__fCenter___Awltf","vCenter":"style__vCenter___2LWX6","vCenterRel":"style__vCenterRel___29EI3","hCenter":"style__hCenter___2QtNO","inheritHeight":"style__inheritHeight___c3WLk","hideOverflow":"style__hideOverflow___3AF4T","navbar":"style__navbar___zSCbK","navbar_header":"style__navbar_header___M3Ixl","navbar_toggle":"style__navbar_toggle___VGUMC","icon_bar":"style__icon_bar___1ebr-","active":"style__active___2j7T0","navbar_collapse":"style__navbar_collapse___3dBpy"};
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
 	'use strict';
 
-	var _placeList = __webpack_require__(232);
+	var _placeList = __webpack_require__(233);
 
 	var _placeList2 = _interopRequireDefault(_placeList);
 
@@ -38324,7 +38498,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -38343,15 +38517,15 @@
 
 	var _reactRouter = __webpack_require__(160);
 
-	var _lodash = __webpack_require__(221);
+	var _lodash = __webpack_require__(222);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _slug = __webpack_require__(223);
+	var _slug = __webpack_require__(224);
 
 	var _slug2 = _interopRequireDefault(_slug);
 
-	var _svg = __webpack_require__(233);
+	var _svg = __webpack_require__(211);
 
 	var _svg2 = _interopRequireDefault(_svg);
 
@@ -38489,17 +38663,9 @@
 	    value: function renderImage(item, category, index) {
 	      if (item && _lodash2.default.isArray(item.image_set) && item.image_set.length) {
 	        var imgUrl = item.image_set[0].url.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
-	        return _react2.default.createElement(
-	          'div',
-	          { key: index },
-	          _react2.default.createElement('img', { src: '/images/landing.png', alt: item.name + ' - ' + category.name, className: 'place_image_pivote ' + style.imagePlaceholder, 'data-image-url': imgUrl, 'data-index': index, id: 'image_' + index })
-	        );
+	        return _react2.default.createElement('img', { src: '/images/landing.png', alt: item.name + ' - ' + category.name, className: 'place_image_pivote ' + style.imagePlaceholder, 'data-image-url': imgUrl, 'data-index': index, id: 'image_' + index, key: index });
 	      }
-	      return _react2.default.createElement(
-	        'div',
-	        { key: index },
-	        _react2.default.createElement('img', { src: '/images/placeholder.png', alt: item.name + ' - ' + category.name, className: style.imagePlaceholder })
-	      );
+	      return _react2.default.createElement('img', { src: '/images/placeholder.png', alt: item.name + ' - ' + category.name, className: style.imagePlaceholder, key: index });
 	    }
 	  }, {
 	    key: 'renderLinks',
@@ -38536,11 +38702,15 @@
 	          var links = _this2.getLinks(item);
 	          return _react2.default.createElement(
 	            'div',
-	            { className: style.placeCard + ' category_' + category.name, key: index, itemScope: true, itemType: 'http://schema.org/LocalBusiness' },
-	            imageEl,
+	            { className: style.placeCard + ' category_' + category.name + ' row', key: index, itemScope: true, itemType: 'http://schema.org/LocalBusiness' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: style.legend },
+	              { className: 'col-sm-3 col-xs-6' },
+	              imageEl
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: style.legend + ' col-sm-9 col-xs-6' },
 	              _react2.default.createElement(
 	                'h2',
 	                { key: index, itemProp: 'name' },
@@ -38589,142 +38759,6 @@
 	};
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "placeList.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
-
-
-	var SVG = function (_React$Component) {
-	  _inherits(SVG, _React$Component);
-
-	  function SVG() {
-	    _classCallCheck(this, SVG);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SVG).apply(this, arguments));
-	  }
-
-	  _createClass(SVG, [{
-	    key: 'renderItems',
-	    value: function renderItems(network, className) {
-	      switch (network) {
-	        case 'facebook':
-	          /*eslint-disable */
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15', fill: '#3a589d' }),
-	            _react2.default.createElement('path', { d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z', fill: '#fff' })
-	          );
-	          break;
-	        case 'twitter':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M23.5 9.7c-0.6 0.3-1.3 0.5-2 0.5 0.7-0.4 1.3-1.1 1.5-1.9 -0.7 0.4-1.4 0.7-2.2 0.8 -0.6-0.7-1.5-1.1-2.5-1.1 -1.9 0-3.5 1.6-3.5 3.5 0 0.3 0 0.5 0.1 0.8 -2.9-0.1-5.5-1.5-7.2-3.6 -0.3 0.5-0.5 1.1-0.5 1.8 0 1.2 0.6 2.3 1.6 2.9 -0.6 0-1.1-0.2-1.6-0.4 0 0 0 0 0 0 0 1.7 1.2 3.1 2.8 3.4 -0.3 0.1-0.6 0.1-0.9 0.1 -0.2 0-0.4 0-0.7-0.1 0.4 1.4 1.7 2.4 3.3 2.4 -1.2 0.9-2.7 1.5-4.3 1.5 -0.3 0-0.6 0-0.8 0 1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.9 0-0.1 0-0.3 0-0.4C22.4 11 23 10.4 23.5 9.7z' })
-	          );
-	          break;
-	        case 'pinterest':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { className: this.props.background, cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M14.4 18.1c-0.5 2.6-1.1 5.1-2.9 6.4 -0.6-4 0.8-6.9 1.5-10.1 -1.1-1.8 0.1-5.5 2.4-4.6 2.8 1.1-2.4 6.8 1.1 7.5 3.7 0.8 5.2-6.4 2.9-8.8 -3.3-3.4-9.7-0.1-8.9 4.8 0.2 1.2 1.4 1.5 0.5 3.2 -2.1-0.5-2.8-2.1-2.7-4.4 0.1-3.7 3.3-6.2 6.5-6.6 4-0.4 7.8 1.5 8.3 5.2 0.6 4.2-1.8 8.8-6.1 8.5C15.8 19.2 15.4 18.6 14.4 18.1' })
-	          );
-	          break;
-	        case 'instagram':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M20.6 7H9.4c-1.3 0-2.4 0.9-2.4 2.1v11.8c0 1.2 1.1 2.1 2.4 2.1h11.3c1.3 0 2.4-0.9 2.4-2.1V9.1C23 7.9 22 7 20.6 7zM18.6 9.2c0-0.3 0.2-0.5 0.5-0.5h1.7c0.3 0 0.5 0.2 0.5 0.5v1.7c0 0.3-0.2 0.5-0.5 0.5h-1.7c-0.3 0-0.5-0.2-0.5-0.5V9.2zM17.7 11.7v0c0 0 0 0 0 0H17.7zM14.9 12c2 0 3.5 1.6 3.5 3.5 0 2-1.6 3.5-3.5 3.5 -2 0-3.5-1.6-3.5-3.5C11.4 13.6 13 12 14.9 12zM22 20.7c0 0.8-0.6 1.4-1.4 1.4H9.3c-0.8 0-1.4-0.6-1.4-1.4V13.3h2.9c-0.3 0.7-0.5 1.4-0.5 2.2 0 2.6 2.1 4.7 4.7 4.7 2.6 0 4.7-2.1 4.7-4.7 0-0.7-0.2-1.4-0.5-2h2.8V20.7z' })
-	          );
-	          break;
-	        case 'google':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.4 50 50' },
-	            _react2.default.createElement('path', { d: 'M287.6 730.8c-9.8-9.8-25.6-9.8-35.4 0 -9.8 9.8-9.8 25.6 0 35.4 1.3 1.3 2.7 2.4 4.2 3.4l34.5-34.5C290 733.5 288.8 732.1 287.6 730.8z', fill: '#30A45A' }),
-	            _react2.default.createElement('path', { d: 'M290.9 734.9l-34.5 34.5c1.5 1 3.1 1.8 4.7 2.4l32.2-32.2C292.7 738 291.9 736.4 290.9 734.9z', fill: '#FCDD00' }),
-	            _react2.default.createElement('path', { d: 'M261.1 771.8c8.9 3.3 19.3 1.4 26.5-5.7l-10.4-10.4L261.1 771.8z', fill: '#5382C2' }),
-	            _react2.default.createElement('path', { d: 'M293.3 739.6l-16.1 16.1 10.4 10.4C294.7 759 296.6 748.5 293.3 739.6z', fill: '#C2C1C1' }),
-	            _react2.default.createElement('path', { d: 'M276.5 746.3c2.1 0 4.2-0.1 6.4 0.1 0.7 0.1 1 0.3 1.1 1 0.8 7.7-3.6 13.7-11.1 15.2 -7.6 1.5-15.7-4.1-16.8-11.8 -1.2-8.1 4.4-15.7 12.3-16.6 4-0.5 7.6 0.5 10.8 2.9 0.7 0.5 0.8 0.8 0.1 1.4 -0.9 0.8-1.8 1.8-2.7 2.6 -0.4 0.4-0.6 0.6-1.2 0.1 -3-2.3-6.9-2.3-10.1-0.2 -3 2-4.5 5.9-3.6 9.4 1 3.9 4 6.5 7.8 6.8 3.8 0.3 7.1-1.5 8.4-4.7 0.4-0.9 0.4-1.3-0.8-1.3 -2 0.1-3.9 0-5.9 0 -0.9 0-1.2-0.2-1.1-1.1 0.1-1 0-2.1-0.1-3.1 0-0.7 0.2-0.9 0.9-0.9C272.7 746.3 274.6 746.3 276.5 746.3z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M283.8 740.4c-0.2-0.3-0.3-0.6-0.4-1 -0.3-0.9-0.2-1.8 0.2-2.7 0.5-0.9 1.3-1.5 2.4-1.7 1.9-0.4 3.9 0.7 4.3 2.8 0.1 0.8 0 1.6-0.4 2.3 -0.3 0.5-0.6 1-1 1.5 0 0.1-0.1 0.1-0.1 0.2 -0.3 0.4-0.6 0.9-0.9 1.3 -0.5 0.9-0.8 1.8-0.9 2.7 0 0.2-0.1 0.3-0.2 0.4 -0.1-0.1-0.2-0.1-0.2-0.2 0 0 0-0.1 0-0.1 -0.2-1.5-0.8-2.7-1.7-3.9C284.5 741.4 284.1 740.9 283.8 740.4z', fill: '#D95138' })
-	          );
-	          break;
-	        case 'foursquare':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.5 50 49.9' },
-	            _react2.default.createElement('circle', { cx: '269.9', cy: '748.4', r: '25', fill: '#f64d78' }),
-	            _react2.default.createElement('path', { d: 'M280.2 733.6c0 0-14.5 0-16.8 0s-3 1.8-3 2.9c0 1.1 0 26.8 0 26.8 0 1.2 0.7 1.7 1 1.9 0.4 0.2 1.4 0.3 2-0.4 0 0 7.9-9.2 8.1-9.4 0.2-0.2 0.2-0.2 0.4-0.2 0.4 0 3.5 0 5.1 0 2.2 0 2.5-1.5 2.7-2.5 0.2-0.8 2.3-11.6 3-15C283.3 735 282.6 733.6 280.2 733.6zM279.8 752.6c0.2-0.8 2.3-11.6 3-15M279.2 738.1l-0.7 3.7c-0.1 0.4-0.6 0.8-1 0.8 -0.5 0-6.8 0-6.8 0 -0.7 0-1.3 0.4-1.3 1.2v0.9c0 0.7 0.5 1.3 1.3 1.3 0 0 5.3 0 5.8 0 0.5 0 1 0.6 0.9 1.1 -0.1 0.6-0.6 3.3-0.7 3.6 -0.1 0.3-0.4 0.8-1 0.8 -0.5 0-4.5 0-4.5 0 -0.8 0-1.1 0.1-1.6 0.8 -0.6 0.7-5.5 6.7-5.5 6.7 0 0.1-0.1 0-0.1 0v-20.9c0-0.5 0.4-1 1-1 0 0 13 0 13.5 0C278.8 737.1 279.3 737.5 279.2 738.1z', fill: '#FFF' })
-	          );
-	          break;
-	        case 'yelp':
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '50', height: '50', viewBox: '244.9 723.5 50 49.9' },
-	            _react2.default.createElement('circle', { cx: '269.9', cy: '748.4', r: '25', fill: '#bc341f' }),
-	            _react2.default.createElement('path', { d: 'M264 741.2c-1.1-1.8-2.2-3.5-3.2-5.3 -0.6-1-0.4-1.6 0.6-2.2 1.7-0.9 3.5-1.3 5.4-1.7 0.3-0.1 0.7-0.1 1-0.1 1.2-0.1 1.7 0.4 1.7 1.6 0.2 3.2 0.4 6.4 0.7 9.6 -0.1 0.9 0.2 1.8 0.1 2.8 -0.1 1.1-0.4 1.5-1.3 1.7 -0.8 0.2-1.2-0.5-1.6-1 -1-1.6-2-3.2-3-4.8C264.2 741.6 264.1 741.4 264 741.2z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M276 743.2c0.4-0.3 0.7-0.8 1-1.1 0.5-0.6 1.1-0.7 1.8-0.2 0.4 0.3 0.8 0.7 1.1 1.1 0.6 0.9 1.3 1.8 1.7 2.7 0.2 0.4 0.4 0.9 0.5 1.4 0.1 0.7-0.1 1.2-0.8 1.4 -2.3 0.7-4.7 1.3-7 1.8 -0.8 0.2-1.2-0.1-1.6-0.7 -0.4-0.6-0.3-1.2 0.1-1.8C273.8 746.4 275 744.8 276 743.2z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M257.7 751.5c0-1.1 0.1-2.1 0.3-3.1 0.2-1.1 0.9-1.5 1.9-1.1 2.2 0.9 4.4 1.8 6.6 2.7 0.6 0.3 0.9 0.8 0.8 1.4 0 0.6-0.3 1.1-0.9 1.3 -2.3 0.7-4.5 1.5-6.8 2.2 -0.9 0.3-1.4 0-1.7-0.9 0-0.2-0.1-0.3-0.1-0.5C257.7 752.8 257.7 752.2 257.7 751.5z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M272.7 754.6c0-1 0.9-1.7 1.9-1.4 2.2 0.7 4.4 1.5 6.6 2.2 1 0.4 1.3 1 0.9 2 -0.8 1.7-1.9 3.2-3.4 4.4 -0.8 0.7-1.5 0.6-2.1-0.3 -1.3-2-2.5-4-3.7-6.1C272.8 755.2 272.7 754.9 272.7 754.6z', fill: '#fff' }),
-	            _react2.default.createElement('path', { d: 'M270.1 759.7c0 1.2 0 2.4 0 3.6 0 1-0.5 1.5-1.5 1.4 -1.9-0.2-3.7-0.9-5.3-2 -0.8-0.6-0.9-1.2-0.3-1.9 1.5-1.9 3.1-3.7 4.6-5.6 0.4-0.5 1-0.6 1.6-0.4 0.6 0.2 0.9 0.6 0.9 1.3 0 1.2 0 2.5 0 3.7C270.1 759.7 270.1 759.7 270.1 759.7z', fill: '#fff' })
-	          );
-	          break;
-	        default:
-	          return _react2.default.createElement(
-	            'svg',
-	            { xmlns: 'http://www.w3.org/2000/svg', width: '30', height: '30', viewBox: '0 0 30 30', className: className },
-	            _react2.default.createElement('circle', { cx: '15', cy: '15', r: '15' }),
-	            _react2.default.createElement('path', { d: 'M16.6 25.1v-9.2h3.2l0.5-3.6h-3.7v-2.3c0-1 0.3-1.7 1.9-1.7l2 0V5.1c-0.3 0-1.5-0.1-2.9-0.1 -2.9 0-4.8 1.7-4.8 4.7v2.6H9.5v3.6h3.2v9.2H16.6z', fill: '#fff' })
-	          );
-	        /*eslint-enable */
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return this.renderItems(this.props.network, this.props.className);
-	    }
-	  }]);
-
-	  return SVG;
-	}(_react2.default.Component);
-
-	exports.default = SVG;
-
-	SVG.propTypes = {
-	  background: _react2.default.PropTypes.string,
-	  color: _react2.default.PropTypes.string,
-	  network: _react2.default.PropTypes.string,
-	  className: _react2.default.PropTypes.string
-	};
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/jgarciadiaz/Dev/sites/website-playastijuana/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 234 */

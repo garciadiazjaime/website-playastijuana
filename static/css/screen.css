@@ -60,9 +60,13 @@ body {
     vertical-align: middle;
     margin-right: 15px; }
 
+.style__sm___1NvWS {
+  text-align: right;
+  padding-top: 20px; }
+
 @media only screen and (max-width: 767px) {
   .style__header___3oysY h1 {
-    font-size: 23px; } }
+    font-size: 14px; } }
 @charset "UTF-8";
 .style__fCenter___24X-f, .style__showFooterBtn___32mks span {
   position: absolute;
@@ -110,7 +114,12 @@ body {
 body {
   font-family: "Open Sans"; }
 
+.style__noScroll___1ZSBh {
+  height: 100%;
+  overflow: hidden; }
+
 .style__showFooterBtn___32mks {
+  box-sizing: border-box;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -127,11 +136,12 @@ body {
     background-color: #8edec7; }
 
 .style__fixedFooter___VC2KX {
+  padding-top: 100px;
   position: fixed;
   top: 0;
   overflow: scroll;
-  padding-top: 100px;
   margin-top: 0 !important;
+  padding-bottom: 120px !important;
   width: 100%; }
   .style__fixedFooter___VC2KX .style__removeFixed___OyCQg {
     display: block !important;
@@ -146,6 +156,8 @@ body {
       font-size: 20px; }
     .style__fixedFooter___VC2KX .style__removeFixed___OyCQg:hover {
       opacity: 1; }
+  .style__fixedFooter___VC2KX svg {
+    margin-top: 20px; }
 
 .style__footerWrapper___zbtoF {
   margin-top: 70px;
@@ -247,7 +259,12 @@ body {
     .style__about___vuj9k a:hover {
       text-decoration: underline; }
 
+.style__smRow___26FLl {
+  padding: 10px 50px; }
+
 @media only screen and (max-width: 767px) {
+  .style__fixedFooter___VC2KX {
+    padding-top: 0; }
   .style__footerWrapper___zbtoF {
     padding-bottom: 0; }
   .style__brand___1i--U {
@@ -429,18 +446,29 @@ body {
     .style__carouselContainer___3tYAW::after {
       right: 0;
       width: 100%; }
-  .style__item___1hdp3 .style__imgContainer___1f347 h3 {
-    top: 5px;
-    left: 5px;
-    padding: 10px;
-    font-size: 16px;
-    max-width: 70%; }
-  .style__item___1hdp3 .style__imgContainer___1f347 h4 {
-    bottom: 5px;
-    right: 5px;
-    padding: 10px;
-    font-size: 14px;
-    width: 70%; } }
+  .style__item___1hdp3 .style__imgContainer___1f347 {
+    height: 300px; }
+    .style__item___1hdp3 .style__imgContainer___1f347 img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%); }
+    .style__item___1hdp3 .style__imgContainer___1f347 h3 {
+      top: 5px;
+      left: 5px;
+      padding: 10px;
+      font-size: 16px;
+      max-width: 70%; }
+    .style__item___1hdp3 .style__imgContainer___1f347 h4 {
+      bottom: 5px;
+      right: 5px;
+      padding: 10px;
+      font-size: 14px;
+      width: 70%; } }
 .style__fCenter___Awltf {
   position: absolute;
   top: 50%;
@@ -593,8 +621,7 @@ body {
   font-family: "Open Sans"; }
 
 .style__imagePlaceholder___L35Om {
-  background: url(/images/loading.gif) 50% no-repeat;
-  max-height: 100px; }
+  background: url(/images/loading.gif) 50% no-repeat; }
 
 .style__placeContainer___2pMS3 {
   border-left: 2px solid #f45f2e; }
@@ -605,11 +632,10 @@ body {
   padding-bottom: 20px;
   margin: 0 0 30px 20px; }
   .style__placeCard___kUEUP img {
-    width: 120px;
-    height: 120px; }
+    width: 180px;
+    height: 180px; }
   .style__placeCard___kUEUP .style__legend___2Xg5T {
-    display: inline-block;
-    padding: 15px;
+    padding: 15px 15px 15px 0;
     text-align: left; }
     .style__placeCard___kUEUP .style__legend___2Xg5T a {
       opacity: .8; }
@@ -740,11 +766,15 @@ body {
     display: block;
     width: 90%; }
     .style__placeCard___kUEUP .style__legend___2Xg5T {
-      width: 230px;
       vertical-align: top; }
+      .style__placeCard___kUEUP .style__legend___2Xg5T svg {
+        width: 30px;
+        height: 30px;
+        margin: 10px 10px 0 0; }
     .style__placeCard___kUEUP img {
-      width: 50px;
-      height: 50px;
+      width: 100%;
+      max-width: 150px;
+      height: auto;
       margin-top: 15px;
       vertical-align: top; } }
 .style__fCenter___ByilZ {
