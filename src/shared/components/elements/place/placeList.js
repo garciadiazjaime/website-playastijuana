@@ -115,13 +115,9 @@ export default class PlaceList extends React.Component {
   renderImage(item, category, index) {
     if (item && _.isArray(item.image_set) && item.image_set.length) {
       const imgUrl = item.image_set[0].url.replace('www.dropbox.com', 'dl.dropboxusercontent.com');
-      return (<div key={index} className="col-xs-6">
-          <img src="/images/landing.png" alt={item.name + ' - ' + category.name} className={'place_image_pivote ' + style.imagePlaceholder } data-image-url={imgUrl} data-index={index} id={'image_' + index} />
-        </div>);
+      return (<img src="/images/landing.png" alt={item.name + ' - ' + category.name} className={'place_image_pivote ' + style.imagePlaceholder } data-image-url={imgUrl} data-index={index} id={'image_' + index} key={index} />);
     }
-    return (<div key={index} className="col-xs-6">
-      <img src="/images/placeholder.png" alt={item.name + ' - ' + category.name} className={style.imagePlaceholder} />
-    </div>);
+    return (<img src="/images/placeholder.png" alt={item.name + ' - ' + category.name} className={style.imagePlaceholder} key={index} />);
   }
 
   renderLinks(data, name) {
@@ -148,8 +144,10 @@ export default class PlaceList extends React.Component {
         const imageEl = this.renderImage(item, category, index);
         const links = this.getLinks(item);
         return (<div className={style.placeCard + ' category_' + category.name + ' row'} key={index} itemScope itemType="http://schema.org/LocalBusiness">
-            {imageEl}
-            <div className={style.legend + ' col-xs-6'}>
+            <div className="col-sm-3 col-xs-6">
+              {imageEl}
+            </div>
+            <div className={style.legend + ' col-sm-9 col-xs-6'}>
               <h2 key={index} itemProp="name">
                 {this.getTitle(item, categorySlug)}
               </h2>
