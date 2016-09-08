@@ -1,3 +1,4 @@
+/* eslint max-len: [2, 500, 4] */
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
