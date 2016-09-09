@@ -1,6 +1,10 @@
+/* eslint max-len: [2, 500, 4] */
+
 import React from 'react';
 import _ from 'lodash';
 import CardElement from './cardElement';
+
+const style = require('./style.scss');
 
 export default class HomeSection extends React.Component {
 
@@ -8,9 +12,9 @@ export default class HomeSection extends React.Component {
     super(props);
     const { data } = this.props;
     this.state = {
-      data: data.places.slice(0, 10),
+      data: data.places.slice(0, 12),
       allData: data.places,
-      chunkSize: 10,
+      chunkSize: 12,
     };
     this.clickHandler = this.clickHandler.bind(this);
   }
@@ -36,9 +40,11 @@ export default class HomeSection extends React.Component {
   render() {
     const { data } = this.state;
     return (<div className="container-fluid">
-      {this.renderCard(data)}
-      <div>
-        <a title="mostrar más restaurantes" className="btn btn-default" onClick={this.clickHandler}>
+      <div className="row">
+        {this.renderCard(data)}
+      </div>
+      <div className={style.showMore}>
+        <a title="mostrar más restaurantes" className="btn btn-default btn-lg" onClick={this.clickHandler}>
           Mostar más
         </a>
       </div>

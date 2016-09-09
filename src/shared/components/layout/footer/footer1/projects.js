@@ -12,19 +12,19 @@ export default class Projects extends React.Component {
       <div className="col-xs-12">
         <p>
           Proyectos hermanos de&nbsp;
-          <Link to="/directorio/playas-tijuana" title="Directorio de Playas de Tijuana">
+          <Link to="/" title="Directorio de Playas de Tijuana">
             Directorio Playas de Tijuana
           </Link>
         </p>
       </div>
       <div className="col-xs-4">
-        <Link to="http://garitacenter.com" target="_blank" title="Reporte de Garitas en Tijuana para San Ysidro y Otay">
+        <Link to="http://www.garitacenter.com" target="_blank" title="Reporte de Garitas en Tijuana para San Ysidro y Otay">
           <img src="/images/gc-logo.png" alt="Reporte de Garitas en Tijuana para San Ysidro y Otay" />
           <p>Garita Center</p>
         </Link>
       </div>
       <div className="col-xs-4">
-        <Link to="http://misofertasdetrabajo.com" target="_blank" title="Ofertas de Trabajo en Tijuana">
+        <Link to="http://www.misofertasdetrabajo.com" target="_blank" title="Ofertas de Trabajo en Tijuana">
           <img src="/images/modt-logo.png" alt="Ofertas de Trabajo en Tijuana" />
           <p>Mis ofertas de trabajo</p>
         </Link>

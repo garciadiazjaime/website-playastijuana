@@ -56,19 +56,22 @@
 .footerWrapper {
   margin-top: 70px;
   padding-bottom: 10px;
-  background-color: $green;
+  background-color: $black2;
   .removeFixed{
     display: none;
   }
 }
+.mintWrapper {
+  background-color: $mint;
+  padding: 10px 0;
+}
 .brand{
-  background-color: $teal;
+  background-color: $mint;
   height: 340px;
   float: right;
   padding: 50px;
-  margin-top: -20px;
   p{
-    color: $lightGreen;
+    color: $white;
     font-size: 14px;
     text-align: center;
     .yellow{
@@ -85,15 +88,14 @@
   }
 }
 .contact{
-  background-color: $yellow;
+  background-color: $mint;
   height: 210px;
   padding-top: 25px;
   font-weight: bold;
   text-align: center;
   font-size: 15px;
-  margin-top: -20px;
   p{
-    color: $teal;
+    color: $white;
   }
   h2{
     color: $white;
@@ -116,7 +118,7 @@
   }
   a{
     display: inline-block;;
-    color: $teal;
+    color: $white;
     &:hover{
       color: $tealHover;
     }
@@ -135,16 +137,16 @@
   }
 }
 .projects{
-  background-color: $gray;
+  background-color: $mint;
   height:130px;
   text-align: center;
-  color: $darkGray;
+  color: $white;
   padding-top: 15px;
   p{
     margin-bottom: 0;
   }
   a{
-    color: $darkGray;
+    color: $white;
     &:hover{
       color: $teal;
     }
@@ -156,14 +158,14 @@
   }
 }
 .about{
-  background: $yellow;
+  background: $black2;
   padding: 50px;
   font-size: 15px;
   font-weight: Normal;
-  color: $teal;
+  color: $white;
   h2{
     font-size: 22px;
-    color: $orange;
+    color: $white;
     margin-top:0;
     margin-bottom: 25px;
   }

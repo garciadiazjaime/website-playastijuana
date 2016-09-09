@@ -8,37 +8,24 @@ import About from './about';
 import SVG from '../../../svg';
 
 export default class Footer1 extends React.Component {
-  componentDidMount() {
-    $('#footerReveal').click(function () {
-      $('#footer_section').addClass(style.fixedFooter);
-      const fHeight = $(window).height();
-      $('#footer_section').height(fHeight);
-      $('#footerReveal').css('display', 'none');
-      $('body').addClass(style.noScroll);
-    });
-    $('#footer_closer').click(function () {
-      $('#footer_section').removeClass(style.fixedFooter);
-      $('#footer_section').height();
-      $('#footerReveal').css('display', 'block');
-      $('#footer_closer').css('display', 'none');
-      $('body').removeClass(style.noScroll);
-    });
-  }
+
   render() {
     return (<div className={style.footerWrapper} id="footer_section">
-      <div className={style.removeFixed} id="footer_closer">
-        <span className="glyphicon glyphicon-remove"></span>
+      <div className={style.mintWrapper}>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-xs-12 col-sm-5">
+              <Brand />
+            </div>
+            <div className="col-xs-12 col-sm-7">
+              <Contact />
+              <Projects />
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="footerReveal" className={style.showFooterBtn}><span>i</span></div>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-xs-12 col-sm-5">
-            <Brand />
-          </div>
-          <div className="col-xs-12 col-sm-7">
-            <Contact />
-            <Projects />
-          </div>
           <div className="col-xs-12">
             <About />
           </div>

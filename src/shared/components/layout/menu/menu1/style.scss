@@ -1,12 +1,14 @@
 @import '../../../../theme/constants';
 .header{
+  background: $black2;
+  margin-bottom: 20px;
   h1{
     font-size: 42px;
     font-weight: bold;
-    color: $yellow;
+    color: $blue;
     .playami{
       font-weight: normal;
-      color: $teal;
+      color: $white;
     }
     &::before{
       content: "";
@@ -28,7 +30,7 @@
 @media#{$isPhone}{
   .header{
     h1{
-      font-size: 14px;
+      font-size: 18px;
     }
   }
 }
