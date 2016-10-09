@@ -62,11 +62,10 @@
   }
 }
 .mintWrapper {
-  background-color: $mint;
+  background-color: $black2;
   padding: 10px 0;
 }
 .brand{
-  background-color: $mint;
   height: 340px;
   float: right;
   padding: 50px;
@@ -88,7 +87,6 @@
   }
 }
 .contact{
-  background-color: $mint;
   height: 210px;
   padding-top: 25px;
   font-weight: bold;
@@ -103,14 +101,14 @@
     font-weight: bold;
     &::before{
       font-size: 23px;
-      content:"¡";
+      content:"";
       color: $teal;
       font-weight: bold;
       color: $teal;
     }
     &::after{
       font-size: 23px;
-      content:"!";
+      content:"";
       font-size: 23px;
       font-weight: bold;
       color: $teal;
@@ -137,7 +135,7 @@
   }
 }
 .projects{
-  background-color: $mint;
+  margin-top: 60px;
   height:130px;
   text-align: center;
   color: $white;

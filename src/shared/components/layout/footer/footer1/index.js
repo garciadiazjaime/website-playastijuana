@@ -2,7 +2,6 @@
 import React from 'react';
 const style = require('./style.scss');
 import Brand from './brand';
-import Contact from './contact';
 import Projects from './projects';
 import About from './about';
 import SVG from '../../../svg';
@@ -18,7 +17,6 @@ export default class Footer1 extends React.Component {
               <Brand />
             </div>
             <div className="col-xs-12 col-sm-7">
-              <Contact />
               <Projects />
             </div>
           </div>

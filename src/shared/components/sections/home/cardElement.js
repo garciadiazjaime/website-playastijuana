@@ -13,7 +13,7 @@ export default class CardElement extends React.Component {
     this.clickGMapsHandler = this.clickGMapsHandler.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.state = {
-      titleLength: 23,
+      titleLength: 22,
     };
   }
 
