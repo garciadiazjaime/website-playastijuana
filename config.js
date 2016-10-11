@@ -28,7 +28,7 @@ var config = convict({
       url: {
           doc: 'API URL',
           format: String,
-          default: 'http://127.0.0.1:3030/',
+          default: 'http://127.0.0.1:3000/',
       },
     }
 });

@@ -30,9 +30,9 @@ export default class Projects extends React.Component {
         </Link>
       </div>
       <div className="col-xs-4">
-        <Link to="http://www.hoytoca.me/" target="_blank" title="Educación Sexual para el Mundo Real">
-          <img src="/images/gp-logo.png" alt="Educación Sexual para el Mundo Real" />
-          <p>Hoy Toca</p>
+        <Link to="http://www.tucambionline.com" target="_blank" title="Tipo de Cambio en Tijuana">
+          <img src="/images/gp-logo.png" alt="Tipo de Cambio en Tijuana" />
+          <p>Tu Cambio Online</p>
         </Link>
       </div>
     </div>);

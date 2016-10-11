@@ -28,10 +28,26 @@
       padding: 10px 0px;
       margin: 0px;
       color: $black2;
+
+      @media #{$isTablet} {
+        font-size: 20px;
+      }
     }
 
     a {
       cursor: pointer;
+    }
+
+    p {
+      height: 80px;
+
+      @media #{$isTablet} {
+        height: 120px;
+      }
+
+      @media #{$isPhone} {
+        height: auto;
+      }
     }
   }
 

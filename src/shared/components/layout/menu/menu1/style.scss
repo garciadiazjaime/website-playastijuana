@@ -24,13 +24,32 @@
 .sm{
   text-align: right;
   padding-top: 20px;
+
+  @media#{$isTablet}{
+    padding-right: 15px;
+  }
 }
 @media#{$isTablet}{
+  .header{
+    h1{
+      font-size: 38px;
+    }
+  }
 }
 @media#{$isPhone}{
   .header{
     h1{
-      font-size: 18px;
+      font-size: 20px;
+      
+      &:before {
+        position: absolute;
+      }
+
+      a {
+
+        display: inline-block;
+        margin-left: 50px;
+      }
     }
   }
 }

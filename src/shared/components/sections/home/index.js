@@ -11,10 +11,11 @@ export default class HomeSection extends React.Component {
   constructor(props) {
     super(props);
     const { data } = this.props;
+    const chunkSize = 12;
     this.state = {
-      data: data.places.slice(0, 12),
+      data: data.places.slice(0, chunkSize),
       allData: data.places,
-      chunkSize: 12,
+      chunkSize,
     };
     this.clickHandler = this.clickHandler.bind(this);
   }
