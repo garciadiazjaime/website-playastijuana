@@ -15,6 +15,7 @@ $tealHover: #18a0a0;
 $green: #66d3b4;
 $lightGreen: #8cf2d3;
 $gray: #e0dccd;
+$gray2: #f5f6f6;
 $darkGray: #999182;
 $yellow: #ffc200;
 $orange: #f45f2e;
@@ -26,6 +27,8 @@ $purple: #a83f92;
 $pink: #d33c60;
 $lemon: #bfc936;
 $pine: #5bb222;
+$mint: #012a33;
+$black2: #363c48;
 $black: #000;
 $white: #fff;
 
@@ -39,6 +42,7 @@ $fontBBold: 'opensans_bold';
 $isTablet: "only screen and (max-width: 1023px)";
 $isPhone: "only screen and (max-width: 767px)";
 
-body{
-  font-family: $fontA;
+body {
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background: $gray2;
 }
