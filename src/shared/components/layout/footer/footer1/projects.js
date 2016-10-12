@@ -12,27 +12,27 @@ export default class Projects extends React.Component {
       <div className="col-xs-12">
         <p>
           Proyectos hermanos de&nbsp;
-          <Link to="/directorio/playas-tijuana" title="Directorio de Playas de Tijuana">
+          <Link to="/" title="Directorio de Playas de Tijuana">
             Directorio Playas de Tijuana
           </Link>
         </p>
       </div>
       <div className="col-xs-4">
-        <Link to="http://garitacenter.com" target="_blank" title="Reporte de Garitas en Tijuana para San Ysidro y Otay">
+        <Link to="http://www.garitacenter.com" target="_blank" title="Reporte de Garitas en Tijuana para San Ysidro y Otay">
           <img src="/images/gc-logo.png" alt="Reporte de Garitas en Tijuana para San Ysidro y Otay" />
           <p>Garita Center</p>
         </Link>
       </div>
       <div className="col-xs-4">
-        <Link to="http://misofertasdetrabajo.com" target="_blank" title="Ofertas de Trabajo en Tijuana">
+        <Link to="http://www.misofertasdetrabajo.com" target="_blank" title="Ofertas de Trabajo en Tijuana">
           <img src="/images/modt-logo.png" alt="Ofertas de Trabajo en Tijuana" />
           <p>Mis ofertas de trabajo</p>
         </Link>
       </div>
       <div className="col-xs-4">
-        <Link to="http://www.hoytoca.me/" target="_blank" title="Educación Sexual para el Mundo Real">
-          <img src="/images/gp-logo.png" alt="Educación Sexual para el Mundo Real" />
-          <p>Hoy Toca</p>
+        <Link to="http://www.tucambionline.com" target="_blank" title="Tipo de Cambio en Tijuana">
+          <img src="/images/gp-logo.png" alt="Tipo de Cambio en Tijuana" />
+          <p>Tu Cambio Online</p>
         </Link>
       </div>
     </div>);

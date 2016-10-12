@@ -10,6 +10,13 @@ import menuUtil from '../utils/menu';
 
 export default class AppHandler extends React.Component {
 
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      data: context.data ? context.data : window._data,
+    };
+  }
+
   componentDidMount() {
     this.scrollHandler(true);
     // window.addEventListener('scroll', this.onScroll, false);
@@ -60,9 +67,12 @@ export default class AppHandler extends React.Component {
   }
 
   render() {
+    const children = React.Children.map(this.props.children, (child) => {
+      return React.cloneElement(child, { data: this.state.data });
+    });
     return (<div>
       <MainMenu items={sitemap.items.children} icons={sitemap.icons} onClick={this.clickHandler} />
-      {this.props.children}
+      {children}
       <Footer items={sitemap.items.children} addresses={sitemap.addresses}/>
     </div>);
   }
@@ -71,4 +81,10 @@ export default class AppHandler extends React.Component {
 AppHandler.propTypes = {
   children: React.PropTypes.object.isRequired,
   location: React.PropTypes.any,
+  context: React.PropTypes.any,
+  data: React.PropTypes.any,
+};
+
+AppHandler.contextTypes = {
+  data: React.PropTypes.object,
 };
