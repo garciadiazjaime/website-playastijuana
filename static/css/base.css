@@ -6,9 +6,7 @@
   font-family: 'opensans_bold';
   src: url('../fonts/font-a/bold.ttf');
 }
-body{
-  font-family: 'opensans_regular', sans-serif;
-}
+
 a{
   color: inherit;
 }
