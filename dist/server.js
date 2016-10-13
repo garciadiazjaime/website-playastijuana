@@ -275,6 +275,7 @@
 	          doc: 'API URL',
 	          format: String,
 	          default: 'http://127.0.0.1:3000/',
+	          env: 'API_URL'
 	      },
 	    }
 	});
