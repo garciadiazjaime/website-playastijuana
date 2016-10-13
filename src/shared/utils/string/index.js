@@ -49,5 +49,5 @@ export function timeSince(data) {
 }
 
 export function truncate(string, limit) {
-  return (string.length > limit) ? string.substr(0, limit - 1) + '...' : string;
+  return (string && string.length > limit) ? string.substr(0, limit - 1) + '...' : string;
 }

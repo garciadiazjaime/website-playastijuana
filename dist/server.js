@@ -275,7 +275,7 @@
 	          doc: 'API URL',
 	          format: String,
 	          default: 'http://127.0.0.1:3000/',
-	          env: 'API_URL'
+	          env: 'PLACES_API_URL'
 	      },
 	    }
 	});
@@ -1883,7 +1883,7 @@
 	}
 
 	function truncate(string, limit) {
-	  return string.length > limit ? string.substr(0, limit - 1) + '...' : string;
+	  return string && string.length > limit ? string.substr(0, limit - 1) + '...' : string;
 	}
 
 /***/ },
