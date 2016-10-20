@@ -4,14 +4,14 @@ import React from 'react';
 import _ from 'lodash';
 
 import { truncate, toTitleCase } from '../../../utils/string';
-import SVG from '../../svg';
+// import SVG from '../../svg';
+import SocialMediaIcons from './socialMediaIcons';
 const style = require('./style.scss');
 
 export default class CardElement extends React.Component {
 
   constructor() {
     super();
-    this.clickGMapsHandler = this.clickGMapsHandler.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.state = {
       titleLength: 22,
@@ -51,10 +51,12 @@ export default class CardElement extends React.Component {
     return null;
   }
 
-  clickGMapsHandler() {
-    const { data } = this.props;
-    const gmapsUrl = `https://www.google.com/maps/place//@${data.location.lat},${data.location.lng},18z`;
-    window.open(gmapsUrl);
+  getSocialMediaData(data) {
+    return {
+      name: data.name,
+      gmaps: data.location,
+      facebook: data.facebook,
+    };
   }
 
   render() {
@@ -69,9 +71,7 @@ export default class CardElement extends React.Component {
           <p>
             {truncate(this.getDescription(data.metaDescriptions), descriptionLength)}
           </p>
-          <a title={data.name + ' en playas de tijuana'} target="_blank" onClick={this.clickGMapsHandler}>
-            <SVG network="google" />
-          </a>
+          <SocialMediaIcons data={this.getSocialMediaData(data)} />
         </div>
       </div>
     </div>);

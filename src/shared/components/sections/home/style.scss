@@ -58,3 +58,16 @@
   text-align: center;
   margin: 20px 0 0;
 }
+
+.socialMediaIcons {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: -10px;
+
+    li {
+      display: inline-block;
+      padding-right: 10px;
+    }
+  }
+}
