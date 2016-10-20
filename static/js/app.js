@@ -37864,9 +37864,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
-	// import SVG from '../../svg';
-
-
 	var style = __webpack_require__(226);
 
 	var CardElement = function (_React$Component) {
@@ -38083,6 +38080,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint max-len: [2, 500, 4] */
 
+	var style = __webpack_require__(226);
+
 	var SocialMediaIcons = function (_React$Component) {
 	  _inherits(SocialMediaIcons, _React$Component);
 
@@ -38101,7 +38100,6 @@
 	    value: function clickGMapsHandler() {
 	      var gmaps = this.props.data.gmaps;
 
-	      console.log('gmaps', gmaps);
 	      var gmapsUrl = 'https://www.google.com/maps/place//@' + gmaps.lat + ',' + gmaps.lng + ',18z';
 	      this.openNewTab(gmapsUrl);
 	    }
@@ -38110,7 +38108,6 @@
 	    value: function clickFacebookHandler() {
 	      var facebook = this.props.data.facebook;
 
-	      console.log('facebook', facebook);
 	      var data = facebook.filter(function (item) {
 	        return item.link;
 	      }).pop();
@@ -38153,10 +38150,14 @@
 	      var data = this.props.data;
 
 	      return _react2.default.createElement(
-	        'ul',
-	        null,
-	        this.renderGMaps(data.gmaps),
-	        this.renderFacebook(data.facebook)
+	        'div',
+	        { className: style.socialMediaIcons },
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          this.renderGMaps(data.gmaps),
+	          this.renderFacebook(data.facebook)
+	        )
 	      );
 	    }
 	  }]);
@@ -38178,7 +38179,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"fCenter":"style__fCenter___qougA","vCenter":"style__vCenter___2pche","vCenterRel":"style__vCenterRel___WRKiA","hCenter":"style__hCenter___GVDHq","inheritHeight":"style__inheritHeight___3vMr3","hideOverflow":"style__hideOverflow___DySF5","card":"style__card___ZmnTp","showMore":"style__showMore___104t8"};
+	module.exports = {"fCenter":"style__fCenter___qougA","vCenter":"style__vCenter___2pche","vCenterRel":"style__vCenterRel___WRKiA","hCenter":"style__hCenter___GVDHq","inheritHeight":"style__inheritHeight___3vMr3","hideOverflow":"style__hideOverflow___DySF5","card":"style__card___ZmnTp","showMore":"style__showMore___104t8","socialMediaIcons":"style__socialMediaIcons___3zABO"};
 
 /***/ }
 /******/ ]);

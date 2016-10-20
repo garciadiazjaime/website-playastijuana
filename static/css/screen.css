@@ -383,3 +383,11 @@ body {
   width: 100%;
   text-align: center;
   margin: 20px 0 0; }
+
+.style__socialMediaIcons___3zABO ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: -10px; }
+  .style__socialMediaIcons___3zABO ul li {
+    display: inline-block;
+    padding-right: 10px; }
