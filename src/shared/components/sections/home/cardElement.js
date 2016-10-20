@@ -4,7 +4,6 @@ import React from 'react';
 import _ from 'lodash';
 
 import { truncate, toTitleCase } from '../../../utils/string';
-// import SVG from '../../svg';
 import SocialMediaIcons from './socialMediaIcons';
 const style = require('./style.scss');
 
