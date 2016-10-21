@@ -154,10 +154,7 @@ if(TARGET === 'build-be') {
     },
 
     plugins: [
-      new ExtractTextPlugin("../static/css/screen.css", { allChunks: true}),
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.optimize.UglifyJsPlugin()
+      new ExtractTextPlugin("../static/css/screen.css", { allChunks: true})
     ],
 
     module: {
