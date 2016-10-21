@@ -17,26 +17,28 @@ export default class SocialMediaIcons extends React.Component {
     this.clickFacebookHandler = this.clickFacebookHandler.bind(this);
   }
 
-  clickGMapsHandler() {
+  clickGMapsHandler(event) {
     const { gmaps } = this.props.data;
     const gmapsUrl = `https://www.google.com/maps/place//@${gmaps.lat},${gmaps.lng},18z`;
-    this.openNewTab(gmapsUrl);
+    SocialMediaIcons.openNewTab(gmapsUrl);
+    event.preventDefault();
   }
 
-  clickFacebookHandler() {
+  clickFacebookHandler(event) {
     const { facebook } = this.props.data;
     const data = facebook.filter(item => item.link).pop();
-    this.openNewTab(data.link);
+    SocialMediaIcons.openNewTab(data.link);
+    event.preventDefault();
   }
 
   renderGMaps(data) {
-    return data ? (<li><a href="" title={`${data} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
+    return data ? (<li><a href="https://www.google.com/maps/" title={`${data} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
       <SVG network="google" />
     </a></li>) : null;
   }
 
   renderFacebook(data) {
-    return _.isArray(data) && data.length ? (<li><a href="" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickFacebookHandler} rel="noopener noreferrer">
+    return _.isArray(data) && data.length ? (<li><a href="https://www.facebook.com/" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickFacebookHandler} rel="noopener noreferrer">
       <SVG network="facebook" />
     </a></li>) : null;
   }

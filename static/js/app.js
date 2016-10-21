@@ -45407,21 +45407,23 @@
 
 	  _createClass(SocialMediaIcons, [{
 	    key: 'clickGMapsHandler',
-	    value: function clickGMapsHandler() {
+	    value: function clickGMapsHandler(event) {
 	      var gmaps = this.props.data.gmaps;
 
 	      var gmapsUrl = 'https://www.google.com/maps/place//@' + gmaps.lat + ',' + gmaps.lng + ',18z';
-	      this.openNewTab(gmapsUrl);
+	      SocialMediaIcons.openNewTab(gmapsUrl);
+	      event.preventDefault();
 	    }
 	  }, {
 	    key: 'clickFacebookHandler',
-	    value: function clickFacebookHandler() {
+	    value: function clickFacebookHandler(event) {
 	      var facebook = this.props.data.facebook;
 
 	      var data = facebook.filter(function (item) {
 	        return item.link;
 	      }).pop();
-	      this.openNewTab(data.link);
+	      SocialMediaIcons.openNewTab(data.link);
+	      event.preventDefault();
 	    }
 	  }, {
 	    key: 'renderGMaps',
@@ -45431,7 +45433,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'a',
-	          { href: '', title: data + ' en playas de tijuan', target: '_blank', onClick: this.clickGMapsHandler, rel: 'noopener noreferrer' },
+	          { href: 'https://www.google.com/maps/', title: data + ' en playas de tijuan', target: '_blank', onClick: this.clickGMapsHandler, rel: 'noopener noreferrer' },
 	          _react2.default.createElement(_svg2.default, { network: 'google' })
 	        )
 	      ) : null;
@@ -45444,7 +45446,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'a',
-	          { href: '', title: data.name + ' en playas de tijuana', target: '_blank', onClick: this.clickFacebookHandler, rel: 'noopener noreferrer' },
+	          { href: 'https://www.facebook.com/', title: data.name + ' en playas de tijuana', target: '_blank', onClick: this.clickFacebookHandler, rel: 'noopener noreferrer' },
 	          _react2.default.createElement(_svg2.default, { network: 'facebook' })
 	        )
 	      ) : null;
