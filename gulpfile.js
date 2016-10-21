@@ -4,12 +4,10 @@ var sprityJS = require('sprity-js');
 var del = require('del');
 var runSequence = require('run-sequence');
 var replace = require('gulp-replace');
-var gulpCopy = require('gulp-copy');
-var config = require('./config');
 var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
-var minify = require('gulp-minify');
 var uglify = require('gulp-uglify');
+var config = require('./config');
 
 
 gulp.task('sprites:generatejs', () => {

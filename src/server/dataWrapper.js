@@ -14,8 +14,8 @@ export default class DataWrapper extends React.Component {
 }
 
 DataWrapper.propTypes = {
-  data: React.PropTypes.object.isRequired,
-  children: React.PropTypes.any,
+  data: React.PropTypes.shape({}),
+  children: React.PropTypes.shape({}),
 };
 
 DataWrapper.childContextTypes = {

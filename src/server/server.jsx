@@ -2,7 +2,7 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { match, RoutingContext } from 'react-router';
+import { match, RouterContext } from 'react-router';
 import bodyParser from 'body-parser';
 import DataWrapper from './dataWrapper';
 
@@ -12,7 +12,7 @@ import routes from '../shared/config/routes';
 import RequestUtil from '../shared/utils/requestUtil';
 
 const app = express();
-
+app.use(compression());
 app.set('views', './views');
 app.set('view engine', 'jade');
 
@@ -29,7 +29,7 @@ app.get('/sitemap.xml', (req, res) => {
   res.status(200).send('sitemap');
 });
 
-app.get('/*', function (req, res) {
+app.get('/*', (req, res) => {
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
       res.status(500).send(error.message);
@@ -44,7 +44,7 @@ app.get('/*', function (req, res) {
             location,
             places: results.entity,
           };
-          const content = renderToString(<DataWrapper data={props}><RoutingContext {...renderProps} /></DataWrapper>);
+          const content = renderToString(<DataWrapper data={props}><RouterContext {...renderProps} /></DataWrapper>);
           res.render('index', { content, props });
         })
         .catch((err) => {

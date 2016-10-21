@@ -127,7 +127,7 @@ if(TARGET === 'build-fe') {
      loaders: [
         {
           test: /\.jsx$|\.js$/,
-          loaders: ['react-hot', 'babel'],
+          loaders: ['babel-loader'],
           include: PATHS.app
         },
         {
@@ -172,7 +172,7 @@ if(TARGET === 'build-be') {
      loaders: [
         {
           test: /\.jsx$|\.js$/,
-          loaders: ['babel'],
+          loaders: ['babel-loader'],
           include: PATHS.app
         },
         {
