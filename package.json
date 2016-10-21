@@ -1,6 +1,6 @@
 {
   "name": "website-playastijuana",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Playami GUI",
   "main": "start.js",
   "scripts": {
@@ -25,6 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.2",
+    "compression": "^1.6.2",
     "convict": "^1.0.2",
     "express": "^4.13.3",
     "jade": "^1.11.0",
