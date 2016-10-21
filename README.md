@@ -36,11 +36,11 @@ Remove Cartridge
 http://stackoverflow.com/questions/31323791/how-do-you-delete-a-database-cartridge-on-an-openshift-app
 
 Setting up Envs
-rhc env set DB_NAME=value -a app
-rhc env set DB_USER=value -a app
-rhc env set DB_PASSWORD=value -a app
-rhc env set DJANGO_SETTINGS_MODULE=settings.prod -a app
-rhc env set SENDGRID_API_KEY=value -a app
+rhc env set -a app DB_NAME=value
+rhc env set -a app DB_USER=value
+rhc env set -a app DB_PASSWORD=value
+rhc env set -a app DJANGO_SETTINGS_MODULE=settings.prod
+rhc env set -a app SENDGRID_API_KEY=value
 rhc env set NPM_CONFIG_PRODUCTION=true -a app
 
 Checking Envs

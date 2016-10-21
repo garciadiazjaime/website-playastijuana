@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const _ = require('lodash');
-// const NpmInstallPlugin = require('npm-install-webpack-plugin');
+
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const nodeExternals = require('webpack-node-externals');
 
@@ -80,12 +80,7 @@ if(TARGET === 'dev' || !TARGET) {
      loaders: [
         {
           test: /\.jsx$|\.js$/,
-          loaders: ['react-hot', 'babel'],
-          include: PATHS.app
-        },
-        {
-          test: /\.css$/,
-          loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]',
+          loaders: ['babel-loader'],
           include: PATHS.app
         },
         {
@@ -159,9 +154,10 @@ if(TARGET === 'build-be') {
     },
 
     plugins: [
-      new ExtractTextPlugin("../static/css/screen.css", {
-           allChunks: true
-       })
+      new ExtractTextPlugin("../static/css/screen.css", { allChunks: true}),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin()
     ],
 
     module: {

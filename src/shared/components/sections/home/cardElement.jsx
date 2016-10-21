@@ -2,12 +2,35 @@
 
 import React from 'react';
 import _ from 'lodash';
-
 import { truncate, toTitleCase } from '../../../utils/string';
 import SocialMediaIcons from './socialMediaIcons';
+
 const style = require('./style.scss');
 
 export default class CardElement extends React.Component {
+
+  static getImage(data) {
+    const loadingImage = 'http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';
+    if (_.isArray(data) && data.length) {
+      return data[0].url || loadingImage;
+    }
+    return loadingImage;
+  }
+
+  static getDescription(data) {
+    if (_.isArray(data) && data.length) {
+      return data[0].description;
+    }
+    return null;
+  }
+
+  static getSocialMediaData(data) {
+    return {
+      name: data.name,
+      gmaps: data.location,
+      facebook: data.facebook,
+    };
+  }
 
   constructor() {
     super();
@@ -35,42 +58,19 @@ export default class CardElement extends React.Component {
     }
   }
 
-  getImage(data) {
-    const loadingImage = 'http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';
-    if (_.isArray(data) && data.length) {
-      return data[0].url || loadingImage;
-    }
-    return loadingImage;
-  }
-
-  getDescription(data) {
-    if (_.isArray(data) && data.length) {
-      return data[0].description;
-    }
-    return null;
-  }
-
-  getSocialMediaData(data) {
-    return {
-      name: data.name,
-      gmaps: data.location,
-      facebook: data.facebook,
-    };
-  }
-
   render() {
     const { data } = this.props;
-    const imageUrl = this.getImage(data.metaImages);
+    const imageUrl = CardElement.getImage(data.metaImages);
     const { titleLength, descriptionLength } = this.state;
     return (<div className="col-xs-12 col-sm-4">
       <div className={style.card}>
-        <img src={imageUrl} />
+        <img src={imageUrl} alt={data.name} />
         <div className={style.card.info}>
           <h3>{truncate(toTitleCase(data.name), titleLength)}</h3>
           <p>
-            {truncate(this.getDescription(data.metaDescriptions), descriptionLength)}
+            {truncate(CardElement.getDescription(data.metaDescriptions), descriptionLength)}
           </p>
-          <SocialMediaIcons data={this.getSocialMediaData(data)} />
+          <SocialMediaIcons data={CardElement.getSocialMediaData(data)} />
         </div>
       </div>
     </div>);
@@ -78,5 +78,6 @@ export default class CardElement extends React.Component {
 }
 
 CardElement.propTypes = {
-  data: React.PropTypes.object.isRequired,
+  data: React.PropTypes.shape({
+  }),
 };

@@ -5,10 +5,8 @@ import { Link } from 'react-router';
 const style = require('./style.scss');
 
 
-export default class Projects extends React.Component {
-
-  render() {
-    return (<div className={'row ' + style.about}>
+export default function About() {
+  return (<div className={`row ${style.about}`}>
     <h2>Directorio Playas de Tijuana</h2>
     <p>
       En&nbsp;<Link to="/" title="Directorio Playas de Tijuana">
@@ -31,6 +29,5 @@ export default class Projects extends React.Component {
         Directorio Playas de Tijuana
       </Link> no se hace responsable de la veracidad de dicha información y, en caso de incongruencias invitamos al público a contactarnos para hacer las correcciones necesarias.
     </p>
-    </div>);
-  }
+  </div>);
 }

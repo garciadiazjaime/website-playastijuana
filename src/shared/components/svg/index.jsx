@@ -81,7 +81,6 @@ export default class SVG extends React.Component {
 }
 SVG.propTypes = {
   background: React.PropTypes.string,
-  color: React.PropTypes.string,
   network: React.PropTypes.string,
   className: React.PropTypes.string,
 };

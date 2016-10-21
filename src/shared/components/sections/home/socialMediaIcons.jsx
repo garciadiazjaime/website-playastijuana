@@ -1,12 +1,15 @@
 /* eslint max-len: [2, 500, 4] */
-
 import React from 'react';
 import _ from 'lodash';
-
 import SVG from '../../svg';
+
 const style = require('./style.scss');
 
 export default class SocialMediaIcons extends React.Component {
+
+  static openNewTab(url) {
+    window.open(url);
+  }
 
   constructor() {
     super();
@@ -26,18 +29,14 @@ export default class SocialMediaIcons extends React.Component {
     this.openNewTab(data.link);
   }
 
-  openNewTab(url) {
-    window.open(url);
-  }
-
   renderGMaps(data) {
-    return data ? (<li><a title={data.name + ' en playas de tijuana'} target="_blank" onClick={this.clickGMapsHandler}>
+    return data ? (<li><a href="" title={`${data} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
       <SVG network="google" />
     </a></li>) : null;
   }
 
   renderFacebook(data) {
-    return _.isArray(data) && data.length ? (<li><a title={data.name + ' en playas de tijuana'} target="_blank" onClick={this.clickFacebookHandler}>
+    return _.isArray(data) && data.length ? (<li><a href="" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickFacebookHandler} rel="noopener noreferrer">
       <SVG network="facebook" />
     </a></li>) : null;
   }
@@ -45,8 +44,8 @@ export default class SocialMediaIcons extends React.Component {
   render() {
     const { data } = this.props;
     return (<div className={style.socialMediaIcons}>
-        <ul>
-        {this.renderGMaps(data.gmaps)}
+      <ul>
+        {this.renderGMaps(data.name)}
         {this.renderFacebook(data.facebook)}
       </ul>
     </div>);
@@ -54,5 +53,8 @@ export default class SocialMediaIcons extends React.Component {
 }
 
 SocialMediaIcons.propTypes = {
-  data: React.PropTypes.object.isRequired,
+  data: React.PropTypes.shape({
+    facebook: React.array,
+    gmaps: React.object,
+  }),
 };
