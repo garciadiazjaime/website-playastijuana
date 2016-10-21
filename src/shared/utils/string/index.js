@@ -17,9 +17,9 @@ export function minsToHrs(data) {
 
 export function toTitleCase(data) {
   const response = data.replace(/_/g, ' ');
-  return response.replace(/\w\S*/g, (txt) => {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  });
+  return response.replace(/\w\S*/g, txt =>
+    txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  );
 }
 
 export function timeSince(data) {
@@ -45,9 +45,9 @@ export function timeSince(data) {
   if (interval > 1) {
     return `${interval} minutos`;
   }
-  return `1 minuto`;
+  return '1 minuto';
 }
 
 export function truncate(string, limit) {
-  return (string.length > limit) ? string.substr(0, limit - 1) + '...' : string;
+  return (string && string.length > limit) ? `${string.substr(0, limit - 1)} ...` : string;
 }

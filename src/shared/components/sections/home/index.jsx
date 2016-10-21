@@ -8,6 +8,13 @@ const style = require('./style.scss');
 
 export default class HomeSection extends React.Component {
 
+  static renderCard(data) {
+    if (_.isArray(data) && data.length) {
+      return data.map((item, index) => <CardElement data={item} key={index} />);
+    }
+    return null;
+  }
+
   constructor(props) {
     super(props);
     const { data } = this.props;
@@ -22,8 +29,9 @@ export default class HomeSection extends React.Component {
 
   clickHandler() {
     const { data, allData, chunkSize } = this.state;
+    const newData = [];
     if (data.length < allData.length) {
-      data.push.apply(data, allData.slice(data.length, data.length + chunkSize));
+      newData.push.apply(data, allData.slice(data.length, data.length + chunkSize));
       const newState = _.assign({}, this.state, {
         data,
       });
@@ -31,21 +39,14 @@ export default class HomeSection extends React.Component {
     }
   }
 
-  renderCard(data) {
-    if (_.isArray(data) && data.length) {
-      return data.map((item, index) => <CardElement data={item} key={index} />);
-    }
-    return null;
-  }
-
   render() {
     const { data } = this.state;
     return (<div className="container-fluid">
       <div className="row">
-        {this.renderCard(data)}
+        {HomeSection.renderCard(data)}
       </div>
       <div className={style.showMore}>
-        <a title="mostrar más restaurantes" className="btn btn-default btn-lg" onClick={this.clickHandler}>
+        <a href="" title="mostrar más restaurantes" className="btn btn-default btn-lg" onClick={this.clickHandler}>
           Mostar más
         </a>
       </div>
@@ -54,5 +55,5 @@ export default class HomeSection extends React.Component {
 }
 
 HomeSection.propTypes = {
-  data: React.PropTypes.object,
+  data: React.PropTypes.shape({}),
 };
