@@ -1,6 +1,6 @@
 {
   "name": "website-playastijuana",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Playami GUI",
   "main": "start.js",
   "scripts": {
