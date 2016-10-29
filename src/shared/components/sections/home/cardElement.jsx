@@ -26,11 +26,12 @@ export default class CardElement extends React.Component {
   }
 
   static getSocialMediaData(data) {
-    return data ? {
+    return {
       name: data.name,
-      gmaps: data.geometry ? data.geometry.location : null,
+      gmaps: data.geometry.location,
       facebook: data.facebook,
-    } : {};
+      yelp: data.yelp,
+    };
   }
 
   constructor() {

@@ -9,10 +9,9 @@ const style = require('./style.scss');
 export default class HomeSection extends React.Component {
 
   static renderCard(data) {
-    if (_.isArray(data) && data.length) {
-      return data.map((item, index) => <CardElement data={item} key={index} />);
-    }
-    return null;
+    return _.isArray(data) && data.length ? data.map((item, index) =>
+      <CardElement data={item} key={index} />
+    ) : null;
   }
 
   constructor(props) {

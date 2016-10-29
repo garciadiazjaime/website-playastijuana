@@ -6,7 +6,7 @@ export default (str) => {
     // remove accents, swap ñ for n, etc
     const from = 'àáäâèéëêìíïîòóöôùúüûñç·/_,:;';
     const to = 'aaaaeeeeiiiioooouuuunc------';
-    for (let i = 0, l = from.length; i < l; i++) {
+    for (let i = 0, l = from.length; i < l; i += 1) {
       response = response.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
     }
 

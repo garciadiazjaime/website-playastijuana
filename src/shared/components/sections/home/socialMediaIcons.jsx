@@ -15,6 +15,7 @@ export default class SocialMediaIcons extends React.Component {
     super();
     this.clickGMapsHandler = this.clickGMapsHandler.bind(this);
     this.clickFacebookHandler = this.clickFacebookHandler.bind(this);
+    this.clickYelpHandler = this.clickYelpHandler.bind(this);
   }
 
   clickGMapsHandler(event) {
@@ -31,6 +32,13 @@ export default class SocialMediaIcons extends React.Component {
     event.preventDefault();
   }
 
+  clickYelpHandler(event) {
+    const { yelp } = this.props.data;
+    const data = yelp.filter(item => item.url).pop();
+    SocialMediaIcons.openNewTab(data.url);
+    event.preventDefault();
+  }
+
   renderGMaps(data) {
     return data ? (<li><a href="https://www.google.com/maps/" title={`${data} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
       <SVG network="google" />
@@ -43,12 +51,19 @@ export default class SocialMediaIcons extends React.Component {
     </a></li>) : null;
   }
 
+  renderYelp(data) {
+    return _.isArray(data) && data.length ? (<li><a href="https://www.yelp.com/" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickYelpHandler} rel="noopener noreferrer">
+      <SVG network="yelp" />
+    </a></li>) : null;
+  }
+
   render() {
     const { data } = this.props;
     return (<div className={style.socialMediaIcons}>
       <ul>
         {this.renderGMaps(data.name)}
         {this.renderFacebook(data.facebook)}
+        {this.renderYelp(data.yelp)}
       </ul>
     </div>);
   }
@@ -58,5 +73,6 @@ SocialMediaIcons.propTypes = {
   data: React.PropTypes.shape({
     facebook: React.array,
     gmaps: React.object,
+    yelp: React.object,
   }),
 };
