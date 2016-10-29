@@ -36,8 +36,6 @@
     "readable-stream": "^2.0.5",
     "rest": "^2.0.0",
     "sendgrid": "^4.7.0",
-    "source-map": "^0.5.3",
-    "sprity": "^1.0.8",
     "strict-uri-encode": "^2.0.0"
   },
   "repository": {
@@ -72,6 +70,8 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "run-sequence": "^1.2.2",
     "sass-loader": "^4.0.2",
+    "source-map": "^0.5.3",
+    "sprity": "^1.0.8",
     "sprity-js": "^1.1.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
