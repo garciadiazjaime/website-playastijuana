@@ -10,11 +10,12 @@ const style = require('./style.scss');
 export default class CardElement extends React.Component {
 
   static getImage(data) {
-    const loadingImage = 'http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';
-    if (_.isArray(data) && data.length) {
-      return data[0].url || loadingImage;
+    if (data && _.isArray(data.photos) && data.photos.length) {
+      return `//${data.photos[0]}`;
+    } else if (data && _.isArray(data.facebook) && data.facebook.length && data.facebook[0].cover) {
+      return data.facebook[0].cover.source;
     }
-    return loadingImage;
+    return 'http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';
   }
 
   static getDescription(data) {
@@ -25,11 +26,11 @@ export default class CardElement extends React.Component {
   }
 
   static getSocialMediaData(data) {
-    return {
+    return data ? {
       name: data.name,
-      gmaps: data.location,
+      gmaps: data.geometry ? data.geometry.location : null,
       facebook: data.facebook,
-    };
+    } : {};
   }
 
   constructor() {
@@ -60,7 +61,7 @@ export default class CardElement extends React.Component {
 
   render() {
     const { data } = this.props;
-    const imageUrl = CardElement.getImage(data.metaImages);
+    const imageUrl = CardElement.getImage(data);
     const { titleLength, descriptionLength } = this.state;
     return (<div className="col-xs-12 col-sm-4">
       <div className={style.card}>
