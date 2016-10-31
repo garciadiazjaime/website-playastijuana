@@ -27,14 +27,14 @@ export default class SocialMediaIcons extends React.Component {
 
   clickFacebookHandler(event) {
     const { facebook } = this.props.data;
-    const data = facebook.filter(item => item.link).pop();
+    const data = facebook.filter(item => item.link).shift();
     SocialMediaIcons.openNewTab(data.link);
     event.preventDefault();
   }
 
   clickYelpHandler(event) {
     const { yelp } = this.props.data;
-    const data = yelp.filter(item => item.url).pop();
+    const data = yelp.filter(item => item.url).shift();
     SocialMediaIcons.openNewTab(data.url);
     event.preventDefault();
   }
