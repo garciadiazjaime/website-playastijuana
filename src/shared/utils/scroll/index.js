@@ -6,7 +6,7 @@ function getScrollTo(section, elementID) {
   if (topElements.indexOf(elementID) !== -1 || section === 'contacto') {
     return 0;
   }
-  return $('#' + elementID).offset().top - 220;
+  return $(`#${elementID}`).offset().top - 220;
 }
 
 export default (location) => {
@@ -19,7 +19,7 @@ export default (location) => {
   if (bits[1] === 'contacto') {
     elementID = 'contacto';
   }
-  if ($('#' + elementID).length && !scropllInProgress) {
+  if ($(`#${elementID}`).length && !scropllInProgress) {
     scropllInProgress = true;
     const scrollTo = getScrollTo(bits[1], elementID);
     const srolltime = 100;

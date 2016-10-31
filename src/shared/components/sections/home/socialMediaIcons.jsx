@@ -15,29 +15,45 @@ export default class SocialMediaIcons extends React.Component {
     super();
     this.clickGMapsHandler = this.clickGMapsHandler.bind(this);
     this.clickFacebookHandler = this.clickFacebookHandler.bind(this);
+    this.clickYelpHandler = this.clickYelpHandler.bind(this);
   }
 
-  clickGMapsHandler() {
+  clickGMapsHandler(event) {
     const { gmaps } = this.props.data;
     const gmapsUrl = `https://www.google.com/maps/place//@${gmaps.lat},${gmaps.lng},18z`;
-    this.openNewTab(gmapsUrl);
+    SocialMediaIcons.openNewTab(gmapsUrl);
+    event.preventDefault();
   }
 
-  clickFacebookHandler() {
+  clickFacebookHandler(event) {
     const { facebook } = this.props.data;
     const data = facebook.filter(item => item.link).pop();
-    this.openNewTab(data.link);
+    SocialMediaIcons.openNewTab(data.link);
+    event.preventDefault();
+  }
+
+  clickYelpHandler(event) {
+    const { yelp } = this.props.data;
+    const data = yelp.filter(item => item.url).pop();
+    SocialMediaIcons.openNewTab(data.url);
+    event.preventDefault();
   }
 
   renderGMaps(data) {
-    return data ? (<li><a href="" title={`${data} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
+    return data ? (<li><a href="https://www.google.com/maps/" title={`${data} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
       <SVG network="google" />
     </a></li>) : null;
   }
 
   renderFacebook(data) {
-    return _.isArray(data) && data.length ? (<li><a href="" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickFacebookHandler} rel="noopener noreferrer">
+    return _.isArray(data) && data.length ? (<li><a href="https://www.facebook.com/" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickFacebookHandler} rel="noopener noreferrer">
       <SVG network="facebook" />
+    </a></li>) : null;
+  }
+
+  renderYelp(data) {
+    return _.isArray(data) && data.length ? (<li><a href="https://www.yelp.com/" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickYelpHandler} rel="noopener noreferrer">
+      <SVG network="yelp" />
     </a></li>) : null;
   }
 
@@ -47,6 +63,7 @@ export default class SocialMediaIcons extends React.Component {
       <ul>
         {this.renderGMaps(data.name)}
         {this.renderFacebook(data.facebook)}
+        {this.renderYelp(data.yelp)}
       </ul>
     </div>);
   }
@@ -56,5 +73,6 @@ SocialMediaIcons.propTypes = {
   data: React.PropTypes.shape({
     facebook: React.array,
     gmaps: React.object,
+    yelp: React.object,
   }),
 };

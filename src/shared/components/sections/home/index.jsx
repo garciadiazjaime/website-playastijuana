@@ -9,10 +9,9 @@ const style = require('./style.scss');
 export default class HomeSection extends React.Component {
 
   static renderCard(data) {
-    if (_.isArray(data) && data.length) {
-      return data.map((item, index) => <CardElement data={item} key={index} />);
-    }
-    return null;
+    return _.isArray(data) && data.length ? data.map((item, index) =>
+      <CardElement data={item} key={index} />
+    ) : null;
   }
 
   constructor(props) {
@@ -27,7 +26,7 @@ export default class HomeSection extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
   }
 
-  clickHandler() {
+  clickHandler(event) {
     const { data, allData, chunkSize } = this.state;
     const newData = [];
     if (data.length < allData.length) {
@@ -37,6 +36,7 @@ export default class HomeSection extends React.Component {
       });
       this.setState(newState);
     }
+    event.preventDefault();
   }
 
   render() {
@@ -46,7 +46,7 @@ export default class HomeSection extends React.Component {
         {HomeSection.renderCard(data)}
       </div>
       <div className={style.showMore}>
-        <a href="" title="mostrar más restaurantes" className="btn btn-default btn-lg" onClick={this.clickHandler}>
+        <a href="/" title="mostrar más restaurantes" className="btn btn-default btn-lg" onClick={this.clickHandler}>
           Mostar más
         </a>
       </div>

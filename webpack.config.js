@@ -59,13 +59,7 @@ if(TARGET === 'dev' || !TARGET) {
 
     plugins: [
       new webpack.NoErrorsPlugin(),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.DefinePlugin({
-       'process.env.TIER': JSON.stringify('FE')
-     })
-      // new NpmInstallPlugin({
-      //   save: true // --save
-      // }),
+      new webpack.HotModuleReplacementPlugin()
     ],
 
     module: {
@@ -108,11 +102,15 @@ if(TARGET === 'build-fe') {
 
     plugins: [
       new ExtractTextPlugin("../css/screen.css", {
-           allChunks: true
-       }),
-       new webpack.DefinePlugin({
-        'process.env.TIER': JSON.stringify('FE')
-      })
+        allChunks: true
+      }),
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production')
+      }),
+      new ExtractTextPlugin("../static/css/screen.css", { allChunks: true}),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin()
     ],
 
     module: {
@@ -154,6 +152,9 @@ if(TARGET === 'build-be') {
     },
 
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production')
+      }),
       new ExtractTextPlugin("../static/css/screen.css", { allChunks: true}),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.OccurrenceOrderPlugin(),
