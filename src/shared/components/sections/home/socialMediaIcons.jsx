@@ -16,26 +16,33 @@ export default class SocialMediaIcons extends React.Component {
     this.clickGMapsHandler = this.clickGMapsHandler.bind(this);
     this.clickFacebookHandler = this.clickFacebookHandler.bind(this);
     this.clickYelpHandler = this.clickYelpHandler.bind(this);
+    this.clickFoursquareHandler = this.clickFoursquareHandler.bind(this);
   }
 
   clickGMapsHandler(event) {
     const { gmaps } = this.props.data;
-    const gmapsUrl = `https://www.google.com/maps/place//@${gmaps.lat},${gmaps.lng},18z`;
-    SocialMediaIcons.openNewTab(gmapsUrl);
+    SocialMediaIcons.openNewTab(gmaps);
     event.preventDefault();
   }
 
   clickFacebookHandler(event) {
     const { facebook } = this.props.data;
-    const data = facebook.filter(item => item.link).pop();
+    const data = facebook.filter(item => item.link).shift();
     SocialMediaIcons.openNewTab(data.link);
     event.preventDefault();
   }
 
   clickYelpHandler(event) {
     const { yelp } = this.props.data;
-    const data = yelp.filter(item => item.url).pop();
+    const data = yelp.filter(item => item.url).shift();
     SocialMediaIcons.openNewTab(data.url);
+    event.preventDefault();
+  }
+
+  clickFoursquareHandler(event) {
+    const { foursquare } = this.props.data;
+    const data = foursquare.filter(item => item.canonicalUrl).shift();
+    SocialMediaIcons.openNewTab(data.canonicalUrl);
     event.preventDefault();
   }
 
@@ -57,12 +64,19 @@ export default class SocialMediaIcons extends React.Component {
     </a></li>) : null;
   }
 
+  renderFoursquare(data) {
+    return _.isArray(data) && data.length ? (<li><a href="https://foursquare.com/" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickFoursquareHandler} rel="noopener noreferrer">
+      <SVG network="foursquare" />
+    </a></li>) : null;
+  }
+
   render() {
     const { data } = this.props;
     return (<div className={style.socialMediaIcons}>
       <ul>
         {this.renderGMaps(data.name)}
         {this.renderFacebook(data.facebook)}
+        {this.renderFoursquare(data.foursquare)}
         {this.renderYelp(data.yelp)}
       </ul>
     </div>);
@@ -73,6 +87,7 @@ SocialMediaIcons.propTypes = {
   data: React.PropTypes.shape({
     facebook: React.array,
     gmaps: React.object,
-    yelp: React.object,
+    yelp: React.array,
+    foursquare: React.array,
   }),
 };
