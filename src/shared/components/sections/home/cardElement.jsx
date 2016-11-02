@@ -14,6 +14,11 @@ export default class CardElement extends React.Component {
       return `//${data.photos[0]}`;
     } else if (data && _.isArray(data.facebook) && data.facebook.length && data.facebook[0].cover) {
       return data.facebook[0].cover.source;
+    } else if (data && _.isArray(data.foursquare) && data.foursquare.length && data.foursquare[0].bestPhoto) {
+      const imageSize = '400x250';
+      return `${data.foursquare[0].bestPhoto.prefix}${imageSize}${data.foursquare[0].bestPhoto.suffix}`;
+    } else if (data && _.isArray(data.yelp) && data.yelp.length && data.yelp[0].image_url) {
+      return data.yelp[0].image_url;
     }
     return 'http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';
   }
@@ -28,9 +33,10 @@ export default class CardElement extends React.Component {
   static getSocialMediaData(data) {
     return {
       name: data.name,
-      gmaps: data.geometry.location,
+      gmaps: data.url,
       facebook: data.facebook,
       yelp: data.yelp,
+      foursquare: data.foursquare,
     };
   }
 
