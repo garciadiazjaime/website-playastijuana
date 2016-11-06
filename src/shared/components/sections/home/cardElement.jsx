@@ -29,7 +29,6 @@ export default class CardElement extends React.Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.state = {
       titleLength: 22,
-      descriptionLength: 166,
     };
   }
 
@@ -44,7 +43,6 @@ export default class CardElement extends React.Component {
       /*eslint-disable */
       this.setState({
         titleLength: 500,
-        descriptionLength: 500,
       });
       /*eslint-enable */
     }
@@ -54,7 +52,6 @@ export default class CardElement extends React.Component {
     const { data } = this.props;
     const imageUrl = CardElement.getImage(data);
     const { titleLength } = this.state;
-    // descriptionLength
     return (<div className="col-xs-12 col-sm-4">
       <div className={style.card}>
         <img src={imageUrl} alt={data.google.name} />
