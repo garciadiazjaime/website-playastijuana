@@ -49,7 +49,7 @@ export default class CardElement extends React.Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, updateHandler } = this.props;
     const imageUrl = CardElement.getImage(data);
     const { titleLength } = this.state;
     return (<div className="col-xs-12 col-sm-4">
@@ -57,7 +57,7 @@ export default class CardElement extends React.Component {
         <img src={imageUrl} alt={data.google.name} />
         <div className={style.info}>
           <h3>{truncate(toTitleCase(data.google.name), titleLength)}</h3>
-          <PlaceInfo data={data} />
+          <PlaceInfo data={data} updateHandler={updateHandler} />
           <SocialMediaIcons data={data} />
         </div>
       </div>
@@ -68,4 +68,5 @@ export default class CardElement extends React.Component {
 CardElement.propTypes = {
   data: React.PropTypes.shape({
   }),
+  updateHandler: React.PropTypes.func,
 };

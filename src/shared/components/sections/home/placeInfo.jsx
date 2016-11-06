@@ -28,11 +28,31 @@ export default class PlaceInfo extends React.Component {
     this.clickCommentsHandler = this.clickCommentsHandler.bind(this);
   }
 
+  componentDidUpdate() {
+    this.props.updateHandler();
+  }
+
   clickCommentsHandler(event) {
     this.setState({
       commentsDisplay: !this.state.commentsDisplay,
     });
     event.preventDefault();
+  }
+
+  hasComments() {
+    const { google, foursquare } = this.props.data;
+    if (_.isArray(google.reviews) && google.reviews.length) {
+      return true;
+    } else if (_.isArray(foursquare) && foursquare.length) {
+      const { tips } = foursquare[0];
+      if (_.isArray(tips.groups) && tips.groups.length) {
+        const { items } = tips.groups[0];
+        if (_.isArray(items) && items.length) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   renderContact() {
@@ -86,40 +106,44 @@ export default class PlaceInfo extends React.Component {
     const { google, foursquare, facebook } = this.props.data;
     return (<div className={style.rating}>
       <div className="row">
-        <div className="col-xs-3">
-          <div className="row">
-            Google Rating
-            <br />
-            <b>{google.rating}</b>
-          </div>
-        </div>
-        <div className="col-xs-3">
-          <div className="row">
-            Facebook Likes
-            <br />
-            <b>{facebook[0].fan_count}</b>
-          </div>
-        </div>
-        <div className="col-xs-3">
-          <div className="row">
-            Facebook Check-Ins
-            <br />
-            <b>{facebook[0].checkins}</b>
-          </div>
-        </div>
-        <div className="col-xs-3">
-          <div className="row">
-            Foursqure Check-Ins
-            <br />
-            <b>{foursquare[0].stats.checkinsCount}</b>
-          </div>
-        </div>
+        { google.rating ?
+          <div className="col-xs-3">
+            <div className="row">
+              Google Rating
+              <br />
+              <b>{google.rating}</b>
+            </div>
+          </div> : null }
+        { _.isArray(facebook) && facebook.length && facebook[0].fan_count ?
+          <div className="col-xs-3">
+            <div className="row">
+              Facebook Likes
+              <br />
+              <b>{facebook[0].fan_count}</b>
+            </div>
+          </div> : null }
+        { _.isArray(facebook) && facebook.length && facebook[0].checkins ?
+          <div className="col-xs-3">
+            <div className="row">
+              Facebook Check-Ins
+              <br />
+              <b>{facebook[0].checkins}</b>
+            </div>
+          </div> : null }
+        { _.isArray(foursquare) && foursquare.length && foursquare[0].stats.checkinsCount ?
+          <div className="col-xs-3">
+            <div className="row">
+              Foursqure Check-Ins
+              <br />
+              <b>{foursquare[0].stats.checkinsCount}</b>
+            </div>
+          </div> : null }
       </div>
     </div>);
   }
 
   renderComments() {
-    return (<div className={style.comments}>
+    return this.hasComments() ? (<div className={style.comments}>
       <h5>
         <a href="/comentarios" onClick={this.clickCommentsHandler}>
           <i className={`glyphicon ${this.state.commentsDisplay ? 'glyphicon-minus' : 'glyphicon-plus'}`} />
@@ -132,7 +156,7 @@ export default class PlaceInfo extends React.Component {
           { this.renderGoogleReviews() }
         </ul>
       </div>
-    </div>);
+    </div>) : null;
   }
 
   render() {
@@ -150,4 +174,5 @@ PlaceInfo.propTypes = {
     facebook: React.PropTypes.array,
     foursquare: React.PropTypes.array,
   }),
+  updateHandler: React.PropTypes.func,
 };
