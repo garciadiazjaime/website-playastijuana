@@ -4,14 +4,15 @@ import React from 'react';
 import _ from 'lodash';
 import { truncate, toTitleCase } from '../../../utils/string';
 import SocialMediaIcons from './socialMediaIcons';
+import PlaceInfo from './placeInfo';
 
 const style = require('./style.scss');
 
 export default class CardElement extends React.Component {
 
   static getImage(data) {
-    if (data && _.isArray(data.photos) && data.photos.length) {
-      return `//${data.photos[0]}`;
+    if (data && _.isArray(data.google.photos) && data.google.photos.length) {
+      return `//${data.google.photos[0]}`;
     } else if (data && _.isArray(data.facebook) && data.facebook.length && data.facebook[0].cover) {
       return data.facebook[0].cover.source;
     } else if (data && _.isArray(data.foursquare) && data.foursquare.length && data.foursquare[0].bestPhoto) {
@@ -21,23 +22,6 @@ export default class CardElement extends React.Component {
       return data.yelp[0].image_url;
     }
     return 'http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';
-  }
-
-  static getDescription(data) {
-    if (_.isArray(data) && data.length) {
-      return data[0].description;
-    }
-    return null;
-  }
-
-  static getSocialMediaData(data) {
-    return {
-      name: data.name,
-      gmaps: data.url,
-      facebook: data.facebook,
-      yelp: data.yelp,
-      foursquare: data.foursquare,
-    };
   }
 
   constructor() {
@@ -69,16 +53,15 @@ export default class CardElement extends React.Component {
   render() {
     const { data } = this.props;
     const imageUrl = CardElement.getImage(data);
-    const { titleLength, descriptionLength } = this.state;
+    const { titleLength } = this.state;
+    // descriptionLength
     return (<div className="col-xs-12 col-sm-4">
       <div className={style.card}>
-        <img src={imageUrl} alt={data.name} />
-        <div className={style.card.info}>
-          <h3>{truncate(toTitleCase(data.name), titleLength)}</h3>
-          <p>
-            {truncate(CardElement.getDescription(data.metaDescriptions), descriptionLength)}
-          </p>
-          <SocialMediaIcons data={CardElement.getSocialMediaData(data)} />
+        <img src={imageUrl} alt={data.google.name} />
+        <div className={style.info}>
+          <h3>{truncate(toTitleCase(data.google.name), titleLength)}</h3>
+          <PlaceInfo data={data} />
+          <SocialMediaIcons data={data} />
         </div>
       </div>
     </div>);
