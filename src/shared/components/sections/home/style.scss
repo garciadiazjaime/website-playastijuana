@@ -5,6 +5,11 @@
   margin-bottom: 20px;
   @include box-shadow(0, 1px, 3px, rgba(0,0,0,0.2));
 
+  @media #{$isPhone} {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
   img {
     width: 100%;
     height: 178px;
@@ -20,9 +25,10 @@
     }
   }
 
-  div {
+  .info {
     background: $white;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     h3 {
       padding: 10px 0px;
@@ -49,8 +55,11 @@
         height: auto;
       }
     }
-  }
 
+    i {
+      margin-right: 10px;
+    }
+  }
 }
 
 .showMore {
@@ -60,6 +69,8 @@
 }
 
 .socialMediaIcons {
+  margin-top: 20px;
+  margin-left: 5px;
   ul {
     list-style-type: none;
     padding: 0;
@@ -68,6 +79,28 @@
     li {
       display: inline-block;
       padding-right: 10px;
+    }
+  }
+}
+
+.rating {
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.comments {
+  margin-top: 15px;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+
+    li:not(:last-child) {
+      padding-bottom: 5px;
+      border-bottom: 1px solid #DDD;
+      margin-bottom: 10px;
     }
   }
 }

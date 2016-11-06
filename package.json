@@ -1,6 +1,6 @@
 {
   "name": "website-playastijuana",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Playami GUI",
   "main": "start.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "lodash": "^4.16.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-masonry-component": "^4.3.1",
     "react-router": "^3.0.0",
     "readable-stream": "^2.1.5",
     "rest": "^2.0.0",

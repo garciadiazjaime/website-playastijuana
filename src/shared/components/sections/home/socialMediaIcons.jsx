@@ -20,8 +20,8 @@ export default class SocialMediaIcons extends React.Component {
   }
 
   clickGMapsHandler(event) {
-    const { gmaps } = this.props.data;
-    SocialMediaIcons.openNewTab(gmaps);
+    const { google } = this.props.data;
+    SocialMediaIcons.openNewTab(google.url);
     event.preventDefault();
   }
 
@@ -47,7 +47,7 @@ export default class SocialMediaIcons extends React.Component {
   }
 
   renderGMaps(data) {
-    return data ? (<li><a href="https://www.google.com/maps/" title={`${data} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
+    return data ? (<li><a href="https://www.google.com/maps/" title={`${data.name} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
       <SVG network="google" />
     </a></li>) : null;
   }
@@ -74,7 +74,7 @@ export default class SocialMediaIcons extends React.Component {
     const { data } = this.props;
     return (<div className={style.socialMediaIcons}>
       <ul>
-        {this.renderGMaps(data.name)}
+        {this.renderGMaps(data.google)}
         {this.renderFacebook(data.facebook)}
         {this.renderFoursquare(data.foursquare)}
         {this.renderYelp(data.yelp)}
@@ -86,7 +86,7 @@ export default class SocialMediaIcons extends React.Component {
 SocialMediaIcons.propTypes = {
   data: React.PropTypes.shape({
     facebook: React.array,
-    gmaps: React.object,
+    google: React.object,
     yelp: React.array,
     foursquare: React.array,
   }),

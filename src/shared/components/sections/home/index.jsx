@@ -1,16 +1,29 @@
 /* eslint max-len: [2, 500, 4] */
-
 import React from 'react';
 import _ from 'lodash';
+import Masonry from 'react-masonry-component';
 import CardElement from './cardElement';
 
 const style = require('./style.scss');
 
+const masonryOptions = {
+  transitionDuration: 0,
+};
+let masonryEl = null;
+
 export default class HomeSection extends React.Component {
+
+  static masonryHanlder(c) {
+    masonryEl = c.masonry;
+  }
+
+  static masronyupdate() {
+    masonryEl.layout();
+  }
 
   static renderCard(data) {
     return _.isArray(data) && data.length ? data.map((item, index) =>
-      <CardElement data={item} key={index} />
+      <CardElement data={item} key={index} updateHandler={HomeSection.masronyupdate} />
     ) : null;
   }
 
@@ -43,7 +56,9 @@ export default class HomeSection extends React.Component {
     const { data } = this.state;
     return (<div className="container-fluid">
       <div className="row">
-        {HomeSection.renderCard(data)}
+        <Masonry elementType="div" options={masonryOptions} ref={HomeSection.masonryHanlder}>
+          {HomeSection.renderCard(data)}
+        </Masonry>
       </div>
       <div className={style.showMore}>
         <a href="/" title="mostrar más restaurantes" className="btn btn-default btn-lg" onClick={this.clickHandler}>
