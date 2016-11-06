@@ -92,4 +92,15 @@
 
 .comments {
   margin-top: 15px;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+
+    li:not(:last-child) {
+      padding-bottom: 5px;
+      border-bottom: 1px solid #DDD;
+      margin-bottom: 10px;
+    }
+  }
 }

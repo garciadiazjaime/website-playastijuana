@@ -66,7 +66,7 @@ export default class PlaceInfo extends React.Component {
       if (_.isArray(tips.groups) && tips.groups.length) {
         const { items } = tips.groups[0];
         if (_.isArray(items) && items.length) {
-          return items.slice(0, 3).map((item, index) => (<li key={index} className="list-group-item">
+          return items.slice(0, 3).map((item, index) => (<li key={index}>
             {item.text}
           </li>));
         }
@@ -77,7 +77,7 @@ export default class PlaceInfo extends React.Component {
 
   renderGoogleReviews() {
     const { google } = this.props.data;
-    return _.isArray(google.reviews) && google.reviews.length ? google.reviews.slice(0, 3).map((item, index) => (<li key={index} className="list-group-item">
+    return _.isArray(google.reviews) && google.reviews.length ? google.reviews.slice(0, 3).map((item, index) => (<li key={index}>
       {item.text}
     </li>)) : null;
   }
@@ -90,28 +90,28 @@ export default class PlaceInfo extends React.Component {
           <div className="row">
             Google Rating
             <br />
-            {google.rating}
+            <b>{google.rating}</b>
           </div>
         </div>
         <div className="col-xs-3">
           <div className="row">
             Facebook Likes
             <br />
-            {facebook[0].fan_count}
+            <b>{facebook[0].fan_count}</b>
           </div>
         </div>
         <div className="col-xs-3">
           <div className="row">
             Facebook Check-Ins
             <br />
-            {facebook[0].checkins}
+            <b>{facebook[0].checkins}</b>
           </div>
         </div>
         <div className="col-xs-3">
           <div className="row">
             Foursqure Check-Ins
             <br />
-            {foursquare[0].stats.checkinsCount}
+            <b>{foursquare[0].stats.checkinsCount}</b>
           </div>
         </div>
       </div>
@@ -122,13 +122,12 @@ export default class PlaceInfo extends React.Component {
     return (<div className={style.comments}>
       <h5>
         <a href="/comentarios" onClick={this.clickCommentsHandler}>
-          <i className="glyphicon glyphicon-comment" />
+          <i className={`glyphicon ${this.state.commentsDisplay ? 'glyphicon-minus' : 'glyphicon-plus'}`} />
           Comentarios
-          <i className={`glyphicon pull-right ${this.state.commentsDisplay ? 'glyphicon-minus' : 'glyphicon-plus'}`} />
         </a>
       </h5>
-      <div className={`row ${this.state.commentsDisplay ? '' : 'hide'}`}>
-        <ul className="list-group">
+      <div className={`${this.state.commentsDisplay ? '' : 'hide'}`}>
+        <ul>
           { this.renderFoursquareTips() }
           { this.renderGoogleReviews() }
         </ul>
