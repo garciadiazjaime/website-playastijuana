@@ -12,7 +12,8 @@
 
   img {
     width: 100%;
-    height: 178px;
+    min-height: 178px;
+    max-height: 512px;
 
     @media #{$isTablet} {
       width: 100%;

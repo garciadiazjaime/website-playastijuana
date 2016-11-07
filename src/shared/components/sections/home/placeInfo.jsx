@@ -1,21 +1,26 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
 import _ from 'lodash';
+import GaUtil from '../../../utils/gaUtil';
 
 const style = require('./style.scss');
 
 export default class PlaceInfo extends React.Component {
 
   static cleanPhone(data) {
-    return data ? data.replace(/^\+52 /g, '') : '';
+    return data ? data.replace(/^\+52 /, '').replace(/^1 /, '') : '';
   }
 
   static cleanAddress(data) {
-    return data ? data.replace(', B.C., Mexico', '') : '';
+    return data ? data.replace(', B.C., Mexico', '').replace(', BC, Mexico', '').replace(/, \d+ Tijuana$/i, '') : '';
   }
 
   static cleanWebsite(data) {
-    return data ? data.replace('http://www.', '').replace(/\/$/, '') : '';
+    return data ? data.replace('http://www.', '').replace(/\/$/, '').replace('http://', '').replace('https://', '') : '';
+  }
+
+  static openNewTab(url) {
+    window.open(url);
   }
 
   constructor() {
@@ -26,16 +31,42 @@ export default class PlaceInfo extends React.Component {
     this.renderContact = this.renderContact.bind(this);
     this.renderComments = this.renderComments.bind(this);
     this.clickCommentsHandler = this.clickCommentsHandler.bind(this);
+    this.clickTelHandler = this.clickTelHandler.bind(this);
+    this.clickAddressHandler = this.clickAddressHandler.bind(this);
+    this.clickWebsiteHandler = this.clickWebsiteHandler.bind(this);
   }
 
   componentDidUpdate() {
     this.props.updateHandler();
   }
 
+  clickTelHandler() {
+    GaUtil.sendEvent('place', 'click_telephone', `Click on telephone ${this.props.data.placeId}`);
+  }
+
+  clickAddressHandler(event) {
+    const { google } = this.props.data;
+    PlaceInfo.openNewTab(google.url);
+    GaUtil.sendEvent('place', 'click_address', `Click on address ${this.props.data.placeId}`);
+    event.preventDefault();
+  }
+
+  clickWebsiteHandler(event) {
+    const { google } = this.props.data;
+    PlaceInfo.openNewTab(google.website);
+    GaUtil.sendEvent('place', 'click_website', `Click on website ${this.props.data.placeId}`);
+    event.preventDefault();
+  }
+
   clickCommentsHandler(event) {
     this.setState({
       commentsDisplay: !this.state.commentsDisplay,
     });
+    if (this.state.commentsDisplay) {
+      GaUtil.sendEvent('place', 'show_comments', `Click on show Comments ${this.props.data.placeId}`);
+    } else {
+      GaUtil.sendEvent('place', 'hide_comments', `Click on hide Comments ${this.props.data.placeId}`);
+    }
     event.preventDefault();
   }
 
@@ -45,7 +76,7 @@ export default class PlaceInfo extends React.Component {
       return true;
     } else if (_.isArray(foursquare) && foursquare.length) {
       const { tips } = foursquare[0];
-      if (_.isArray(tips.groups) && tips.groups.length) {
+      if (tips && _.isArray(tips.groups) && tips.groups.length) {
         const { items } = tips.groups[0];
         if (_.isArray(items) && items.length) {
           return true;
@@ -60,20 +91,20 @@ export default class PlaceInfo extends React.Component {
     return (<div>
       { google.international_phone_number ? <div>
         <i className="glyphicon glyphicon-earphone" />
-        <a href={`tel:${google.international_phone_number}`} title={google.name}>
+        <a href={`tel:${google.international_phone_number}`} title={google.name} onClick={this.clickTelHandler}>
           {PlaceInfo.cleanPhone(google.international_phone_number)}
-        </a>
-      </div> : null }
-      { google.formatted_address ? <div>
-        <i className="glyphicon glyphicon-globe" />
-        <a href={google.url} title={google.name} target="_blank" rel="noopener noreferrer">
-          {PlaceInfo.cleanAddress(google.formatted_address)}
         </a>
       </div> : null }
       { google.website ? <div>
         <i className="glyphicon glyphicon-home" />
-        <a href={google.website} title={google.name} target="_blank" rel="noopener noreferrer">
+        <a href={google.website} title={google.name} target="_blank" rel="noopener noreferrer" onClick={this.clickWebsiteHandler}>
           {PlaceInfo.cleanWebsite(google.website)}
+        </a>
+      </div> : null }
+      { google.formatted_address ? <div>
+        <i className="glyphicon glyphicon-globe" />
+        <a href={google.url} title={google.name} target="_blank" rel="noopener noreferrer" onClick={this.clickAddressHandler}>
+          {PlaceInfo.cleanAddress(google.formatted_address)}
         </a>
       </div> : null }
     </div>);
@@ -83,7 +114,7 @@ export default class PlaceInfo extends React.Component {
     const { foursquare } = this.props.data;
     if (_.isArray(foursquare) && foursquare.length) {
       const { tips } = foursquare[0];
-      if (_.isArray(tips.groups) && tips.groups.length) {
+      if (tips && _.isArray(tips.groups) && tips.groups.length) {
         const { items } = tips.groups[0];
         if (_.isArray(items) && items.length) {
           return items.slice(0, 3).map((item, index) => (<li key={index}>
@@ -173,6 +204,7 @@ PlaceInfo.propTypes = {
     google: React.PropTypes.object,
     facebook: React.PropTypes.array,
     foursquare: React.PropTypes.array,
+    placeId: React.PropTypes.string,
   }),
   updateHandler: React.PropTypes.func,
 };
