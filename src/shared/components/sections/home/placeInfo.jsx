@@ -76,7 +76,7 @@ export default class PlaceInfo extends React.Component {
       return true;
     } else if (_.isArray(foursquare) && foursquare.length) {
       const { tips } = foursquare[0];
-      if (_.isArray(tips.groups) && tips.groups.length) {
+      if (tips && _.isArray(tips.groups) && tips.groups.length) {
         const { items } = tips.groups[0];
         if (_.isArray(items) && items.length) {
           return true;
@@ -114,7 +114,7 @@ export default class PlaceInfo extends React.Component {
     const { foursquare } = this.props.data;
     if (_.isArray(foursquare) && foursquare.length) {
       const { tips } = foursquare[0];
-      if (_.isArray(tips.groups) && tips.groups.length) {
+      if (tips && _.isArray(tips.groups) && tips.groups.length) {
         const { items } = tips.groups[0];
         if (_.isArray(items) && items.length) {
           return items.slice(0, 3).map((item, index) => (<li key={index}>
