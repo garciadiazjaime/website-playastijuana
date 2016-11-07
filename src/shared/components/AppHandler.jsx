@@ -4,21 +4,10 @@ import React from 'react';
 import sitemap from '../config/sitemap';
 import MainMenu from './layout/menu/menu1';
 import Footer from './layout/footer/footer1';
+import GaUtil from '../utils/gaUtil';
 
 
 export default class AppHandler extends React.Component {
-
-  static googleAnalytics() {
-    /*eslint-disable */
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-75576478-1', 'auto');
-    ga('send', 'pageview');
-    /*eslint-enable */
-  }
-
 
   constructor(props, context) {
     super(props, context);
@@ -28,7 +17,7 @@ export default class AppHandler extends React.Component {
   }
 
   componentDidMount() {
-    AppHandler.googleAnalytics();
+    GaUtil.init();
   }
 
   render() {

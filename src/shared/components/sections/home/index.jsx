@@ -3,6 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import Masonry from 'react-masonry-component';
 import CardElement from './cardElement';
+import GaUtil from '../../../utils/gaUtil';
 
 const style = require('./style.scss');
 
@@ -73,6 +74,7 @@ export default class HomeSection extends React.Component {
       });
       this.setState(newState);
     }
+    GaUtil.sendEvent('places', 'load_more', 'Click on load more button');
     event.preventDefault();
   }
 
