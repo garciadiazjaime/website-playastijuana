@@ -2,6 +2,7 @@
 import React from 'react';
 import _ from 'lodash';
 import SVG from '../../svg';
+import GaUtil from '../../../utils/gaUtil';
 
 const style = require('./style.scss');
 
@@ -22,6 +23,7 @@ export default class SocialMediaIcons extends React.Component {
   clickGMapsHandler(event) {
     const { google } = this.props.data;
     SocialMediaIcons.openNewTab(google.url);
+    GaUtil.sendEvent('place', 'click_gmaps', `Click on gMaps Icon ${this.props.data.placeId}`);
     event.preventDefault();
   }
 
@@ -29,6 +31,7 @@ export default class SocialMediaIcons extends React.Component {
     const { facebook } = this.props.data;
     const data = facebook.filter(item => item.link).shift();
     SocialMediaIcons.openNewTab(data.link);
+    GaUtil.sendEvent('place', 'click_facebook', `Click on Facbook Icon ${this.props.data.placeId}`);
     event.preventDefault();
   }
 
@@ -36,6 +39,7 @@ export default class SocialMediaIcons extends React.Component {
     const { yelp } = this.props.data;
     const data = yelp.filter(item => item.url).shift();
     SocialMediaIcons.openNewTab(data.url);
+    GaUtil.sendEvent('place', 'click_yelp', `Click on Yelp Icon ${this.props.data.placeId}`);
     event.preventDefault();
   }
 
@@ -43,6 +47,7 @@ export default class SocialMediaIcons extends React.Component {
     const { foursquare } = this.props.data;
     const data = foursquare.filter(item => item.canonicalUrl).shift();
     SocialMediaIcons.openNewTab(data.canonicalUrl);
+    GaUtil.sendEvent('place', 'click_foursquare', `Click on Foursqure Icon ${this.props.data.placeId}`);
     event.preventDefault();
   }
 
@@ -89,5 +94,6 @@ SocialMediaIcons.propTypes = {
     google: React.object,
     yelp: React.array,
     foursquare: React.array,
+    placeId: React.PropTypes.string,
   }),
 };
