@@ -27,12 +27,35 @@ export default class HomeSection extends React.Component {
     ) : null;
   }
 
+  static randomSort(data) {
+    if (_.isArray(data) && data.length) {
+      const newArray = _.cloneDeep(data);
+      let currentIndex = newArray.length;
+      let temporaryValue = null;
+      let randomIndex = null;
+
+      // While there remain elements to shuffle...
+      while (currentIndex !== 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = newArray[currentIndex];
+        newArray[currentIndex] = newArray[randomIndex];
+        newArray[randomIndex] = temporaryValue;
+      }
+      return newArray;
+    }
+    return data;
+  }
+
   constructor(props) {
     super(props);
     const { data } = this.props;
     const chunkSize = 12;
     this.state = {
-      data: data.places.slice(0, chunkSize),
+      data: HomeSection.randomSort(data.places.slice(0, chunkSize)),
       allData: data.places,
       chunkSize,
     };
@@ -43,7 +66,8 @@ export default class HomeSection extends React.Component {
     const { data, allData, chunkSize } = this.state;
     const newData = [];
     if (data.length < allData.length) {
-      newData.push.apply(data, allData.slice(data.length, data.length + chunkSize));
+      const newPlaces = HomeSection.randomSort(allData.slice(data.length, data.length + chunkSize));
+      newData.push.apply(data, newPlaces);
       const newState = _.assign({}, this.state, {
         data,
       });
