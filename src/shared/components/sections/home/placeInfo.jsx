@@ -190,9 +190,17 @@ export default class PlaceInfo extends React.Component {
     </div>) : null;
   }
 
+  renderTypes() {
+    const { types } = this.props.data;
+    return types.map((item, index) => <span className="label label-default" key={index}>{item}</span>);
+  }
+
   render() {
     return (<div>
       {this.renderContact()}
+      <div className={style.types}>
+        {this.renderTypes()}
+      </div>
       {this.renderRatings()}
       {this.renderComments()}
     </div>);
@@ -205,6 +213,7 @@ PlaceInfo.propTypes = {
     facebook: React.PropTypes.array,
     foursquare: React.PropTypes.array,
     placeId: React.PropTypes.string,
+    types: React.PropTypes.array,
   }),
   updateHandler: React.PropTypes.func,
 };
