@@ -11,7 +11,7 @@ export default function MainMenu() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-xs-12 col-sm-9">
-          <h1><Link to="/" title="Directorio Playas de Tijuana"><span className={style.playami}>Directorio Playas de Tijuana</span></Link></h1>
+          <h1><Link to="/" title="Directorio Playas de Tijuana"><span className={style.playami}>Restaurantes, Bares y Cafés en Playas de Tijuana</span></Link></h1>
         </div>
         <div className={`hidden-xs col-sm3 ${style.sm}`}>
           <a href="https://plus.google.com/102083249909313249138" title="Directorio Playas de Tijuana - Google Plus" target="_blank" rel="noopener noreferrer">
