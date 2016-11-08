@@ -56,8 +56,8 @@ export default class HomeSection extends React.Component {
     const { data } = this.props;
     const chunkSize = 12;
     this.state = {
-      data: HomeSection.randomSort(data.places.slice(0, chunkSize)),
-      allData: data.places,
+      data: data ? HomeSection.randomSort(data.places.slice(0, chunkSize)) : null,
+      allData: data ? data.places : null,
       chunkSize,
     };
     this.clickHandler = this.clickHandler.bind(this);
