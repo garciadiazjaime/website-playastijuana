@@ -8,10 +8,15 @@ import bodyParser from 'body-parser';
 import DataWrapper from './dataWrapper';
 import config from '../../config';
 import routes from '../shared/config/routes';
-import RequestUtil from '../shared/utils/requestUtil';
 import LogUtil from '../shared/utils/logUtil';
+import PlaceController from './controllers/placeController';
 
+const placeController = new PlaceController({
+  apiUrl: config.get('api.url'),
+  minutesToWait: config.get('cacheExpiresMins'),
+});
 const app = express();
+
 app.use(compression());
 app.set('views', './views');
 app.set('view engine', 'jade');
@@ -22,6 +27,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('static'));
 
+app.get('/health', (req, res) => {
+  res.writeHead(200);
+  res.end();
+});
+
 app.get('/*', (req, res) => {
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
@@ -29,20 +39,21 @@ app.get('/*', (req, res) => {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (renderProps) {
-      const location = 'playas_tijuana';
-      const apiUrl = `${config.get('api.url')}places?location=${location}`;
-      RequestUtil.get(apiUrl)
+      placeController.getPlaces()
         .then((results) => {
           const props = {
-            location,
-            places: results.entity,
+            data: results,
           };
           const content = renderToString(<DataWrapper data={props}><RouterContext {...renderProps} /></DataWrapper>);
           res.render('index', { content, props });
         })
         .catch((err) => {
           LogUtil.log(`RequestUtil.get error: ${err}`);
-          res.send('error');
+          const props = {
+            data: [],
+          };
+          const content = renderToString(<DataWrapper data={props}><RouterContext {...renderProps} /></DataWrapper>);
+          res.render('index', { content, props });
         });
     } else {
       res.status(404).send('Not found');

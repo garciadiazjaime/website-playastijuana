@@ -34,7 +34,6 @@ export default class AppHandler extends React.Component {
 
 AppHandler.propTypes = {
   children: React.PropTypes.shape({}),
-  location: React.PropTypes.shape({}),
   context: React.PropTypes.shape({}),
   data: React.PropTypes.shape({}),
 };
