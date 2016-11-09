@@ -24,7 +24,7 @@ export default class HomeSection extends React.Component {
 
   static renderCard(data) {
     return _.isArray(data) && data.length ? data.map((item, index) =>
-      <CardElement data={item} key={index} updateHandler={HomeSection.masronyupdate} />
+      <CardElement data={item} key={index} updateHandler={HomeSection.masronyupdate} />,
     ) : null;
   }
 
