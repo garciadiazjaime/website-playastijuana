@@ -22,7 +22,7 @@ export default class AppHandler extends React.Component {
 
   render() {
     const children = React.Children.map(this.props.children, child =>
-      React.cloneElement(child, { data: this.state.data })
+      React.cloneElement(child, { data: this.state.data }),
     );
     return (<div>
       <MainMenu items={sitemap.items.children} icons={sitemap.icons} />
@@ -34,9 +34,6 @@ export default class AppHandler extends React.Component {
 
 AppHandler.propTypes = {
   children: React.PropTypes.shape({}),
-  location: React.PropTypes.shape({}),
-  context: React.PropTypes.shape({}),
-  data: React.PropTypes.shape({}),
 };
 
 AppHandler.contextTypes = {

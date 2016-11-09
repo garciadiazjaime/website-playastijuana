@@ -18,7 +18,7 @@ export function minsToHrs(data) {
 export function toTitleCase(data) {
   const response = data.replace(/_/g, ' ');
   return response.replace(/\w\S*/g, txt =>
-    txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
   );
 }
 

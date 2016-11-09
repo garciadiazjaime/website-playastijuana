@@ -24,7 +24,7 @@ export default class HomeSection extends React.Component {
 
   static renderCard(data) {
     return _.isArray(data) && data.length ? data.map((item, index) =>
-      <CardElement data={item} key={index} updateHandler={HomeSection.masronyupdate} />
+      <CardElement data={item} key={index} updateHandler={HomeSection.masronyupdate} />,
     ) : null;
   }
 
@@ -56,8 +56,8 @@ export default class HomeSection extends React.Component {
     const { data } = this.props;
     const chunkSize = 12;
     this.state = {
-      data: data ? HomeSection.randomSort(data.places.slice(0, chunkSize)) : null,
-      allData: data ? data.places : null,
+      data: data && data.data ? HomeSection.randomSort(data.data.slice(0, chunkSize)) : null,
+      allData: data ? data.data : null,
       chunkSize,
     };
     this.clickHandler = this.clickHandler.bind(this);

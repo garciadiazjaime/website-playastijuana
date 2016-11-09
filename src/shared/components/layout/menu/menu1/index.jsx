@@ -10,7 +10,7 @@ export default function MainMenu() {
   return (<div className={style.header}>
     <div className="container-fluid">
       <div className="row">
-        <div className="col-xs-12 col-sm-9">
+        <div className="col-xs-12 col-sm-10">
           <h1><Link to="/" title="Directorio Playas de Tijuana"><span className={style.playami}>Restaurantes, Bares y Cafés en Playas de Tijuana</span></Link></h1>
         </div>
         <div className={`hidden-xs col-sm3 ${style.sm}`}>

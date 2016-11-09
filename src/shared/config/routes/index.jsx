@@ -4,7 +4,7 @@ import sitemap from '../sitemap';
 
 const { items } = sitemap;
 const routes = items.children.map((item, index) =>
-  <Route path={item.url} component={item.component} key={index} />
+  <Route path={item.url} component={item.component} key={index} />,
 );
 
 
