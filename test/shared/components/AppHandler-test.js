@@ -2,7 +2,6 @@ import React from 'react';
 import sinon from 'sinon';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
-// import sinon from 'sinon';
 
 import AppHandler from '../../../src/shared/components/AppHandler';
 import MainMenu from '../../../src/shared/components/layout/menu/menu1';
