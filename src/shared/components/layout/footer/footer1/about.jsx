@@ -7,7 +7,8 @@ const style = require('./style.scss');
 
 export default function About() {
   return (<div className={`row ${style.about}`}>
-    <h2>Directorio Playas de Tijuana</h2>
+    <h2>Restaurantes, Bares y Cafés en Playas de Tijuana</h2>
+    <p>Qué comer en Playas de Tijuana? Encuentra las mejores restaurantes (comida), bares (bebida) y cafés de Playas de Tijuana</p>
     <p>
       En&nbsp;<Link to="/" title="Directorio Playas de Tijuana">
         Directorio Playas de Tijuana

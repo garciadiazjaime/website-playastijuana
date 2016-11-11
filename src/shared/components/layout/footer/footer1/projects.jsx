@@ -1,6 +1,5 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
-import { Link } from 'react-router';
 
 const style = require('./style.scss');
 
@@ -10,28 +9,28 @@ export default function Projects() {
     <div className="col-xs-12">
       <p>
         Proyectos hermanos de&nbsp;
-        <Link to="/" title="Directorio de Playas de Tijuana">
+        <a href="/" title="Directorio de Playas de Tijuana">
           Directorio Playas de Tijuana
-        </Link>
+        </a>
       </p>
     </div>
     <div className="col-xs-4">
-      <Link to="http://www.garitacenter.com" target="_blank" title="Reporte de Garitas en Tijuana para San Ysidro y Otay">
+      <a href="http://www.garitacenter.com" title="Reporte de Garitas en Tijuana para San Ysidro y Otay" target="_blank" rel="noopener noreferrer">
         <img src="/images/gc-logo.png" alt="Reporte de Garitas en Tijuana para San Ysidro y Otay" />
         <p>Garita Center</p>
-      </Link>
+      </a>
     </div>
     <div className="col-xs-4">
-      <Link to="http://www.misofertasdetrabajo.com" target="_blank" title="Ofertas de Trabajo en Tijuana">
+      <a href="http://www.misofertasdetrabajo.com" title="Ofertas de Trabajo en Tijuana" target="_blank" rel="noopener noreferrer">
         <img src="/images/modt-logo.png" alt="Ofertas de Trabajo en Tijuana" />
         <p>Mis ofertas de trabajo</p>
-      </Link>
+      </a>
     </div>
     <div className="col-xs-4">
-      <Link to="http://www.tucambionline.com" target="_blank" title="Tipo de Cambio en Tijuana">
+      <a href="http://www.tucambionline.com" title="Tipo de Cambio en Tijuana" target="_blank" rel="noopener noreferrer">
         <img src="/images/gp-logo.png" alt="Tipo de Cambio en Tijuana" />
         <p>Tu Cambio Online</p>
-      </Link>
+      </a>
     </div>
   </div>);
 }
