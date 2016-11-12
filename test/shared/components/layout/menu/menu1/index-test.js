@@ -6,7 +6,7 @@ import { shallow, mount, render } from 'enzyme';
 import MainMenu from '../../../../../../src/shared/components/layout/menu/menu1';
 import SVG from '../../../../../../src/shared/components/svg';
 
-describe.only('<MainMenu />', () => {
+describe('<MainMenu />', () => {
 
   it('renders <SVG /> components', () => {
     const wrapper = shallow(<MainMenu />);

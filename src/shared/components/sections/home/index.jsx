@@ -4,6 +4,8 @@ import _ from 'lodash';
 import Masonry from 'react-masonry-component';
 import CardElement from './cardElement';
 import GaUtil from '../../../utils/gaUtil';
+import PlaceController from '../../../../client/controllers/placeController';
+import LoaderUtil from '../../../utils/loaderUtil';
 
 const style = require('./style.scss');
 
@@ -28,69 +30,52 @@ export default class HomeSection extends React.Component {
     ) : null;
   }
 
-  static randomSort(data) {
-    if (_.isArray(data) && data.length) {
-      const newArray = _.cloneDeep(data);
-      let currentIndex = newArray.length;
-      let temporaryValue = null;
-      let randomIndex = null;
-
-      // While there remain elements to shuffle...
-      while (currentIndex !== 0) {
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        // And swap it with the current element.
-        temporaryValue = newArray[currentIndex];
-        newArray[currentIndex] = newArray[randomIndex];
-        newArray[randomIndex] = temporaryValue;
-      }
-      return newArray;
-    }
-    return data;
-  }
-
   constructor(props) {
     super(props);
     const { data } = this.props;
-    const chunkSize = 12;
+    this.placeController = new PlaceController(data);
     this.state = {
-      data: data && data.data ? HomeSection.randomSort(data.data.slice(0, chunkSize)) : null,
-      allData: data ? data.data : null,
-      chunkSize,
+      places: this.placeController.getPlaces(),
+      hasMore: this.placeController.getHasMore(),
+      showLoader: false,
     };
     this.clickHandler = this.clickHandler.bind(this);
   }
 
   clickHandler(event) {
-    const { data, allData, chunkSize } = this.state;
-    const newData = [];
-    if (data.length < allData.length) {
-      const newPlaces = HomeSection.randomSort(allData.slice(data.length, data.length + chunkSize));
-      newData.push.apply(data, newPlaces);
-      const newState = _.assign({}, this.state, {
-        data,
+    if (this.state.hasMore) {
+      this.setState({
+        showLoader: true,
       });
-      this.setState(newState);
+      this.placeController.loadMorePlaces(this.state.places.length).then(() => {
+        const newState = _.assign({}, this.state, {
+          places: _.concat(this.state.places, this.placeController.getPlaces()),
+          hasMore: this.placeController.getHasMore(),
+          showLoader: false,
+        });
+        this.setState(newState);
+      });
     }
-    GaUtil.sendEvent('places', 'load_more', 'Click on load more button');
+    GaUtil.sendEvent('places', 'load_more', `load_more ${this.state.hasMore} / ${this.state.places.length}`);
     event.preventDefault();
   }
 
   render() {
-    const { data } = this.state;
+    const { places } = this.state;
     return (<div className="container-fluid">
       <div className="row">
         <Masonry elementType="div" options={masonryOptions} ref={HomeSection.masonryHanlder}>
-          {HomeSection.renderCard(data)}
+          {HomeSection.renderCard(places)}
         </Masonry>
       </div>
-      <div className={style.showMore}>
-        <a href="/" title="mostrar más restaurantes" className="btn btn-default btn-lg" onClick={this.clickHandler}>
-          Mostar más
-        </a>
-      </div>
+      { this.state.showLoader ? <LoaderUtil /> : null }
+      {
+        this.state.hasMore ? <div className={style.showMore}>
+          <a href="/" title="mostrar más restaurantes" className="btn btn-default btn-lg" onClick={this.clickHandler}>
+            Más Restaurantes
+          </a>
+        </div> : null
+      }
     </div>);
   }
 }
