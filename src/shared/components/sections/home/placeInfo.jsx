@@ -59,14 +59,14 @@ export default class PlaceInfo extends React.Component {
   }
 
   clickCommentsHandler(event) {
-    this.setState({
-      commentsDisplay: !this.state.commentsDisplay,
-    });
     if (this.state.commentsDisplay) {
       GaUtil.sendEvent('place', 'show_comments', `Click on show Comments ${this.props.data.placeId}`);
     } else {
       GaUtil.sendEvent('place', 'hide_comments', `Click on hide Comments ${this.props.data.placeId}`);
     }
+    this.setState({
+      commentsDisplay: !this.state.commentsDisplay,
+    });
     event.preventDefault();
   }
 
