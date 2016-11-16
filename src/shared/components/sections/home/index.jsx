@@ -2,7 +2,7 @@
 import React from 'react';
 import _ from 'lodash';
 import Masonry from 'react-masonry-component';
-import CardElement from './cardElement';
+import PlaceCard from '../../placeCard';
 import GaUtil from '../../../utils/gaUtil';
 import PlaceController from '../../../../client/controllers/placeController';
 import LoaderUtil from '../../../utils/loaderUtil';
@@ -26,7 +26,7 @@ export default class HomeSection extends React.Component {
 
   static renderCard(data) {
     return _.isArray(data) && data.length ? data.map((item, index) =>
-      <CardElement data={item} key={index} updateHandler={HomeSection.masronyupdate} />,
+      <PlaceCard data={item} key={index} updateHandler={HomeSection.masronyupdate} />,
     ) : null;
   }
 
