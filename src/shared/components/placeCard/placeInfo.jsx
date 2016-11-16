@@ -1,7 +1,7 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
 import _ from 'lodash';
-import GaUtil from '../../../utils/gaUtil';
+import GaUtil from '../../utils/gaUtil';
 
 const style = require('./style.scss');
 
@@ -72,7 +72,7 @@ export default class PlaceInfo extends React.Component {
 
   hasComments() {
     const { google, foursquare } = this.props.data;
-    if (_.isArray(google.reviews) && google.reviews.length) {
+    if (google && _.isArray(google.reviews) && google.reviews.length) {
       return true;
     } else if (_.isArray(foursquare) && foursquare.length) {
       const { tips } = foursquare[0];
@@ -89,19 +89,19 @@ export default class PlaceInfo extends React.Component {
   renderContact() {
     const { google } = this.props.data;
     return (<div>
-      { google.international_phone_number ? <div>
+      { google && google.international_phone_number ? <div>
         <i className="glyphicon glyphicon-earphone" />
         <a href={`tel:${google.international_phone_number}`} title={google.name} onClick={this.clickTelHandler}>
           {PlaceInfo.cleanPhone(google.international_phone_number)}
         </a>
       </div> : null }
-      { google.website ? <div>
+      { google && google.website ? <div>
         <i className="glyphicon glyphicon-home" />
         <a href={google.website} title={google.name} target="_blank" rel="noopener noreferrer" onClick={this.clickWebsiteHandler}>
           {PlaceInfo.cleanWebsite(google.website)}
         </a>
       </div> : null }
-      { google.formatted_address ? <div>
+      { google && google.formatted_address ? <div>
         <i className="glyphicon glyphicon-globe" />
         <a href={google.url} title={google.name} target="_blank" rel="noopener noreferrer" onClick={this.clickAddressHandler}>
           {PlaceInfo.cleanAddress(google.formatted_address)}
@@ -137,7 +137,7 @@ export default class PlaceInfo extends React.Component {
     const { google, foursquare, facebook } = this.props.data;
     return (<div className={style.rating}>
       <div className="row">
-        { google.rating ?
+        { google && google.rating ?
           <div className="col-xs-3">
             <div className="row">
               Google Rating
@@ -192,7 +192,7 @@ export default class PlaceInfo extends React.Component {
 
   renderTypes() {
     const { types } = this.props.data;
-    return types.map((item, index) => <span className="label label-default" key={index}>{item}</span>);
+    return types ? types.map((item, index) => <span className="label label-default" key={index}>{item}</span>) : null;
   }
 
   render() {

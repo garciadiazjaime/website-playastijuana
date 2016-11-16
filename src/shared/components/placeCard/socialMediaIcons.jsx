@@ -1,8 +1,8 @@
 /* eslint max-len: [2, 500, 4] */
 import React from 'react';
 import _ from 'lodash';
-import SVG from '../../svg';
-import GaUtil from '../../../utils/gaUtil';
+import SVG from '../svg';
+import GaUtil from '../../utils/gaUtil';
 
 const style = require('./style.scss');
 
