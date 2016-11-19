@@ -12,23 +12,6 @@ import PlaceController from '../../../../../src/client/controllers/placeControll
 
 describe('<HomeSection />', () => {
 
-  let event = null;
-  let sendEvent = null;
-  let setState = null;
-
-  beforeEach(() => {
-    event = {
-      preventDefault: sinon.spy()
-    };
-    sendEvent = sinon.spy(GaUtil, 'sendEvent');
-    setState = sinon.spy(HomeSection.prototype, 'setState');
-  });
-
-  afterEach(() => {
-    sendEvent.restore();
-    setState.restore();
-  });
-
   it('uses Masonry', () => {
     const wrapper = shallow(<HomeSection />);
     expect(wrapper.find(Masonry)).to.have.length(1);
@@ -137,6 +120,11 @@ describe('<HomeSection />', () => {
         placeId: i.toString(),
       });
     }
+    const sendEvent = sinon.spy(GaUtil, 'sendEvent');
+    const setState = sinon.spy(HomeSection.prototype, 'setState');
+    const event = {
+      preventDefault: sinon.spy(),
+    };
 
     const wrapper = shallow(<HomeSection data={props} />);
     const loadMorePlaces = sinon.spy(wrapper.instance().placeController, 'loadMorePlaces');
@@ -153,5 +141,7 @@ describe('<HomeSection />', () => {
     expect(loadMorePlaces.calledWith(12));
 
     loadMorePlaces.restore();
+    sendEvent.restore();
+    setState.restore();
   });
 });
