@@ -18,6 +18,18 @@ export default class PlaceController {
     return 'http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';
   }
 
+  static cleanPhone(data) {
+    return data ? data.replace(/^\+52 /, '').replace(/^1 /, '') : '';
+  }
+
+  static cleanAddress(data) {
+    return data ? data.replace(', B.C., Mexico', '').replace(', BC, Mexico', '').replace(/, \d+ Tijuana$/i, '') : '';
+  }
+
+  static cleanWebsite(data) {
+    return data ? data.replace('http://www.', '').replace(/\/$/, '').replace('http://', '').replace('https://', '') : '';
+  }
+
   constructor(data) {
     this.chunkSize = 12;
     this.places = data && data.data ? data.data.slice(0, this.chunkSize) : null;

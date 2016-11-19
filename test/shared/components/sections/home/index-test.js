@@ -94,6 +94,7 @@ describe('<HomeSection />', () => {
   });
 
   it('calls clickHandler when click on show more', () => {
+    const clickHandler = sinon.stub(HomeSection.prototype, 'clickHandler');
     const props = {
       data: [],
     };
@@ -102,12 +103,12 @@ describe('<HomeSection />', () => {
         placeId: i.toString(),
       });
     }
-    const clickHandler = sinon.stub(HomeSection.prototype, 'clickHandler');
+
     const wrapper = mount(<HomeSection data={props} />);
     wrapper.find('.btn').simulate('click');
     expect(clickHandler.calledOnce).to.equal(true);
 
-    HomeSection.prototype.clickHandler.restore();
+    clickHandler.restore();
   });
 
   it('calls clickHandler', () => {
@@ -119,17 +120,15 @@ describe('<HomeSection />', () => {
         placeId: i.toString(),
       });
     }
-
-    const event = {
-      preventDefault: sinon.spy()
-    };
     const sendEvent = sinon.spy(GaUtil, 'sendEvent');
     const setState = sinon.spy(HomeSection.prototype, 'setState');
+    const event = {
+      preventDefault: sinon.spy(),
+    };
 
     const wrapper = shallow(<HomeSection data={props} />);
     const loadMorePlaces = sinon.spy(wrapper.instance().placeController, 'loadMorePlaces');
     wrapper.instance().clickHandler(event);
-
 
     expect(setState.calledOnce).to.equal(true);
     expect(setState.calledWith({ showLoader: true })).to.equal(true);
@@ -140,5 +139,9 @@ describe('<HomeSection />', () => {
 
     expect(loadMorePlaces.calledOnce);
     expect(loadMorePlaces.calledWith(12));
+
+    loadMorePlaces.restore();
+    sendEvent.restore();
+    setState.restore();
   });
 });
