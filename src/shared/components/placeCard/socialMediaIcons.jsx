@@ -21,57 +21,61 @@ export default class SocialMediaIcons extends React.Component {
   }
 
   clickGMapsHandler(event) {
-    const { google } = this.props.data;
+    const { placeId, google } = this.props.data;
     SocialMediaIcons.openNewTab(google.url);
-    GaUtil.sendEvent('place', 'click_gmaps', `Click on gMaps Icon ${this.props.data.placeId}`);
+    GaUtil.sendEvent('place', 'click_gmaps', `Click on gMaps Icon ${placeId} | ${google.name}`);
     event.preventDefault();
   }
 
   clickFacebookHandler(event) {
-    const { facebook } = this.props.data;
+    const { placeId, google, facebook } = this.props.data;
     const data = facebook.filter(item => item.link).shift();
     SocialMediaIcons.openNewTab(data.link);
-    GaUtil.sendEvent('place', 'click_facebook', `Click on Facbook Icon ${this.props.data.placeId}`);
-    event.preventDefault();
-  }
-
-  clickYelpHandler(event) {
-    const { yelp } = this.props.data;
-    const data = yelp.filter(item => item.url).shift();
-    SocialMediaIcons.openNewTab(data.url);
-    GaUtil.sendEvent('place', 'click_yelp', `Click on Yelp Icon ${this.props.data.placeId}`);
+    GaUtil.sendEvent('place', 'click_facebook', `Click on Facbook Icon ${placeId} | ${google.name}`);
     event.preventDefault();
   }
 
   clickFoursquareHandler(event) {
-    const { foursquare } = this.props.data;
+    const { placeId, google, foursquare } = this.props.data;
     const data = foursquare.filter(item => item.canonicalUrl).shift();
     SocialMediaIcons.openNewTab(data.canonicalUrl);
-    GaUtil.sendEvent('place', 'click_foursquare', `Click on Foursqure Icon ${this.props.data.placeId}`);
+    GaUtil.sendEvent('place', 'click_foursquare', `Click on Foursqure Icon ${placeId} | ${google.name}`);
     event.preventDefault();
   }
 
-  renderGMaps(data) {
-    return data ? (<li><a href="https://www.google.com/maps/" title={`${data.name} en playas de tijuan`} target="_blank" onClick={this.clickGMapsHandler} rel="noopener noreferrer">
+  clickYelpHandler(event) {
+    const { placeId, google, yelp } = this.props.data;
+    const data = yelp.filter(item => item.url).shift();
+    SocialMediaIcons.openNewTab(data.url);
+    GaUtil.sendEvent('place', 'click_yelp', `Click on Yelp Icon ${placeId} | ${google.name}`);
+    event.preventDefault();
+  }
+
+  renderGMaps() {
+    const { google } = this.props.data;
+    return google ? (<li><a href="https://www.google.com/maps/" title={`${google.name} en playas de tijuan`} onClick={this.clickGMapsHandler}>
       <SVG network="google" />
     </a></li>) : null;
   }
 
-  renderFacebook(data) {
-    return _.isArray(data) && data.length ? (<li><a href="https://www.facebook.com/" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickFacebookHandler} rel="noopener noreferrer">
+  renderFacebook() {
+    const { google, facebook } = this.props.data;
+    return _.isArray(facebook) && facebook.length ? (<li><a href="https://www.facebook.com/" title={`${google.name} en playas de tijuana`} onClick={this.clickFacebookHandler}>
       <SVG network="facebook" />
     </a></li>) : null;
   }
 
-  renderYelp(data) {
-    return _.isArray(data) && data.length ? (<li><a href="https://www.yelp.com/" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickYelpHandler} rel="noopener noreferrer">
-      <SVG network="yelp" />
+  renderFoursquare() {
+    const { google, foursquare } = this.props.data;
+    return _.isArray(foursquare) && foursquare.length ? (<li><a href="https://foursquare.com/" title={`${google.name} en playas de tijuana`} onClick={this.clickFoursquareHandler}>
+      <SVG network="foursquare" />
     </a></li>) : null;
   }
 
-  renderFoursquare(data) {
-    return _.isArray(data) && data.length ? (<li><a href="https://foursquare.com/" title={`${data.name} en playas de tijuana`} target="_blank" onClick={this.clickFoursquareHandler} rel="noopener noreferrer">
-      <SVG network="foursquare" />
+  renderYelp() {
+    const { google, yelp } = this.props.data;
+    return _.isArray(yelp) && yelp.length ? (<li><a href="https://www.yelp.com/" title={`${google.name} en playas de tijuana`} onClick={this.clickYelpHandler}>
+      <SVG network="yelp" />
     </a></li>) : null;
   }
 
