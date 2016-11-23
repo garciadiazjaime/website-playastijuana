@@ -21,9 +21,9 @@ export default class Comments extends React.Component {
 
   clickCommentsHandler(event) {
     if (this.state.commentsDisplay) {
-      GaUtil.sendEvent('place', 'show_comments', `Click on show Comments ${this.props.data.placeId}`);
+      GaUtil.sendEvent('place', 'show_comments', `Click on show Comments ${this.props.data.placeId} | ${this.props.data.google.name}`);
     } else {
-      GaUtil.sendEvent('place', 'hide_comments', `Click on hide Comments ${this.props.data.placeId}`);
+      GaUtil.sendEvent('place', 'hide_comments', `Click on hide Comments ${this.props.data.placeId} | ${this.props.data.google.name}`);
     }
     this.setState({
       commentsDisplay: !this.state.commentsDisplay,
