@@ -1,4 +1,4 @@
-const enable = false;
+const enable = true;
 
 export default class GaUtil {
 
