@@ -80,7 +80,7 @@ describe('<ContactInfo />', () => {
 
     expect(clickTelHandler.called).to.equal(true);
     expect(sendEvent.called).to.equal(true);
-    expect(sendEvent.calledWith('place', 'click_telephone', `Click on telephone ${validProps.placeId} | ${validProps.google.name}`)).to.equal(true);
+    expect(sendEvent.calledWith('place', 'click_telephone', `click_telephone::${validProps.placeId}::${validProps.google.name}`)).to.equal(true);
   });
 
   it('calls clickWebsiteHandler when website is clicked', () => {
@@ -90,7 +90,7 @@ describe('<ContactInfo />', () => {
 
     expect(clickWebsiteHandler.calledOnce).to.equal(true);
     expect(sendEvent.calledOnce).to.equal(true);
-    expect(sendEvent.calledWith('place', 'click_website', `Click on website ${validProps.placeId} | ${validProps.google.name}`)).to.equal(true);
+    expect(sendEvent.calledWith('place', 'click_website', `click_website::${validProps.placeId}::${validProps.google.name}`)).to.equal(true);
     expect(event.preventDefault.calledOnce).to.equal(true);
     expect(open.calledOnce).to.equal(true);
     expect(open.calledWith(validProps.google.website)).to.equal(true);
@@ -103,7 +103,7 @@ describe('<ContactInfo />', () => {
 
     expect(clickAddressHandler.calledOnce).to.equal(true);
     expect(sendEvent.calledOnce).to.equal(true);
-    expect(sendEvent.calledWith('place', 'click_address', `Click on address ${validProps.placeId} | ${validProps.google.name}`)).to.equal(true);
+    expect(sendEvent.calledWith('place', 'click_address', `click_address::${validProps.placeId}::${validProps.google.name}`)).to.equal(true);
     expect(event.preventDefault.calledOnce).to.equal(true);
     expect(open.calledOnce).to.equal(true);
     expect(open.calledWith(validProps.google.url)).to.equal(true);

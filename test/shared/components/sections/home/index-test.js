@@ -135,7 +135,7 @@ describe('<HomeSection />', () => {
     expect(event.preventDefault.calledOnce).to.equal(true);
 
     expect(sendEvent.calledOnce).to.equal(true);
-    expect(sendEvent.calledWith('places', 'load_more', 'load_more true / 12')).to.equal(true);
+    expect(sendEvent.calledWith('places', 'load_more', 'load_more::true::12')).to.equal(true);
 
     expect(loadMorePlaces.calledOnce);
     expect(loadMorePlaces.calledWith(12));
