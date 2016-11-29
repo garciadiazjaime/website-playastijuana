@@ -56,7 +56,7 @@ export default class HomeSection extends React.Component {
         this.setState(newState);
       });
     }
-    GaUtil.sendEvent('places', 'load_more', `load_more ${this.state.hasMore} / ${this.state.places.length}`);
+    GaUtil.sendEvent('places', 'load_more', `load_more::${this.state.hasMore}::${this.state.places.length}`);
     event.preventDefault();
   }
 

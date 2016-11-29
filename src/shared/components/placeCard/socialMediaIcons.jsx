@@ -23,7 +23,7 @@ export default class SocialMediaIcons extends React.Component {
   clickGMapsHandler(event) {
     const { placeId, google } = this.props.data;
     SocialMediaIcons.openNewTab(google.url);
-    GaUtil.sendEvent('place', 'click_gmaps', `Click on gMaps Icon ${placeId} | ${google.name}`);
+    GaUtil.sendEvent('place', 'click_gmaps', `click_gmaps::${placeId}::${google.name}`);
     event.preventDefault();
   }
 
@@ -31,7 +31,7 @@ export default class SocialMediaIcons extends React.Component {
     const { placeId, google, facebook } = this.props.data;
     const data = facebook.filter(item => item.link).shift();
     SocialMediaIcons.openNewTab(data.link);
-    GaUtil.sendEvent('place', 'click_facebook', `Click on Facbook Icon ${placeId} | ${google.name}`);
+    GaUtil.sendEvent('place', 'click_facebook', `click_facebook::${placeId}::${google.name}`);
     event.preventDefault();
   }
 
@@ -39,7 +39,7 @@ export default class SocialMediaIcons extends React.Component {
     const { placeId, google, foursquare } = this.props.data;
     const data = foursquare.filter(item => item.canonicalUrl).shift();
     SocialMediaIcons.openNewTab(data.canonicalUrl);
-    GaUtil.sendEvent('place', 'click_foursquare', `Click on Foursqure Icon ${placeId} | ${google.name}`);
+    GaUtil.sendEvent('place', 'click_foursquare', `click_foursquare::${placeId}::${google.name}`);
     event.preventDefault();
   }
 
@@ -47,7 +47,7 @@ export default class SocialMediaIcons extends React.Component {
     const { placeId, google, yelp } = this.props.data;
     const data = yelp.filter(item => item.url).shift();
     SocialMediaIcons.openNewTab(data.url);
-    GaUtil.sendEvent('place', 'click_yelp', `Click on Yelp Icon ${placeId} | ${google.name}`);
+    GaUtil.sendEvent('place', 'click_yelp', `click_yelp::${placeId}::${google.name}`);
     event.preventDefault();
   }
 

@@ -88,7 +88,7 @@ describe('<SocialMediaIcons />', () => {
       expect(clickGMapsHandler.calledOnce).to.equal(true);
       expect(openNewTab.calledOnce).to.equal(true);
       expect(sendEvent.calledOnce).to.equal(true);
-      expect(sendEvent.calledWith('place', 'click_gmaps', `Click on gMaps Icon ${props.placeId} | ${props.google.name}`))
+      expect(sendEvent.calledWith('place', 'click_gmaps', `click_gmaps::${props.placeId}::${props.google.name}`))
       expect(event.preventDefault.calledOnce).to.equal(true);
     });
   });
@@ -111,7 +111,7 @@ describe('<SocialMediaIcons />', () => {
       expect(clickFacebookHandler.calledOnce).to.equal(true);
       expect(openNewTab.calledOnce).to.equal(true);
       expect(sendEvent.calledOnce).to.equal(true);
-      expect(sendEvent.calledWith('place', 'click_facebook', `Click on Facebook Icon ${props.placeId} | ${props.google.name}`))
+      expect(sendEvent.calledWith('place', 'click_facebook', `click_facebook::${props.placeId}::${props.google.name}`))
       expect(event.preventDefault.calledOnce).to.equal(true);
     });
   });
@@ -134,7 +134,7 @@ describe('<SocialMediaIcons />', () => {
       expect(clickFoursquareHandler.calledOnce).to.equal(true);
       expect(openNewTab.calledOnce).to.equal(true);
       expect(sendEvent.calledOnce).to.equal(true);
-      expect(sendEvent.calledWith('place', 'click_foursquare', `Click on Foursqure Icon ${props.placeId} | ${props.google.name}`))
+      expect(sendEvent.calledWith('place', 'click_foursquare', `click_foursquare::${props.placeId}::${props.google.name}`))
       expect(event.preventDefault.calledOnce).to.equal(true);
     });
   });
@@ -157,7 +157,7 @@ describe('<SocialMediaIcons />', () => {
       expect(clickYelpHandler.calledOnce).to.equal(true);
       expect(openNewTab.calledOnce).to.equal(true);
       expect(sendEvent.calledOnce).to.equal(true);
-      expect(sendEvent.calledWith('place', 'click_yelp', `Click on Yelp Icon ${props.placeId} | ${props.google.name}`))
+      expect(sendEvent.calledWith('place', 'click_yelp', `click_yelp::${props.placeId}::${props.google.name}`))
       expect(event.preventDefault.calledOnce).to.equal(true);
     });
   });

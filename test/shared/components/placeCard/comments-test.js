@@ -124,7 +124,7 @@ describe('<Comments />', () => {
 
       expect(clickCommentsHandler.calledOnce).to.equal(true);
       expect(sendEvent.calledOnce).to.equal(true);
-      expect(sendEvent.calledWith('place', 'hide_comments', `Click on hide Comments ${baseProps.placeId} | ${baseProps.google.name}`)).to.equal(true);
+      expect(sendEvent.calledWith('place', 'show_comments', `show_comments::${baseProps.placeId}::${baseProps.google.name}`)).to.equal(true);
       expect(setState.calledOnce).to.equal(true);
       expect(setState.calledWith({ commentsDisplay: true }))
       expect(wrapper.state().commentsDisplay).to.equal(true);

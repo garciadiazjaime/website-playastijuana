@@ -13,20 +13,20 @@ export default class ContactInfo extends React.Component {
   }
 
   clickTelHandler() {
-    GaUtil.sendEvent('place', 'click_telephone', `Click on telephone ${this.props.data.placeId} | ${this.props.data.google.name}`);
+    GaUtil.sendEvent('place', 'click_telephone', `click_telephone::${this.props.data.placeId}::${this.props.data.google.name}`);
   }
 
   clickWebsiteHandler(event) {
     const { google } = this.props.data;
     window.open(google.website);
-    GaUtil.sendEvent('place', 'click_website', `Click on website ${this.props.data.placeId} | ${this.props.data.google.name}`);
+    GaUtil.sendEvent('place', 'click_website', `click_website::${this.props.data.placeId}::${this.props.data.google.name}`);
     event.preventDefault();
   }
 
   clickAddressHandler(event) {
     const { google } = this.props.data;
     window.open(google.url);
-    GaUtil.sendEvent('place', 'click_address', `Click on address ${this.props.data.placeId} | ${this.props.data.google.name}`);
+    GaUtil.sendEvent('place', 'click_address', `click_address::${this.props.data.placeId}::${this.props.data.google.name}`);
     event.preventDefault();
   }
 
