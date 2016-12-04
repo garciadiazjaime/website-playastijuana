@@ -1,6 +1,5 @@
 /* eslint max-len: [2, 500, 4] */
 import _ from 'lodash';
-import { randomSort } from '../../../shared/utils/arrayUtil';
 
 export default class PlaceController {
 
@@ -38,7 +37,7 @@ export default class PlaceController {
   }
 
   getPlaces() {
-    return randomSort(this.places);
+    return this.places;
   }
 
   getHasMore() {
