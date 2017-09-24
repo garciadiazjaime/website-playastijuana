@@ -14,7 +14,7 @@ b) let's run the server
 
 `npm start`
 
-By default server will run on http://127.0.0.1:3030/
+By default server will run on http://127.0.0.1:3076/
 
 Note: `npm run sprites` requires 'sass'
 http://sass-lang.com/install
@@ -45,3 +45,8 @@ rhc env set NPM_CONFIG_PRODUCTION=true -a app
 
 Checking Envs
 rhc env list -a app
+
+docker build -t garciadiazjaime/website-playami .
+docker run -e API_URL=http://api-playastijuana.rhcloud.com/ -d -p 49176:3076 garciadiazjaime/website-playami
+docker push garciadiazjaime/website-playami
+docker pull garciadiazjaime/website-playami
