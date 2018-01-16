@@ -1,6 +1,4 @@
 language: node_js
 node_js:
-- "4.1.1"
-before_script:
-  - npm install -g bower
+- "8.9.0"
 script: npm test
